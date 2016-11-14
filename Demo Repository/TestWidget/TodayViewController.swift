@@ -20,9 +20,10 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         super.viewDidLoad()
         // Do any additional setup after loading the view from its nib.
         
+        let defaults = UserDefaults.init(suiteName: "group.com.synchrony.test")
         
-        //lblUsername.text = defaults?.value(forKey: "username") as! String?
-        //lblPassword.text = defaults?.value(forKey: "password") as! String?
+        lblUsername.text = defaults?.value(forKey: "username") as! String?
+        lblPassword.text = defaults?.value(forKey: "password") as! String?
         
         
         
