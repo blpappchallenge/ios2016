@@ -29,7 +29,6 @@ class Controller_LaunchOptions: UIViewController, UIPickerViewDataSource, UIPick
 
         // Show the client logo.
         lblClientName.text = service.Name.uppercased()
-        lblServiceName.text = "\(service.Gen)"
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,11 +57,11 @@ class Controller_LaunchOptions: UIViewController, UIPickerViewDataSource, UIPick
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return service.Clients.count;
+        return service.Generations[0].Clients.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return service.Clients[row].Name
+        return service.Generations[0].Clients[row].Name
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
