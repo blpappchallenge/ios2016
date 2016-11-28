@@ -10,9 +10,8 @@ import UIKit
 
 class Service: UICollectionViewCell {
     
-    @IBOutlet weak var Label: UILabel!
+    @IBOutlet weak var LogoView: UIImageView!
     var Name: String!
-    var URL: String!
-    var Gen: Double!
-    var Clients = [Client]()
+    var Generations = [Generation]()
+    var Logo: UIImage!
 }
