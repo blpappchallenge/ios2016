@@ -20,6 +20,7 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        // changes.
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
