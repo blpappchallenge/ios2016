@@ -16,6 +16,8 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
     var Services = [Service]()
     var SelectedService: Service!
     
+    var whataever = [Int]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -46,10 +48,8 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: (reuseIdentifier), for: indexPath as IndexPath) as! Service
         
         cell.Name = service.Name
-        cell.URL = service.URL
-        cell.Clients = service.Clients
-        cell.Gen = service.Gen
-        cell.Label.text = service.Name
+        cell.Generations = service.Generations
+        cell.LogoView.image = service.Logo
         
         return cell
     }
@@ -70,7 +70,8 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
     func populateServiceArray() {
         
         // Path to the JSON file that holds the data. *running locally at the moment*
-        let urlString = "http://localhost:8080/static/Data2.json"
+        let urlString = "http://localhost:8080/static/Data3.json"
+        let pictureDirectory = "http://localhost:8080/static/images/"
         let url = URL(string: urlString)
         
         URLSession.shared.dataTask(with:url!, completionHandler: {(data, response, error) in
@@ -80,42 +81,75 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
                 do {
                     // Parse the JSON data.
                     let parsedData = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
-                    
+                    print(parsedData)
                     // Read in the list of services.
+                    //let services = parsedData["Services"] as! [String:[String:[String:Any]]]
                     let services = parsedData["Services"] as! [String:[String:Any]]
-                    print(services)
                     
                     // Loop through all of the services and instantiate.
                     for (serviceName, serviceInfo) in services {
+                        
                         let service = Service()
                         service.Name = serviceName
-                        service.URL = serviceInfo["URL"] as! String
-                        service.Gen = serviceInfo["Gen"] as! Double
+                        let logo = serviceInfo["Logo"] as! String
                         
-                        let clients = serviceInfo["Clients"] as! [String:[String:Any]]
+                        // Get the picture from the connection
+                        let pictureURL = URL(string: (pictureDirectory + logo))!
+                        let session = URLSession(configuration: .default)
+                        let request = URLRequest(url: pictureURL)
                         
-                        // Loop through all of the clients under the current service.
-                        for (clientName, clientInfo) in clients {
-                            // Creat an object for the client.
-                            let client = Client()
-                            client.ClientID = clientInfo["clientID"] as! String
-                            client.Name = clientName
-                            
-                            // Get the test accounts from the connection.
-                            let testAccounts = clientInfo["testAccounts"] as? [AnyObject]
-                            
-                            for field in testAccounts ?? [] {
-                                let userName = field["userName"] as! String
-                                let password = field["password"] as! String
-                                let testAccount = TestAccount()
-                                testAccount.userName = userName
-                                testAccount.password = password
-                                client.TestAccounts.append(testAccount)
+                        let downloadTask = session.dataTask(with: request as URLRequest) {(data, response, error) in
+                            if error != nil {
+                                print(error)
                             }
+                            else {
+                                if let res = response as? HTTPURLResponse {
+                                    if let imageData = data {
+                                        let downloadedImage = UIImage(data: imageData)
+                                        
+                                        service.Logo = downloadedImage
+                                    }
+                                }
+                            }
+                        }
+                        
+                        downloadTask.resume()
+
+                        let generations = serviceInfo["Generations"] as! [String:[String:Any]]
+                        
+                        // Loop through all of the generations of the service.
+                        for (genName, genInfo) in generations {
+                            
+                            let generation = Generation()
+                            generation.Name = genName
+                            generation.URL = genInfo["URL"] as! String
                             
                             
-                            // Add the service to the array.
-                            service.Clients.append(client)
+                            let clients = genInfo["Clients"] as! [String:[String:Any]]
+                            
+                            // Loop through all of the clients under the current generation.
+                            for (clientName, clientInfo) in clients {
+                                // Creat an object for the client.
+                                let client = Client()
+                                client.ClientID = clientInfo["clientID"] as! String
+                                client.Name = clientName
+                                
+                                // Get the test accounts from the connection.
+                                let testAccounts = clientInfo["testAccounts"] as? [AnyObject]
+                                
+                                for field in testAccounts ?? [] {
+                                    let userName = field["userName"] as! String
+                                    let password = field["password"] as! String
+                                    let testAccount = TestAccount()
+                                    testAccount.userName = userName
+                                    testAccount.password = password
+                                    client.TestAccounts.append(testAccount)
+                                }
+                                
+                                
+                                // Add the generation to the array.
+                                service.Generations.append(generation)
+                            }
                         }
                         self.Services.append(service)
                     }

@@ -22,6 +22,7 @@ class Controller_Settings: UIViewController {
     }
     
 
+    
     /*
     // MARK: - Navigation
 
@@ -32,4 +33,13 @@ class Controller_Settings: UIViewController {
     }
     */
 
+    @IBAction func AddNewService(_ sender: Any) {
+        
+    }
+    @IBAction func AddNewClient(_ sender: Any) {
+        
+    }
+    @IBAction func Help(_ sender: Any) {
+        
+    }
 }

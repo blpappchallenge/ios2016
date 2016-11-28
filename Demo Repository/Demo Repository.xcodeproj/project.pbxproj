@@ -22,6 +22,7 @@
 		14A5CFDF1DD4EF1F0036622E /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A5CFDE1DD4EF1F0036622E /* TodayViewController.swift */; };
 		14A5CFE21DD4EF1F0036622E /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14A5CFE01DD4EF1F0036622E /* MainInterface.storyboard */; };
 		14A5CFE61DD4EF1F0036622E /* TestWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 14A5CFD91DD4EF1F0036622E /* TestWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		14D8C51D1DEC795C00CC0A9C /* Generation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D8C51C1DEC795C00CC0A9C /* Generation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		14A5CFE31DD4EF1F0036622E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14A5CFEB1DD4F8960036622E /* Test this.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Test this.entitlements"; sourceTree = "<group>"; };
 		14A5CFEC1DD4F8F90036622E /* TestWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TestWidget.entitlements; sourceTree = "<group>"; };
+		14D8C51C1DEC795C00CC0A9C /* Generation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Generation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 				142366EC1DC3C082004926E0 /* Controller_LaunchOptions.swift */,
 				140423831DB9569700D0AA6D /* Controller_Main.swift */,
 				140080851DCCBDC2005DC33F /* Service.swift */,
+				14D8C51C1DEC795C00CC0A9C /* Generation.swift */,
 				140423851DB9569700D0AA6D /* Controller_WebView.swift */,
 				1404238F1DB9569700D0AA6D /* Info.plist */,
 				1404238C1DB9569700D0AA6D /* LaunchScreen.storyboard */,
@@ -329,6 +332,7 @@
 				140423A41DB956B600D0AA6D /* Client.swift in Sources */,
 				140423841DB9569700D0AA6D /* Controller_Main.swift in Sources */,
 				142366ED1DC3C082004926E0 /* Controller_LaunchOptions.swift in Sources */,
+				14D8C51D1DEC795C00CC0A9C /* Generation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -607,6 +611,7 @@
 				14A5CFE81DD4EF1F0036622E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
