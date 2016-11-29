@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Rfw-By-5Ro">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Controller Main-->
+        <!--Item-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="Controller_Main" customModule="ISDA" sceneMemberID="viewController">
@@ -75,38 +75,21 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="1wn-cx-taP"/>
                                 </connections>
                             </collectionView>
-                            <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="itP-2c-bgC">
-                                <rect key="frame" x="0.0" y="618" width="375" height="49"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <items>
-                                    <tabBarItem title="Home" image="home" id="uYI-Tr-nGh"/>
-                                    <tabBarItem title="Favorites" image="home" id="iYX-4Y-8dA"/>
-                                    <tabBarItem title="Settings" image="home" id="bge-ig-5ZF"/>
-                                    <tabBarItem title="Search" image="home" id="mNV-lC-WFB"/>
-                                </items>
-                                <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="WNZ-mW-Vfn"/>
-                                </connections>
-                            </tabBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="syf_logo" translatesAutoresizingMaskIntoConstraints="NO" id="Yhy-LJ-25G">
-                                <rect key="frame" x="56" y="25" width="212" height="45"/>
+                                <rect key="frame" x="81" y="25" width="212" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.23137254901960785" green="0.23529411764705882" blue="0.2627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" image="home" id="CSd-DI-6kc"/>
                     <connections>
                         <outlet property="collectionView" destination="Ocn-bF-6Dg" id="lT9-tz-ylA"/>
-                        <segue destination="VSA-Dy-VFE" kind="show" identifier="launchoptions" id="qW8-fr-dWn"/>
-                        <segue destination="f8O-rF-vq0" kind="show" identifier="Settings" id="1p8-Hq-2rJ"/>
-                        <segue destination="wdF-wx-Jqb" kind="show" identifier="Favorites" id="ijr-6V-14l"/>
-                        <segue destination="DDX-53-L0s" kind="show" identifier="Search" id="FrV-4V-Oed"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1010" y="-2"/>
+            <point key="canvasLocation" x="-1242" y="874"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="oCD-Rz-KVH">
@@ -165,7 +148,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="79g-qb-run" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1420" y="-935"/>
+            <point key="canvasLocation" x="-409" y="874"/>
         </scene>
         <!--Controller Settings-->
         <scene sceneID="9ty-qQ-Tzc">
@@ -258,27 +241,13 @@
                                     <color key="titleColor" red="0.20392156859999999" green="0.39607843139999999" blue="0.49803921569999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
-                            <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TUv-dP-pBv">
-                                <rect key="frame" x="0.0" y="618" width="375" height="49"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <items>
-                                    <tabBarItem title="Home" image="home" id="L9J-rj-A1A"/>
-                                    <tabBarItem title="Favorites" image="home" id="SC7-YP-mrZ"/>
-                                    <tabBarItem title="Settings" image="home" id="E60-2A-rup"/>
-                                    <tabBarItem title="Search" image="home" id="Q6c-vx-Ytd"/>
-                                </items>
-                                <connections>
-                                    <outlet property="delegate" destination="f8O-rF-vq0" id="VMB-0I-Lvc"/>
-                                </connections>
-                            </tabBar>
                         </subviews>
                         <color key="backgroundColor" red="0.97254901960784312" green="0.96862745098039216" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oGF-lu-dZn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1420" y="-236"/>
+            <point key="canvasLocation" x="-1242" y="-663"/>
         </scene>
         <!--Controller Favorites-->
         <scene sceneID="nb4-Ds-Xvh">
@@ -304,27 +273,14 @@
                                     <navigationItem title="Favorites" id="YA7-hz-msj"/>
                                 </items>
                             </navigationBar>
-                            <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NsY-8y-pbq">
-                                <rect key="frame" x="0.0" y="618" width="375" height="49"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <items>
-                                    <tabBarItem title="Home" image="home" id="4S3-PI-Huh"/>
-                                    <tabBarItem title="Favorites" image="home" id="qyH-ZO-E5o"/>
-                                    <tabBarItem title="Settings" image="home" id="0Qb-bw-faO"/>
-                                    <tabBarItem title="Search" image="home" id="N2S-27-5Nc"/>
-                                </items>
-                                <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="KSp-9m-ZLn"/>
-                                </connections>
-                            </tabBar>
                         </subviews>
                         <color key="backgroundColor" red="0.97254901959999995" green="0.96862745100000003" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="I41-QN-rkf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TxK-yc-vUV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1420" y="459"/>
+            <point key="canvasLocation" x="-1242" y="-1360"/>
         </scene>
         <!--Controller Search-->
         <scene sceneID="g6F-y4-8bz">
@@ -337,12 +293,55 @@
                     <view key="view" contentMode="scaleToFill" id="9C8-TP-qtf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sgf-gb-MJE">
+                                <rect key="frame" x="0.0" y="37" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="DDX-53-L0s" id="gkf-Iw-4yD"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" systemItem="search" id="9xC-GS-Aim"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="7uI-0V-Vjd" id="Zdg-rF-HJC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4fS-YF-Par" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="7uI-0V-Vjd">
+                    <connections>
+                        <outlet property="delegate" destination="DDX-53-L0s" id="wXZ-qY-af9"/>
+                        <outlet property="searchBar" destination="Sgf-gb-MJE" id="POr-Bt-46i"/>
+                        <outlet property="searchContentsController" destination="DDX-53-L0s" id="aMB-LD-xOh"/>
+                        <outlet property="searchResultsDataSource" destination="DDX-53-L0s" id="dDN-U9-uQE"/>
+                        <outlet property="searchResultsDelegate" destination="DDX-53-L0s" id="JoV-wF-UAV"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1420" y="1131"/>
+            <point key="canvasLocation" x="-1242" y="108"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="sCA-1L-H1b">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Rfw-By-5Ro" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="gi5-Mg-1ft">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="hje-Mt-cY8"/>
+                        <segue destination="DDX-53-L0s" kind="relationship" relationship="viewControllers" id="i8a-FQ-aRb"/>
+                        <segue destination="wdF-wx-Jqb" kind="relationship" relationship="viewControllers" id="qUQ-V0-Zyu"/>
+                        <segue destination="f8O-rF-vq0" kind="relationship" relationship="viewControllers" id="VwB-bH-mZ9"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l6J-Iu-IYq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2412" y="109"/>
         </scene>
     </scenes>
     <resources>

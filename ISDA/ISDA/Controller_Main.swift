@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UITabBarDelegate {
+class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
 
     
@@ -65,11 +65,6 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
         
         // Perform the segue.
         performSegue(withIdentifier: "launchoptions", sender: self)
-    }
-    
-    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-
-        performSegue(withIdentifier: item.title!, sender: self)
     }
     
     func populateServiceArray() {
