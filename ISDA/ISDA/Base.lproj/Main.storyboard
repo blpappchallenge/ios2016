@@ -237,6 +237,7 @@
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="Home" id="HU0-4p-K4R"/>
                         <segue destination="wdF-wx-Jqb" kind="show" identifier="Favorites" id="rK5-Id-JMg"/>
+                        <segue destination="DDX-53-L0s" kind="show" id="OMj-bb-LX2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oGF-lu-dZn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -284,6 +285,9 @@
                         </subviews>
                         <color key="backgroundColor" red="0.97254901959999995" green="0.96862745100000003" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <connections>
+                        <segue destination="f8O-rF-vq0" kind="show" identifier="Settings" id="8iM-Fh-zbD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TxK-yc-vUV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -314,6 +318,8 @@
         <image name="syf_logo" width="224" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ijr-6V-14l"/>
+        <segue reference="8iM-Fh-zbD"/>
+        <segue reference="rK5-Id-JMg"/>
+        <segue reference="OMj-bb-LX2"/>
     </inferredMetricsTieBreakers>
 </document>

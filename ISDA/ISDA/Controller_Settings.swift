@@ -31,25 +31,8 @@ class Controller_Settings: UIViewController, UITabBarDelegate {
     }
     
     
-    
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     
     
     /*
