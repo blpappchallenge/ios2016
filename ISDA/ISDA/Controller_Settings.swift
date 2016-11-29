@@ -6,9 +6,11 @@
 //  Copyright © 2016 Zack. All rights reserved.
 //
 
+
+
 import UIKit
 
-class Controller_Settings: UIViewController {
+class Controller_Settings: UIViewController, UITabBarDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +23,34 @@ class Controller_Settings: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        
+        performSegue(withIdentifier: item.title!, sender: self)
+        
+    }
+    
+    
+    
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     /*
     // MARK: - Navigation
