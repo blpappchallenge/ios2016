@@ -300,10 +300,32 @@
                     <view key="view" contentMode="scaleToFill" id="9C8-TP-qtf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sgf-gb-MJE">
+                                <rect key="frame" x="0.0" y="37" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="DDX-53-L0s" id="gkf-Iw-4yD"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="7uI-0V-Vjd" id="Zdg-rF-HJC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4fS-YF-Par" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="7uI-0V-Vjd">
+                    <connections>
+                        <outlet property="delegate" destination="DDX-53-L0s" id="wXZ-qY-af9"/>
+                        <outlet property="searchBar" destination="Sgf-gb-MJE" id="POr-Bt-46i"/>
+                        <outlet property="searchContentsController" destination="DDX-53-L0s" id="aMB-LD-xOh"/>
+                        <outlet property="searchResultsDataSource" destination="DDX-53-L0s" id="dDN-U9-uQE"/>
+                        <outlet property="searchResultsDelegate" destination="DDX-53-L0s" id="JoV-wF-UAV"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1420" y="1131"/>
         </scene>
