@@ -168,7 +168,7 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
             
         }).resume()
         
-        sleep(2)
+        sleep(1)
     }
     
 }
