@@ -75,8 +75,8 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
     func populateServiceArray() {
         
         // Path to the JSON file that holds the data. *running locally at the moment*
-        let urlString = "http://localhost:8080/static/Services.json"
-        let pictureDirectory = "http://localhost:8080/static/images/"
+        let urlString = "http://isda.pcfpoc.cdev.syfbank.com/Services.json"
+        let pictureDirectory = "http://isda.pcfpoc.cdev.syfbank.com/images/"
         let url = URL(string: urlString)
         
         URLSession.shared.dataTask(with:url!, completionHandler: {(data, response, error) in
