@@ -108,6 +108,47 @@
             </objects>
             <point key="canvasLocation" x="-1010" y="-2"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="oCD-Rz-KVH">
+            <objects>
+                <viewController id="hNb-13-fFs" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8CY-kl-1SM"/>
+                        <viewControllerLayoutGuide type="bottom" id="7cj-Ci-oJS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bDI-9h-dg4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m7H-YW-fJp">
+                                <rect key="frame" x="0.0" y="618" width="375" height="49"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <tabBarItem title="Home" image="home" id="ctm-FY-ebE"/>
+                                    <tabBarItem title="Favorites" image="home" id="uMk-c5-8AQ"/>
+                                    <tabBarItem title="Settings" image="home" id="dkG-Vp-oHx"/>
+                                    <tabBarItem title="Search" image="home" id="cyK-Qz-vGS"/>
+                                </items>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="AgF-1J-Ar3"/>
+                                </connections>
+                            </tabBar>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T6U-ih-2FA">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Service" id="rqW-fe-OZl"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PNs-Lw-bqi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1010" y="936"/>
+        </scene>
         <!--Controller Launch Options-->
         <scene sceneID="9gd-SD-F1q">
             <objects>
@@ -234,11 +275,6 @@
                         </subviews>
                         <color key="backgroundColor" red="0.97254901960784312" green="0.96862745098039216" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="Home" id="HU0-4p-K4R"/>
-                        <segue destination="wdF-wx-Jqb" kind="show" identifier="Favorites" id="rK5-Id-JMg"/>
-                        <segue destination="DDX-53-L0s" kind="show" id="OMj-bb-LX2"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oGF-lu-dZn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -285,9 +321,6 @@
                         </subviews>
                         <color key="backgroundColor" red="0.97254901959999995" green="0.96862745100000003" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <connections>
-                        <segue destination="f8O-rF-vq0" kind="show" identifier="Settings" id="8iM-Fh-zbD"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TxK-yc-vUV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -317,9 +350,4 @@
         <image name="settingslogo" width="375" height="200"/>
         <image name="syf_logo" width="224" height="48"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="8iM-Fh-zbD"/>
-        <segue reference="rK5-Id-JMg"/>
-        <segue reference="OMj-bb-LX2"/>
-    </inferredMetricsTieBreakers>
 </document>
