@@ -31,5 +31,10 @@ class Controller_Search: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        
+        performSegue(withIdentifier: item.title!, sender: self)
+        
+    }
 
 }
