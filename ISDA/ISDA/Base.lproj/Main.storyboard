@@ -112,7 +112,7 @@
             </objects>
             <point key="canvasLocation" x="-409" y="874"/>
         </scene>
-        <!--Settings-->
+        <!--Controller Settings-->
         <scene sceneID="9ty-qQ-Tzc">
             <objects>
                 <viewController id="f8O-rF-vq0" customClass="Controller_Settings" customModule="ISDA" customModuleProvider="target" sceneMemberID="viewController">
@@ -205,11 +205,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.97254901960784312" green="0.96862745098039216" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-<<<<<<< HEAD
                     <tabBarItem key="tabBarItem" selectedImage="settings" systemItem="contacts" id="np7-sh-KJf"/>
-=======
-                    <tabBarItem key="tabBarItem" title="Settings" image="settings" id="dr1-Bg-0IT"/>
->>>>>>> origin/ISDA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oGF-lu-dZn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -427,6 +423,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Rfw-By-5Ro" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="gi5-Mg-1ft">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
@@ -444,11 +441,7 @@
     </scenes>
     <resources>
         <image name="home" width="35" height="35"/>
-<<<<<<< HEAD
-        <image name="settings" width="224" height="48"/>
-=======
         <image name="settings" width="35" height="35"/>
->>>>>>> origin/ISDA
         <image name="settingslogo" width="375" height="200"/>
         <image name="syf_logo" width="224" height="48"/>
     </resources>
