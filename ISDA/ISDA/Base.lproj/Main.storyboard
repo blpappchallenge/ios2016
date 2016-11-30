@@ -205,7 +205,11 @@
                         </subviews>
                         <color key="backgroundColor" red="0.97254901960784312" green="0.96862745098039216" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+<<<<<<< HEAD
+                    <tabBarItem key="tabBarItem" selectedImage="settings" systemItem="contacts" id="np7-sh-KJf"/>
+=======
                     <tabBarItem key="tabBarItem" title="Settings" image="settings" id="dr1-Bg-0IT"/>
+>>>>>>> origin/ISDA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oGF-lu-dZn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -440,7 +444,11 @@
     </scenes>
     <resources>
         <image name="home" width="35" height="35"/>
+<<<<<<< HEAD
+        <image name="settings" width="224" height="48"/>
+=======
         <image name="settings" width="35" height="35"/>
+>>>>>>> origin/ISDA
         <image name="settingslogo" width="375" height="200"/>
         <image name="syf_logo" width="224" height="48"/>
     </resources>
