@@ -8,10 +8,11 @@
 
 import UIKit
 
-class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UITabBarDelegate {
+class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
 
     
+    @IBOutlet weak var TabItem: UITabBarItem!
     @IBOutlet weak var collectionView: UICollectionView!
     let reuseIdentifier = "Cell" // also enter this string as the cell identifier in the storyboard
     var Services = [Service]()
@@ -20,15 +21,11 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        // changes.
+        
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        // Pass the selected values to the launch options controller.
-        if (segue.identifier == "launchoptions") {
-            let svc = segue.destination as! Controller_LaunchOptions
-        }
+    override func viewDidAppear(_ animated: Bool) {
+        clearChildViews()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -61,15 +58,29 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
         // Get the cell information to pass onto the next page (web view)
         let service = Services[indexPath.item]
         
-        SelectedService = service
-        
-        // Perform the segue.
-        performSegue(withIdentifier: "launchoptions", sender: self)
+        // Show the view controller.
+        showLaunchOptions(service: service)
     }
     
-    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-
-        performSegue(withIdentifier: item.title!, sender: self)
+    func clearChildViews() {
+        
+        // Clear all of the child views if any.
+        for childController in self.childViewControllers {
+            
+            childController.view.removeFromSuperview()
+            childController.removeFromParentViewController()
+        }
+    }
+    
+    func showLaunchOptions(service: Service) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "launchoptions")
+        self.addChildViewController(viewController)
+        view.addSubview(viewController.view)
+        viewController.view.frame = view.bounds
+        viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        viewController.didMove(toParentViewController: self)
     }
     
     func populateServiceArray() {

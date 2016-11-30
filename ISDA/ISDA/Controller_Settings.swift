@@ -10,7 +10,7 @@
 
 import UIKit
 
-class Controller_Settings: UIViewController, UITabBarDelegate {
+class Controller_Settings: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,47 +23,33 @@ class Controller_Settings: UIViewController, UITabBarDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    
-    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        
-        performSegue(withIdentifier: item.title!, sender: self)
-        
+    override func viewDidAppear(_ animated: Bool) {
+        clearChildViews()
     }
     
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func showChildController(controllerName: String) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let viewController = storyboard.instantiateViewController(withIdentifier: controllerName)
+        self.addChildViewController(viewController)
+        view.addSubview(viewController.view)
+        viewController.view.frame = view.bounds
+        viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        viewController.didMove(toParentViewController: self)
     }
-    */
+    
+    func clearChildViews() {
+        
+        // Clear all of the child views if any.
+        for childController in self.childViewControllers {
+            
+            childController.view.removeFromSuperview()
+            childController.removeFromParentViewController()
+        }
+    }
 
     @IBAction func AddNewService(_ sender: Any) {
-        
+        showChildController(controllerName: "addnewservice")
     }
     @IBAction func AddNewClient(_ sender: Any) {
         
