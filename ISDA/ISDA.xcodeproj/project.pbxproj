@@ -12,6 +12,7 @@
 		14B1E53F1DECC0E0004B68F6 /* Controller_Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B1E53E1DECC0E0004B68F6 /* Controller_Favorites.swift */; };
 		14B1E5411DECC0F0004B68F6 /* Controller_Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B1E5401DECC0F0004B68F6 /* Controller_Search.swift */; };
 		14B1E5481DECDA41004B68F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14B1E5461DECDA41004B68F6 /* Main.storyboard */; };
+		14B1E5B01DEE204D004B68F6 /* Controller_AddNewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B1E5AF1DEE204D004B68F6 /* Controller_AddNewService.swift */; };
 		14D8C52B1DEC975100CC0A9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D8C52A1DEC975100CC0A9C /* AppDelegate.swift */; };
 		14D8C52D1DEC975100CC0A9C /* Controller_Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D8C52C1DEC975100CC0A9C /* Controller_Main.swift */; };
 		14D8C5321DEC975100CC0A9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14D8C5311DEC975100CC0A9C /* Assets.xcassets */; };
@@ -28,6 +29,7 @@
 		14B1E53E1DECC0E0004B68F6 /* Controller_Favorites.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Controller_Favorites.swift; path = ../Controller_Favorites.swift; sourceTree = "<group>"; };
 		14B1E5401DECC0F0004B68F6 /* Controller_Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Controller_Search.swift; path = ../Controller_Search.swift; sourceTree = "<group>"; };
 		14B1E5471DECDA41004B68F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		14B1E5AF1DEE204D004B68F6 /* Controller_AddNewService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller_AddNewService.swift; sourceTree = "<group>"; };
 		14D8C5271DEC975100CC0A9C /* ISDA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ISDA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14D8C52A1DEC975100CC0A9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14D8C52C1DEC975100CC0A9C /* Controller_Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller_Main.swift; sourceTree = "<group>"; };
@@ -54,6 +56,7 @@
 		14B1E5421DECC109004B68F6 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				14B1E5AF1DEE204D004B68F6 /* Controller_AddNewService.swift */,
 				14B1E53E1DECC0E0004B68F6 /* Controller_Favorites.swift */,
 				14B1E5381DECBDBE004B68F6 /* Controller_LaunchOptions.swift */,
 				14D8C52C1DEC975100CC0A9C /* Controller_Main.swift */,
@@ -178,6 +181,7 @@
 			files = (
 				14B1E53B1DECC0AD004B68F6 /* Controller_Settings.swift in Sources */,
 				14D8C52D1DEC975100CC0A9C /* Controller_Main.swift in Sources */,
+				14B1E5B01DEE204D004B68F6 /* Controller_AddNewService.swift in Sources */,
 				14D8C5431DEC98BC00CC0A9C /* TestAccount.swift in Sources */,
 				14B1E5391DECBDBE004B68F6 /* Controller_LaunchOptions.swift in Sources */,
 				14B1E53F1DECC0E0004B68F6 /* Controller_Favorites.swift in Sources */,
