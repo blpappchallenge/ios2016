@@ -31,11 +31,14 @@ class Controller_Settings: UIViewController {
         
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let viewController = storyboard.instantiateViewController(withIdentifier: controllerName)
-        self.addChildViewController(viewController)
-        view.addSubview(viewController.view)
-        viewController.view.frame = view.bounds
-        viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        viewController.didMove(toParentViewController: self)
+        //let navigationController = UINavigationController(rootViewController: viewController)
+        self.navigationController?.pushViewController(viewController, animated: true)
+        
+//        self.addChildViewController(viewController)
+//        view.addSubview(viewController.view)
+//        viewController.view.frame = view.bounds
+//        viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//        viewController.didMove(toParentViewController: self)
     }
     
     func clearChildViews() {

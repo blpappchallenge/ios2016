@@ -51,10 +51,6 @@ class Controller_AddNewService: UIViewController {
         newField.font = lastField.font
         newField.placeholder = alert.textFields![0].text
         
-        Submit_Button.removeFromSuperview()
-        Submit_Button.frame.origin.y += 57
-        scrollView.addSubview(Submit_Button)
-        
         scrollView.addSubview(newField)
     }
     
