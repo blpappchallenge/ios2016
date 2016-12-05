@@ -21,6 +21,10 @@
 		14D8C53F1DEC984A00CC0A9C /* Generation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D8C53E1DEC984A00CC0A9C /* Generation.swift */; };
 		14D8C5411DEC989200CC0A9C /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D8C5401DEC989200CC0A9C /* Client.swift */; };
 		14D8C5431DEC98BC00CC0A9C /* TestAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D8C5421DEC98BC00CC0A9C /* TestAccount.swift */; };
+		64D73F781DF5D56A004A5CBC /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64D73F771DF5D56A004A5CBC /* Settings.storyboard */; };
+		64D73F7A1DF5D58A004A5CBC /* Favorites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64D73F791DF5D58A004A5CBC /* Favorites.storyboard */; };
+		64D73F7C1DF5D59D004A5CBC /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64D73F7B1DF5D59D004A5CBC /* Search.storyboard */; };
+		64D73F7E1DF5D759004A5CBC /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64D73F7D1DF5D759004A5CBC /* Home.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +44,10 @@
 		14D8C53E1DEC984A00CC0A9C /* Generation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Generation.swift; sourceTree = "<group>"; };
 		14D8C5401DEC989200CC0A9C /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		14D8C5421DEC98BC00CC0A9C /* TestAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestAccount.swift; sourceTree = "<group>"; };
+		64D73F771DF5D56A004A5CBC /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		64D73F791DF5D58A004A5CBC /* Favorites.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Favorites.storyboard; sourceTree = "<group>"; };
+		64D73F7B1DF5D59D004A5CBC /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		64D73F7D1DF5D759004A5CBC /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,17 +61,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		14B1E5421DECC109004B68F6 /* View Controllers */ = {
+		14B1E5421DECC109004B68F6 /* Clients */ = {
 			isa = PBXGroup;
 			children = (
-				14B1E5AF1DEE204D004B68F6 /* Controller_AddNewService.swift */,
-				14B1E53E1DECC0E0004B68F6 /* Controller_Favorites.swift */,
 				14B1E5381DECBDBE004B68F6 /* Controller_Clients.swift */,
-				14D8C52C1DEC975100CC0A9C /* Controller_Main.swift */,
-				14B1E5401DECC0F0004B68F6 /* Controller_Search.swift */,
-				14B1E53A1DECC0AD004B68F6 /* Controller_Settings.swift */,
 			);
-			name = "View Controllers";
+			name = Clients;
 			sourceTree = "<group>";
 		};
 		14B1E5431DECC121004B68F6 /* Objects */ = {
@@ -96,15 +99,72 @@
 		14D8C5291DEC975100CC0A9C /* ISDA */ = {
 			isa = PBXGroup;
 			children = (
-				14B1E5431DECC121004B68F6 /* Objects */,
-				14B1E5421DECC109004B68F6 /* View Controllers */,
 				14D8C52A1DEC975100CC0A9C /* AppDelegate.swift */,
-				14D8C5311DEC975100CC0A9C /* Assets.xcassets */,
-				14D8C5361DEC975100CC0A9C /* Info.plist */,
 				14D8C5331DEC975100CC0A9C /* LaunchScreen.storyboard */,
 				14B1E5461DECDA41004B68F6 /* Main.storyboard */,
+				14B1E5431DECC121004B68F6 /* Objects */,
+				64D73F851DF5DEF4004A5CBC /* Modules */,
+				14D8C5311DEC975100CC0A9C /* Assets.xcassets */,
+				14D8C5361DEC975100CC0A9C /* Info.plist */,
 			);
 			path = ISDA;
+			sourceTree = "<group>";
+		};
+		64D73F801DF5DEA1004A5CBC /* AddNewService */ = {
+			isa = PBXGroup;
+			children = (
+				14B1E5AF1DEE204D004B68F6 /* Controller_AddNewService.swift */,
+			);
+			name = AddNewService;
+			sourceTree = "<group>";
+		};
+		64D73F811DF5DEAE004A5CBC /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				64D73F791DF5D58A004A5CBC /* Favorites.storyboard */,
+				14B1E53E1DECC0E0004B68F6 /* Controller_Favorites.swift */,
+			);
+			name = Favorites;
+			sourceTree = "<group>";
+		};
+		64D73F821DF5DEBB004A5CBC /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				64D73F7D1DF5D759004A5CBC /* Home.storyboard */,
+				14D8C52C1DEC975100CC0A9C /* Controller_Main.swift */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		64D73F831DF5DEC2004A5CBC /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				64D73F7B1DF5D59D004A5CBC /* Search.storyboard */,
+				14B1E5401DECC0F0004B68F6 /* Controller_Search.swift */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
+		64D73F841DF5DEC7004A5CBC /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				64D73F771DF5D56A004A5CBC /* Settings.storyboard */,
+				14B1E53A1DECC0AD004B68F6 /* Controller_Settings.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		64D73F851DF5DEF4004A5CBC /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				14B1E5421DECC109004B68F6 /* Clients */,
+				64D73F841DF5DEC7004A5CBC /* Settings */,
+				64D73F831DF5DEC2004A5CBC /* Search */,
+				64D73F821DF5DEBB004A5CBC /* Home */,
+				64D73F811DF5DEAE004A5CBC /* Favorites */,
+				64D73F801DF5DEA1004A5CBC /* AddNewService */,
+			);
+			name = Modules;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,9 +226,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64D73F7E1DF5D759004A5CBC /* Home.storyboard in Resources */,
 				14B1E5481DECDA41004B68F6 /* Main.storyboard in Resources */,
 				14D8C5351DEC975100CC0A9C /* LaunchScreen.storyboard in Resources */,
 				14D8C5321DEC975100CC0A9C /* Assets.xcassets in Resources */,
+				64D73F781DF5D56A004A5CBC /* Settings.storyboard in Resources */,
+				64D73F7C1DF5D59D004A5CBC /* Search.storyboard in Resources */,
+				64D73F7A1DF5D58A004A5CBC /* Favorites.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
