@@ -32,6 +32,8 @@
 		64D73F901DF5EBF1004A5CBC /* NavigationControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D73F8F1DF5EBF1004A5CBC /* NavigationControllerFactory.swift */; };
 		64D73F921DF5ED22004A5CBC /* HomeViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D73F911DF5ED22004A5CBC /* HomeViewControllerFactory.swift */; };
 		64D73F941DF5ED65004A5CBC /* FavoritesViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D73F931DF5ED65004A5CBC /* FavoritesViewControllerFactory.swift */; };
+		DB0F37061DF5EB360068F85D /* Platforms.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB0F37051DF5EB360068F85D /* Platforms.storyboard */; };
+		DB0F37081DF5F4F90068F85D /* ClientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0F37071DF5F4F90068F85D /* ClientTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +64,8 @@
 		64D73F8F1DF5EBF1004A5CBC /* NavigationControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerFactory.swift; sourceTree = "<group>"; };
 		64D73F911DF5ED22004A5CBC /* HomeViewControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewControllerFactory.swift; sourceTree = "<group>"; };
 		64D73F931DF5ED65004A5CBC /* FavoritesViewControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewControllerFactory.swift; sourceTree = "<group>"; };
+		DB0F37051DF5EB360068F85D /* Platforms.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Platforms.storyboard; sourceTree = "<group>"; };
+		DB0F37071DF5F4F90068F85D /* ClientTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,8 @@
 			isa = PBXGroup;
 			children = (
 				14B1E5381DECBDBE004B68F6 /* Controller_Clients.swift */,
+				DB0F37051DF5EB360068F85D /* Platforms.storyboard */,
+				DB0F37071DF5F4F90068F85D /* ClientTableViewCell.swift */,
 			);
 			name = Clients;
 			sourceTree = "<group>";
@@ -250,6 +256,7 @@
 				64D73F7E1DF5D759004A5CBC /* Home.storyboard in Resources */,
 				14B1E5481DECDA41004B68F6 /* Main.storyboard in Resources */,
 				14D8C5351DEC975100CC0A9C /* LaunchScreen.storyboard in Resources */,
+				DB0F37061DF5EB360068F85D /* Platforms.storyboard in Resources */,
 				14D8C5321DEC975100CC0A9C /* Assets.xcassets in Resources */,
 				64D73F781DF5D56A004A5CBC /* Settings.storyboard in Resources */,
 				64D73F7C1DF5D59D004A5CBC /* Search.storyboard in Resources */,
@@ -269,6 +276,7 @@
 				64D73F8B1DF5E9B8004A5CBC /* MainTabBarViewController.swift in Sources */,
 				14D8C52D1DEC975100CC0A9C /* Controller_Main.swift in Sources */,
 				64D73F8E1DF5EBA3004A5CBC /* SearchViewControllerFactory.swift in Sources */,
+				DB0F37081DF5F4F90068F85D /* ClientTableViewCell.swift in Sources */,
 				14B1E5B01DEE204D004B68F6 /* Controller_AddNewService.swift in Sources */,
 				14D8C5431DEC98BC00CC0A9C /* TestAccount.swift in Sources */,
 				64D73F901DF5EBF1004A5CBC /* NavigationControllerFactory.swift in Sources */,
