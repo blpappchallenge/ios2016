@@ -478,18 +478,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sgf-gb-MJE">
-                                <rect key="frame" x="0.0" y="37" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="47" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="DDX-53-L0s" id="gkf-Iw-4yD"/>
                                 </connections>
                             </searchBar>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dnV-NY-SXo">
+                                <rect key="frame" x="0.0" y="2" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.20392156859999999" green="0.39607843139999999" blue="0.49803921569999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="barTintColor" red="0.20392156859999999" green="0.39607843139999999" blue="0.49803921569999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Search" id="jnI-iK-BiO"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.97254901960784312" green="0.96862745098039216" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="search" id="9xC-GS-Aim"/>
                     <connections>
+                        <outlet property="ServiceSearch" destination="Sgf-gb-MJE" id="DE1-7U-10C"/>
                         <outlet property="searchDisplayController" destination="7uI-0V-Vjd" id="Zdg-rF-HJC"/>
                     </connections>
                 </viewController>
