@@ -10,6 +10,9 @@ import UIKit
 
 class Controller_Clients: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var OmniApplications: UILabel!
+    @IBOutlet weak var OmniPayments: UILabel!
+    @IBOutlet weak var OmniLogins: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     var clients: [Client]!
@@ -44,6 +47,26 @@ class Controller_Clients: UIViewController, UITableViewDelegate, UITableViewData
         
         return cell
         
+    }
+    func populateAnalyticsData() {
+        // Path to the JSON file that holds the data. *running locally at the moment*
+        let urlString = "https://api.myjson.com/bins/4e1k5"
+        let url = URL(string: urlString)
+        
+        URLSession.shared.dataTask(with:url!, completionHandler: {(data, response, error) in
+            if error != nil {
+                print(error)
+            } else {
+                do {
+                    let parsedData = try JSONSerialization.jsonObject(with: data!)
+                    print(parsedData)
+                    
+                } catch let error as NSError {
+                    print(error)
+                }
+            }
+            
+        }).resume()
     }
 
 }
