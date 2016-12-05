@@ -132,11 +132,11 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
                         let request = URLRequest(url: pictureURL)
                         
                         let downloadTask = session.dataTask(with: request as URLRequest) {(data, response, error) in
-                            if error != nil {
+                            if let error = error {
                                 print(error)
                             }
                             else {
-                                if let res = response as? HTTPURLResponse {
+                                if let _ = response as? HTTPURLResponse {
                                     if let imageData = data {
                                         let downloadedImage = UIImage(data: imageData)
                                         
@@ -202,6 +202,5 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
         // Push the page.
     
     }
-    
 }
 

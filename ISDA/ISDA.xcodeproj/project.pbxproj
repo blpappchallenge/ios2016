@@ -25,13 +25,19 @@
 		64D73F7A1DF5D58A004A5CBC /* Favorites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64D73F791DF5D58A004A5CBC /* Favorites.storyboard */; };
 		64D73F7C1DF5D59D004A5CBC /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64D73F7B1DF5D59D004A5CBC /* Search.storyboard */; };
 		64D73F7E1DF5D759004A5CBC /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64D73F7D1DF5D759004A5CBC /* Home.storyboard */; };
-		659048EE1DF6016A00A8809B /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659048ED1DF6016A00A8809B /* FavoriteTableViewCell.swift */; };
 		64D73F891DF5E82A004A5CBC /* SettingsViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D73F881DF5E82A004A5CBC /* SettingsViewControllerFactory.swift */; };
 		64D73F8B1DF5E9B8004A5CBC /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D73F8A1DF5E9B8004A5CBC /* MainTabBarViewController.swift */; };
 		64D73F8E1DF5EBA3004A5CBC /* SearchViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D73F8D1DF5EBA3004A5CBC /* SearchViewControllerFactory.swift */; };
 		64D73F901DF5EBF1004A5CBC /* NavigationControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D73F8F1DF5EBF1004A5CBC /* NavigationControllerFactory.swift */; };
 		64D73F921DF5ED22004A5CBC /* HomeViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D73F911DF5ED22004A5CBC /* HomeViewControllerFactory.swift */; };
 		64D73F941DF5ED65004A5CBC /* FavoritesViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D73F931DF5ED65004A5CBC /* FavoritesViewControllerFactory.swift */; };
+		64D73F9A1DF61F65004A5CBC /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D73F981DF61F65004A5CBC /* SearchBar.swift */; };
+		64D73F9B1DF61F65004A5CBC /* SearchBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64D73F991DF61F65004A5CBC /* SearchBar.xib */; };
+		64D73F9D1DF629FF004A5CBC /* ClientViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D73F9C1DF629FF004A5CBC /* ClientViewControllerFactory.swift */; };
+		64D73FA21DF62B47004A5CBC /* Web.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64D73F9F1DF62B47004A5CBC /* Web.storyboard */; };
+		64D73FA31DF62B47004A5CBC /* WebViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D73FA01DF62B47004A5CBC /* WebViewControllerFactory.swift */; };
+		64D73FA41DF62B47004A5CBC /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D73FA11DF62B47004A5CBC /* WebViewController.swift */; };
+		659048EE1DF6016A00A8809B /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659048ED1DF6016A00A8809B /* FavoriteTableViewCell.swift */; };
 		DB0F37061DF5EB360068F85D /* Platforms.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB0F37051DF5EB360068F85D /* Platforms.storyboard */; };
 		DB0F37081DF5F4F90068F85D /* ClientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0F37071DF5F4F90068F85D /* ClientTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -57,13 +63,19 @@
 		64D73F791DF5D58A004A5CBC /* Favorites.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Favorites.storyboard; sourceTree = "<group>"; };
 		64D73F7B1DF5D59D004A5CBC /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		64D73F7D1DF5D759004A5CBC /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
-		659048ED1DF6016A00A8809B /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
 		64D73F881DF5E82A004A5CBC /* SettingsViewControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewControllerFactory.swift; sourceTree = "<group>"; };
 		64D73F8A1DF5E9B8004A5CBC /* MainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		64D73F8D1DF5EBA3004A5CBC /* SearchViewControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewControllerFactory.swift; sourceTree = "<group>"; };
 		64D73F8F1DF5EBF1004A5CBC /* NavigationControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerFactory.swift; sourceTree = "<group>"; };
 		64D73F911DF5ED22004A5CBC /* HomeViewControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewControllerFactory.swift; sourceTree = "<group>"; };
 		64D73F931DF5ED65004A5CBC /* FavoritesViewControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewControllerFactory.swift; sourceTree = "<group>"; };
+		64D73F981DF61F65004A5CBC /* SearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		64D73F991DF61F65004A5CBC /* SearchBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchBar.xib; sourceTree = "<group>"; };
+		64D73F9C1DF629FF004A5CBC /* ClientViewControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientViewControllerFactory.swift; sourceTree = "<group>"; };
+		64D73F9F1DF62B47004A5CBC /* Web.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Web.storyboard; sourceTree = "<group>"; };
+		64D73FA01DF62B47004A5CBC /* WebViewControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewControllerFactory.swift; sourceTree = "<group>"; };
+		64D73FA11DF62B47004A5CBC /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		659048ED1DF6016A00A8809B /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
 		DB0F37051DF5EB360068F85D /* Platforms.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Platforms.storyboard; sourceTree = "<group>"; };
 		DB0F37071DF5F4F90068F85D /* ClientTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,6 +97,7 @@
 				14B1E5381DECBDBE004B68F6 /* Controller_Clients.swift */,
 				DB0F37051DF5EB360068F85D /* Platforms.storyboard */,
 				DB0F37071DF5F4F90068F85D /* ClientTableViewCell.swift */,
+				64D73F9C1DF629FF004A5CBC /* ClientViewControllerFactory.swift */,
 			);
 			name = Clients;
 			sourceTree = "<group>";
@@ -157,6 +170,7 @@
 				64D73F7B1DF5D59D004A5CBC /* Search.storyboard */,
 				14B1E5401DECC0F0004B68F6 /* Controller_Search.swift */,
 				64D73F8D1DF5EBA3004A5CBC /* SearchViewControllerFactory.swift */,
+				64D73F971DF61F49004A5CBC /* SearchBarView */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -175,6 +189,7 @@
 		64D73F851DF5DEF4004A5CBC /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				64D73F9E1DF62B3A004A5CBC /* Web */,
 				64D73F8C1DF5E9D1004A5CBC /* TabBar */,
 				14B1E5421DECC109004B68F6 /* Clients */,
 				64D73F841DF5DEC7004A5CBC /* Settings */,
@@ -192,6 +207,25 @@
 				64D73F8A1DF5E9B8004A5CBC /* MainTabBarViewController.swift */,
 			);
 			name = TabBar;
+			sourceTree = "<group>";
+		};
+		64D73F971DF61F49004A5CBC /* SearchBarView */ = {
+			isa = PBXGroup;
+			children = (
+				64D73F981DF61F65004A5CBC /* SearchBar.swift */,
+				64D73F991DF61F65004A5CBC /* SearchBar.xib */,
+			);
+			name = SearchBarView;
+			sourceTree = "<group>";
+		};
+		64D73F9E1DF62B3A004A5CBC /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				64D73F9F1DF62B47004A5CBC /* Web.storyboard */,
+				64D73FA01DF62B47004A5CBC /* WebViewControllerFactory.swift */,
+				64D73FA11DF62B47004A5CBC /* WebViewController.swift */,
+			);
+			name = Web;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,11 +288,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				64D73F7E1DF5D759004A5CBC /* Home.storyboard in Resources */,
+				64D73F9B1DF61F65004A5CBC /* SearchBar.xib in Resources */,
 				14B1E5481DECDA41004B68F6 /* Main.storyboard in Resources */,
 				14D8C5351DEC975100CC0A9C /* LaunchScreen.storyboard in Resources */,
 				DB0F37061DF5EB360068F85D /* Platforms.storyboard in Resources */,
 				14D8C5321DEC975100CC0A9C /* Assets.xcassets in Resources */,
 				64D73F781DF5D56A004A5CBC /* Settings.storyboard in Resources */,
+				64D73FA21DF62B47004A5CBC /* Web.storyboard in Resources */,
 				64D73F7C1DF5D59D004A5CBC /* Search.storyboard in Resources */,
 				64D73F7A1DF5D58A004A5CBC /* Favorites.storyboard in Resources */,
 			);
@@ -278,16 +314,20 @@
 				64D73F8E1DF5EBA3004A5CBC /* SearchViewControllerFactory.swift in Sources */,
 				DB0F37081DF5F4F90068F85D /* ClientTableViewCell.swift in Sources */,
 				14B1E5B01DEE204D004B68F6 /* Controller_AddNewService.swift in Sources */,
+				64D73F9A1DF61F65004A5CBC /* SearchBar.swift in Sources */,
 				14D8C5431DEC98BC00CC0A9C /* TestAccount.swift in Sources */,
 				64D73F901DF5EBF1004A5CBC /* NavigationControllerFactory.swift in Sources */,
 				14B1E5391DECBDBE004B68F6 /* Controller_Clients.swift in Sources */,
 				14B1E53F1DECC0E0004B68F6 /* Controller_Favorites.swift in Sources */,
+				64D73FA31DF62B47004A5CBC /* WebViewControllerFactory.swift in Sources */,
 				14D8C52B1DEC975100CC0A9C /* AppDelegate.swift in Sources */,
+				64D73FA41DF62B47004A5CBC /* WebViewController.swift in Sources */,
 				64D73F921DF5ED22004A5CBC /* HomeViewControllerFactory.swift in Sources */,
 				14D8C53D1DEC981900CC0A9C /* Service.swift in Sources */,
 				64D73F941DF5ED65004A5CBC /* FavoritesViewControllerFactory.swift in Sources */,
 				14B1E5411DECC0F0004B68F6 /* Controller_Search.swift in Sources */,
 				14D8C5411DEC989200CC0A9C /* Client.swift in Sources */,
+				64D73F9D1DF629FF004A5CBC /* ClientViewControllerFactory.swift in Sources */,
 				64D73F891DF5E82A004A5CBC /* SettingsViewControllerFactory.swift in Sources */,
 				14D8C53F1DEC984A00CC0A9C /* Generation.swift in Sources */,
 			);
