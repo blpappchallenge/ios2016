@@ -1,5 +1,5 @@
 //
-//  Controller_LaunchOptions.swift
+//  Controller_Clients.swift
 //  ISDA
 //
 //  Created by Zack on 11/28/16.
@@ -8,8 +8,8 @@
 
 import UIKit
 
-class Controller_LaunchOptions: UIViewController {
-
+class Controller_Clients: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,5 +31,5 @@ class Controller_LaunchOptions: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
 }

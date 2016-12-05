@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		14B1E5391DECBDBE004B68F6 /* Controller_LaunchOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B1E5381DECBDBE004B68F6 /* Controller_LaunchOptions.swift */; };
+		14B1E5391DECBDBE004B68F6 /* Controller_Clients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B1E5381DECBDBE004B68F6 /* Controller_Clients.swift */; };
 		14B1E53B1DECC0AD004B68F6 /* Controller_Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B1E53A1DECC0AD004B68F6 /* Controller_Settings.swift */; };
 		14B1E53F1DECC0E0004B68F6 /* Controller_Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B1E53E1DECC0E0004B68F6 /* Controller_Favorites.swift */; };
 		14B1E5411DECC0F0004B68F6 /* Controller_Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B1E5401DECC0F0004B68F6 /* Controller_Search.swift */; };
@@ -24,7 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		14B1E5381DECBDBE004B68F6 /* Controller_LaunchOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller_LaunchOptions.swift; sourceTree = "<group>"; };
+		14B1E5381DECBDBE004B68F6 /* Controller_Clients.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller_Clients.swift; sourceTree = "<group>"; };
 		14B1E53A1DECC0AD004B68F6 /* Controller_Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller_Settings.swift; sourceTree = "<group>"; };
 		14B1E53E1DECC0E0004B68F6 /* Controller_Favorites.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Controller_Favorites.swift; path = ../Controller_Favorites.swift; sourceTree = "<group>"; };
 		14B1E5401DECC0F0004B68F6 /* Controller_Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Controller_Search.swift; path = ../Controller_Search.swift; sourceTree = "<group>"; };
@@ -58,7 +58,7 @@
 			children = (
 				14B1E5AF1DEE204D004B68F6 /* Controller_AddNewService.swift */,
 				14B1E53E1DECC0E0004B68F6 /* Controller_Favorites.swift */,
-				14B1E5381DECBDBE004B68F6 /* Controller_LaunchOptions.swift */,
+				14B1E5381DECBDBE004B68F6 /* Controller_Clients.swift */,
 				14D8C52C1DEC975100CC0A9C /* Controller_Main.swift */,
 				14B1E5401DECC0F0004B68F6 /* Controller_Search.swift */,
 				14B1E53A1DECC0AD004B68F6 /* Controller_Settings.swift */,
@@ -183,7 +183,7 @@
 				14D8C52D1DEC975100CC0A9C /* Controller_Main.swift in Sources */,
 				14B1E5B01DEE204D004B68F6 /* Controller_AddNewService.swift in Sources */,
 				14D8C5431DEC98BC00CC0A9C /* TestAccount.swift in Sources */,
-				14B1E5391DECBDBE004B68F6 /* Controller_LaunchOptions.swift in Sources */,
+				14B1E5391DECBDBE004B68F6 /* Controller_Clients.swift in Sources */,
 				14B1E53F1DECC0E0004B68F6 /* Controller_Favorites.swift in Sources */,
 				14D8C52B1DEC975100CC0A9C /* AppDelegate.swift in Sources */,
 				14D8C53D1DEC981900CC0A9C /* Service.swift in Sources */,
