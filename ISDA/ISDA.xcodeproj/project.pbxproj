@@ -25,6 +25,8 @@
 		64D73F7A1DF5D58A004A5CBC /* Favorites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64D73F791DF5D58A004A5CBC /* Favorites.storyboard */; };
 		64D73F7C1DF5D59D004A5CBC /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64D73F7B1DF5D59D004A5CBC /* Search.storyboard */; };
 		64D73F7E1DF5D759004A5CBC /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64D73F7D1DF5D759004A5CBC /* Home.storyboard */; };
+		DB0F37061DF5EB360068F85D /* Platforms.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB0F37051DF5EB360068F85D /* Platforms.storyboard */; };
+		DB0F37081DF5F4F90068F85D /* ClientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0F37071DF5F4F90068F85D /* ClientTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		64D73F791DF5D58A004A5CBC /* Favorites.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Favorites.storyboard; sourceTree = "<group>"; };
 		64D73F7B1DF5D59D004A5CBC /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		64D73F7D1DF5D759004A5CBC /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		DB0F37051DF5EB360068F85D /* Platforms.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Platforms.storyboard; sourceTree = "<group>"; };
+		DB0F37071DF5F4F90068F85D /* ClientTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +69,8 @@
 			isa = PBXGroup;
 			children = (
 				14B1E5381DECBDBE004B68F6 /* Controller_Clients.swift */,
+				DB0F37051DF5EB360068F85D /* Platforms.storyboard */,
+				DB0F37071DF5F4F90068F85D /* ClientTableViewCell.swift */,
 			);
 			name = Clients;
 			sourceTree = "<group>";
@@ -229,6 +235,7 @@
 				64D73F7E1DF5D759004A5CBC /* Home.storyboard in Resources */,
 				14B1E5481DECDA41004B68F6 /* Main.storyboard in Resources */,
 				14D8C5351DEC975100CC0A9C /* LaunchScreen.storyboard in Resources */,
+				DB0F37061DF5EB360068F85D /* Platforms.storyboard in Resources */,
 				14D8C5321DEC975100CC0A9C /* Assets.xcassets in Resources */,
 				64D73F781DF5D56A004A5CBC /* Settings.storyboard in Resources */,
 				64D73F7C1DF5D59D004A5CBC /* Search.storyboard in Resources */,
@@ -245,6 +252,7 @@
 			files = (
 				14B1E53B1DECC0AD004B68F6 /* Controller_Settings.swift in Sources */,
 				14D8C52D1DEC975100CC0A9C /* Controller_Main.swift in Sources */,
+				DB0F37081DF5F4F90068F85D /* ClientTableViewCell.swift in Sources */,
 				14B1E5B01DEE204D004B68F6 /* Controller_AddNewService.swift in Sources */,
 				14D8C5431DEC98BC00CC0A9C /* TestAccount.swift in Sources */,
 				14B1E5391DECBDBE004B68F6 /* Controller_Clients.swift in Sources */,
