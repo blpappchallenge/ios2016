@@ -10,6 +10,7 @@ import UIKit
 
 class Controller_Search: UIViewController {
 
+    @IBOutlet weak var ServiceSearch: UISearchBar!
     override func viewDidLoad() {
         super.viewDidLoad()
 
