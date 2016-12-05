@@ -31,6 +31,7 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         populateServiceArray()
+        populateAnalyticsData()
         return self.Services.count
     }
     
@@ -92,6 +93,27 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
         viewController.view.frame = view.bounds
         viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         viewController.didMove(toParentViewController: self)
+    }
+    
+    func populateAnalyticsData() {
+        // Path to the JSON file that holds the data. *running locally at the moment*
+        let urlString = "https://rcmon-da.app.syfbank.com/EComStatsGen2/rest/pullWSStats?wsstatsparam=consumermapply"
+        let url = URL(string: urlString)
+        
+        URLSession.shared.dataTask(with:url!, completionHandler: {(data, response, error) in
+            if error != nil {
+                print(error)
+            } else {
+                do {
+                    let parsedData = try JSONSerialization.jsonObject(with: data!)
+                    print(parsedData)
+                    
+                } catch let error as NSError {
+                    print(error)
+                }
+            }
+            
+        }).resume()
     }
     
     func populateServiceArray() {
