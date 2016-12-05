@@ -107,21 +107,13 @@
 			children = (
 				14D8C52A1DEC975100CC0A9C /* AppDelegate.swift */,
 				14D8C5331DEC975100CC0A9C /* LaunchScreen.storyboard */,
-				14B1E5461DECDA41004B68F6 /* Main.storyboard */,
 				14B1E5431DECC121004B68F6 /* Objects */,
 				64D73F851DF5DEF4004A5CBC /* Modules */,
 				14D8C5311DEC975100CC0A9C /* Assets.xcassets */,
 				14D8C5361DEC975100CC0A9C /* Info.plist */,
+				64D73F8F1DF5EBF1004A5CBC /* NavigationControllerFactory.swift */,
 			);
 			path = ISDA;
-			sourceTree = "<group>";
-		};
-		64D73F801DF5DEA1004A5CBC /* AddNewService */ = {
-			isa = PBXGroup;
-			children = (
-				14B1E5AF1DEE204D004B68F6 /* Controller_AddNewService.swift */,
-			);
-			name = AddNewService;
 			sourceTree = "<group>";
 		};
 		64D73F811DF5DEAE004A5CBC /* Favorites */ = {
@@ -129,6 +121,8 @@
 			children = (
 				64D73F791DF5D58A004A5CBC /* Favorites.storyboard */,
 				14B1E53E1DECC0E0004B68F6 /* Controller_Favorites.swift */,
+				659048ED1DF6016A00A8809B /* FavoriteTableViewCell.swift */,
+				64D73F931DF5ED65004A5CBC /* FavoritesViewControllerFactory.swift */,
 			);
 			name = Favorites;
 			sourceTree = "<group>";
@@ -138,6 +132,7 @@
 			children = (
 				64D73F7D1DF5D759004A5CBC /* Home.storyboard */,
 				14D8C52C1DEC975100CC0A9C /* Controller_Main.swift */,
+				64D73F911DF5ED22004A5CBC /* HomeViewControllerFactory.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -147,6 +142,7 @@
 			children = (
 				64D73F7B1DF5D59D004A5CBC /* Search.storyboard */,
 				14B1E5401DECC0F0004B68F6 /* Controller_Search.swift */,
+				64D73F8D1DF5EBA3004A5CBC /* SearchViewControllerFactory.swift */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -156,6 +152,8 @@
 			children = (
 				64D73F771DF5D56A004A5CBC /* Settings.storyboard */,
 				14B1E53A1DECC0AD004B68F6 /* Controller_Settings.swift */,
+				14B1E5AF1DEE204D004B68F6 /* Controller_AddNewService.swift */,
+				64D73F881DF5E82A004A5CBC /* SettingsViewControllerFactory.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -163,14 +161,23 @@
 		64D73F851DF5DEF4004A5CBC /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				64D73F8C1DF5E9D1004A5CBC /* TabBar */,
 				14B1E5421DECC109004B68F6 /* Clients */,
 				64D73F841DF5DEC7004A5CBC /* Settings */,
 				64D73F831DF5DEC2004A5CBC /* Search */,
 				64D73F821DF5DEBB004A5CBC /* Home */,
 				64D73F811DF5DEAE004A5CBC /* Favorites */,
-				64D73F801DF5DEA1004A5CBC /* AddNewService */,
 			);
 			name = Modules;
+			sourceTree = "<group>";
+		};
+		64D73F8C1DF5E9D1004A5CBC /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				14B1E5461DECDA41004B68F6 /* Main.storyboard */,
+				64D73F8A1DF5E9B8004A5CBC /* MainTabBarViewController.swift */,
+			);
+			name = TabBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,16 +258,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				14B1E53B1DECC0AD004B68F6 /* Controller_Settings.swift in Sources */,
+				659048EE1DF6016A00A8809B /* FavoriteTableViewCell.swift in Sources */,
+				64D73F8B1DF5E9B8004A5CBC /* MainTabBarViewController.swift in Sources */,
 				14D8C52D1DEC975100CC0A9C /* Controller_Main.swift in Sources */,
 				DB0F37081DF5F4F90068F85D /* ClientTableViewCell.swift in Sources */,
 				14B1E5B01DEE204D004B68F6 /* Controller_AddNewService.swift in Sources */,
 				14D8C5431DEC98BC00CC0A9C /* TestAccount.swift in Sources */,
+				64D73F901DF5EBF1004A5CBC /* NavigationControllerFactory.swift in Sources */,
 				14B1E5391DECBDBE004B68F6 /* Controller_Clients.swift in Sources */,
 				14B1E53F1DECC0E0004B68F6 /* Controller_Favorites.swift in Sources */,
 				14D8C52B1DEC975100CC0A9C /* AppDelegate.swift in Sources */,
+				64D73F921DF5ED22004A5CBC /* HomeViewControllerFactory.swift in Sources */,
 				14D8C53D1DEC981900CC0A9C /* Service.swift in Sources */,
+				64D73F941DF5ED65004A5CBC /* FavoritesViewControllerFactory.swift in Sources */,
 				14B1E5411DECC0F0004B68F6 /* Controller_Search.swift in Sources */,
 				14D8C5411DEC989200CC0A9C /* Client.swift in Sources */,
+				64D73F891DF5E82A004A5CBC /* SettingsViewControllerFactory.swift in Sources */,
 				14D8C53F1DEC984A00CC0A9C /* Generation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
