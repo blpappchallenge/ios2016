@@ -25,6 +25,7 @@
 		64D73F7A1DF5D58A004A5CBC /* Favorites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64D73F791DF5D58A004A5CBC /* Favorites.storyboard */; };
 		64D73F7C1DF5D59D004A5CBC /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64D73F7B1DF5D59D004A5CBC /* Search.storyboard */; };
 		64D73F7E1DF5D759004A5CBC /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64D73F7D1DF5D759004A5CBC /* Home.storyboard */; };
+		659048EE1DF6016A00A8809B /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659048ED1DF6016A00A8809B /* FavoriteTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		64D73F791DF5D58A004A5CBC /* Favorites.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Favorites.storyboard; sourceTree = "<group>"; };
 		64D73F7B1DF5D59D004A5CBC /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		64D73F7D1DF5D759004A5CBC /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		659048ED1DF6016A00A8809B /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 			children = (
 				64D73F791DF5D58A004A5CBC /* Favorites.storyboard */,
 				14B1E53E1DECC0E0004B68F6 /* Controller_Favorites.swift */,
+				659048ED1DF6016A00A8809B /* FavoriteTableViewCell.swift */,
 			);
 			name = Favorites;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				14B1E53B1DECC0AD004B68F6 /* Controller_Settings.swift in Sources */,
+				659048EE1DF6016A00A8809B /* FavoriteTableViewCell.swift in Sources */,
 				14D8C52D1DEC975100CC0A9C /* Controller_Main.swift in Sources */,
 				14B1E5B01DEE204D004B68F6 /* Controller_AddNewService.swift in Sources */,
 				14D8C5431DEC98BC00CC0A9C /* TestAccount.swift in Sources */,

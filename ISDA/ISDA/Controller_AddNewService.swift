@@ -23,6 +23,16 @@ class Controller_AddNewService: UIViewController {
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: handleAlertCancel))
         alert.addTextField(configurationHandler: {(textField: UITextField) in
             textField.placeholder = "Field Title"})
+        
+        //Single or multiple taps to screen will do this
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        
+        view.addGestureRecognizer(tap)
+    }
+    
+    //When screen is tapped after typing in keyboard
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -73,6 +83,7 @@ class Controller_AddNewService: UIViewController {
         
         return lastField
     }
+    
     
     @IBAction func AddNewField_Click(_ sender: Any) {
         showMessage()
