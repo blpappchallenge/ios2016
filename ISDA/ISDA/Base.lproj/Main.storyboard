@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Controller-->
+        <!--Main Tab Bar View Controller-->
         <scene sceneID="sCA-1L-H1b">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Rfw-By-5Ro" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Rfw-By-5Ro" customClass="MainTabBarViewController" customModule="ISDA" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="gi5-Mg-1ft">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
