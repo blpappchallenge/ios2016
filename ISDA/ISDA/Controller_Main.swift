@@ -28,7 +28,8 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
 
         // Add the SYF logo to the navigation header.
         let logo = #imageLiteral(resourceName: "syf_logo")
-        self.navigationController?.navigationBar.setBackgroundImage(logo, for: UIBarMetrics.default)
+        let imageView = UIImageView(image: logo)
+        self.navigationController?.navigationBar.topItem?.titleView = imageView
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -63,40 +64,15 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
         let service = Services[indexPath.item]
         
         // Show the view controller.
-
+        showChildController(controllerName: "launchoptions")
     }
     
-//    func showChildController(controllerName: String) {
-//        
-//        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-//        let viewController = storyboard.instantiateViewController(withIdentifier: controllerName)
-//        self.addChildViewController(viewController)
-//        view.addSubview(viewController.view)
-//        viewController.view.frame = view.bounds
-//        viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-//        viewController.didMove(toParentViewController: self)
-//    }
-//    
-//    func clearChildViews() {
-//        
-//        // Clear all of the child views if any.
-//        for childController in self.childViewControllers {
-//            
-//            childController.view.removeFromSuperview()
-//            childController.removeFromParentViewController()
-//        }
-//    }
-//    
-//    func showLaunchOptions(service: Service) {
-//        
-//        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-//        let viewController = storyboard.instantiateViewController(withIdentifier: "launchoptions")
-//        self.addChildViewController(viewController)
-//        view.addSubview(viewController.view)
-//        viewController.view.frame = view.bounds
-//        viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-//        viewController.didMove(toParentViewController: self)
-//    }
+    func showChildController(controllerName: String) {
+        
+        let storyboard = UIStoryboard(name: "Platforms", bundle: Bundle.main)
+        let viewController = storyboard.instantiateViewController(withIdentifier: controllerName)
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
     
     func populateAnalyticsData() {
         // Path to the JSON file that holds the data. *running locally at the moment*
@@ -130,7 +106,7 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
         let url = URL(string: servicesJsonURL)
         
         URLSession.shared.dataTask(with:url!, completionHandler: {(data, response, error) in
-            if error != nil {
+            if  let error = error {
                 print(error)
             } else {
                 do {
@@ -165,6 +141,7 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
                                         let downloadedImage = UIImage(data: imageData)
                                         
                                         service.Logo = downloadedImage
+                                        self.collectionView.reloadData()
                                     }
                                 }
                             }

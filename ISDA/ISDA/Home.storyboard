@@ -18,11 +18,11 @@
                         <viewControllerLayoutGuide type="bottom" id="O76-GK-c2x"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Xb3-GX-Pin">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5A5-Ay-CBa">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.23137254900000001" green="0.23529411759999999" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="ZPA-9T-ZZj">
@@ -76,10 +76,6 @@
                                     <outlet property="delegate" destination="w28-Tj-Ip4" id="fye-aj-NQo"/>
                                 </connections>
                             </collectionView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="syf_logo" translatesAutoresizingMaskIntoConstraints="NO" id="qfl-QL-ebP">
-                                <rect key="frame" x="81" y="16" width="212" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.23137254900000001" green="0.23529411759999999" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -100,9 +96,10 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IpN-pT-zZ3" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" image="home" id="K2J-qY-yUy"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="y9D-Bf-iNy">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="y9D-Bf-iNy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.23137254900000001" green="0.23529411759999999" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -116,6 +113,5 @@
     </scenes>
     <resources>
         <image name="home" width="35" height="35"/>
-        <image name="syf_logo" width="224" height="48"/>
     </resources>
 </document>
