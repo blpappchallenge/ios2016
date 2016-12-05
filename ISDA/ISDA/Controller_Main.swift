@@ -62,6 +62,17 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
         showLaunchOptions(service: service)
     }
     
+    func showChildController(controllerName: String) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let viewController = storyboard.instantiateViewController(withIdentifier: controllerName)
+        self.addChildViewController(viewController)
+        view.addSubview(viewController.view)
+        viewController.view.frame = view.bounds
+        viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        viewController.didMove(toParentViewController: self)
+    }
+    
     func clearChildViews() {
         
         // Clear all of the child views if any.
@@ -180,6 +191,11 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
         }).resume()
         
         sleep(1)
+    }
+  
+    @IBAction func LaunchOptions(_sender:Any) {
+        showChildController(controllerName: "launchoptions")
+    
     }
     
 }
