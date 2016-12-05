@@ -25,7 +25,10 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        clearChildViews()
+
+        // Add the SYF logo to the navigation header.
+        let logo = #imageLiteral(resourceName: "syf_logo")
+        self.navigationController?.navigationBar.setBackgroundImage(logo, for: UIBarMetrics.default)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -60,40 +63,40 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
         let service = Services[indexPath.item]
         
         // Show the view controller.
-        showLaunchOptions(service: service)
+
     }
     
-    func showChildController(controllerName: String) {
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let viewController = storyboard.instantiateViewController(withIdentifier: controllerName)
-        self.addChildViewController(viewController)
-        view.addSubview(viewController.view)
-        viewController.view.frame = view.bounds
-        viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        viewController.didMove(toParentViewController: self)
-    }
-    
-    func clearChildViews() {
-        
-        // Clear all of the child views if any.
-        for childController in self.childViewControllers {
-            
-            childController.view.removeFromSuperview()
-            childController.removeFromParentViewController()
-        }
-    }
-    
-    func showLaunchOptions(service: Service) {
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "launchoptions")
-        self.addChildViewController(viewController)
-        view.addSubview(viewController.view)
-        viewController.view.frame = view.bounds
-        viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        viewController.didMove(toParentViewController: self)
-    }
+//    func showChildController(controllerName: String) {
+//        
+//        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+//        let viewController = storyboard.instantiateViewController(withIdentifier: controllerName)
+//        self.addChildViewController(viewController)
+//        view.addSubview(viewController.view)
+//        viewController.view.frame = view.bounds
+//        viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//        viewController.didMove(toParentViewController: self)
+//    }
+//    
+//    func clearChildViews() {
+//        
+//        // Clear all of the child views if any.
+//        for childController in self.childViewControllers {
+//            
+//            childController.view.removeFromSuperview()
+//            childController.removeFromParentViewController()
+//        }
+//    }
+//    
+//    func showLaunchOptions(service: Service) {
+//        
+//        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+//        let viewController = storyboard.instantiateViewController(withIdentifier: "launchoptions")
+//        self.addChildViewController(viewController)
+//        view.addSubview(viewController.view)
+//        viewController.view.frame = view.bounds
+//        viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//        viewController.didMove(toParentViewController: self)
+//    }
     
     func populateAnalyticsData() {
         // Path to the JSON file that holds the data. *running locally at the moment*
@@ -119,9 +122,12 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
     func populateServiceArray() {
         
         // Path to the JSON file that holds the data. *running locally at the moment*
-        let urlString = "http://isda.pcfpoc.cdev.syfbank.com/Services.json"
-        let pictureDirectory = "http://isda.pcfpoc.cdev.syfbank.com/images/"
-        let url = URL(string: urlString)
+        //let urlString = "http://isda.pcfpoc.cdev.syfbank.com/Services.json"
+        //let pictureDirectory = "http://isda.pcfpoc.cdev.syfbank.com/images/"
+        let baseDomain = "https://uat.synchronycredit.com/BLPAppChallenge/"
+        let servicesJsonURL = baseDomain + "Services.json"
+        let pictureDirectory = baseDomain + "images/"
+        let url = URL(string: servicesJsonURL)
         
         URLSession.shared.dataTask(with:url!, completionHandler: {(data, response, error) in
             if error != nil {
@@ -216,7 +222,7 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
     }
   
     @IBAction func LaunchOptions(_sender:Any) {
-        showChildController(controllerName: "launchoptions")
+        // Push the page.
     
     }
     
