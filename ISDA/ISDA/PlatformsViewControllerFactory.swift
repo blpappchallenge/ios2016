@@ -14,7 +14,7 @@ struct PlatformsViewControllerFactory {
 
     func makePlatformsViewController(service: Service) -> Controller_Clients {
         let viewController = storyboard.instantiateViewController(withIdentifier: "platformsViewController") as! Controller_Clients
-        //viewController.clients = service.
+        viewController.service = service
         return viewController
     }
 }

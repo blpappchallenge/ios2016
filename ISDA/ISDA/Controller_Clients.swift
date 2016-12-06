@@ -15,6 +15,14 @@ class Controller_Clients: UIViewController {
     @IBOutlet weak var OmniLogins: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+    private var navigator:PlatformsNavigator!
+    
+    //The service that this Page describes
+    var service: Service! {
+        didSet {
+            self.generations = service.generations
+        }
+    }
     
     var generations: [Generation]! {
         didSet {
@@ -34,6 +42,7 @@ class Controller_Clients: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigator = PlatformsNavigator(viewController:self)
     }
     
 }
@@ -58,12 +67,12 @@ extension Controller_Clients: UITableViewDelegate, UITableViewDataSource {
         }
         
         return cell
-        
     }
 }
 
 private extension Controller_Clients {
     
+    // TODO: Use this when the user changes generations.
     func toggleGeneration(index: Int) {
         let generationToSelect = generations[index]
         self.selectedGeneration = generationToSelect
