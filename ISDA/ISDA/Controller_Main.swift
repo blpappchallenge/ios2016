@@ -158,9 +158,10 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
                             // Loop through all of the clients under the current generation.
                             for (clientName, clientInfo) in clients {
                                 // Creat an object for the client.
-                                let client = Client()
-                                client.ClientID = clientInfo["clientID"] as! String
-                                client.Name = clientName
+                                
+                                let id = clientInfo["clientID"] as! String
+                                let name = clientName
+                                var client = Client(id:id, name:name)
                                 
                                 // Get the test accounts from the connection.
                                 let testAccounts = clientInfo["testAccounts"] as? [AnyObject]
@@ -171,7 +172,7 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
                                     let testAccount = TestAccount()
                                     testAccount.userName = userName
                                     testAccount.password = password
-                                    client.TestAccounts.append(testAccount)
+                                    client.testAccounts.append(testAccount)
                                 }
                                 
                                 

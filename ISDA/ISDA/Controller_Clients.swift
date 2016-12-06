@@ -62,7 +62,7 @@ extension Controller_Clients: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.cellForRow(at: indexPath) as! ClientTableViewCell
         
         if let client = clients?[row] {
-            cell.label.text = client.Name
+            cell.label.text = client.name
             // cell.clientImageView.image = client.image
         }
         
