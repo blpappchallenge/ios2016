@@ -11,11 +11,12 @@ import UIKit
 struct Client {
     
     let clientID: String
+    let testAccounts: [TestAccount]
     let name: String
-    var testAccounts = [TestAccount]()
     
-    init(id:String, name:String) {
+    init(id:String, name:String, testAccounts:[TestAccount]) {
         self.clientID = id
         self.name = name
+        self.testAccounts = testAccounts
     }
 }

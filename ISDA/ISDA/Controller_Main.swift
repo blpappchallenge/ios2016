@@ -148,37 +148,14 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
                         // Loop through all of the generations of the service.
                         for (genName, genInfo) in generations {
                             
-                            let generation = Generation()
-                            generation.Name = genName
-                            generation.URL = genInfo["URL"] as! String
+                            let url = genInfo["URL"] as! String
                             
+                            let clientsJson = genInfo["Clients"] as! [String:[String:Any]]
+                            let clients = self.parseClients(json: clientsJson)
                             
-                            let clients = genInfo["Clients"] as! [String:[String:Any]]
-                            
-                            // Loop through all of the clients under the current generation.
-                            for (clientName, clientInfo) in clients {
-                                // Creat an object for the client.
-                                
-                                let id = clientInfo["clientID"] as! String
-                                let name = clientName
-                                var client = Client(id:id, name:name)
-                                
-                                // Get the test accounts from the connection.
-                                let testAccounts = clientInfo["testAccounts"] as? [AnyObject]
-                                
-                                for field in testAccounts ?? [] {
-                                    let userName = field["userName"] as! String
-                                    let password = field["password"] as! String
-                                    let testAccount = TestAccount()
-                                    testAccount.userName = userName
-                                    testAccount.password = password
-                                    client.testAccounts.append(testAccount)
-                                }
-                                
-                                
-                                // Add the generation to the array.
-                                service.generations.append(generation)
-                            }
+                            let generation = Generation(name:genName, url:url)
+                            // Add the generation to the array.
+                            service.generations.append(generation)
                         }
                         self.Services.append(service)
                     }
@@ -191,6 +168,34 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
         }).resume()
         
         sleep(1)
+    }
+    
+    private func parseClients(json: [String:[String:Any]]) -> [Client] {
+        var clients = [Client]()
+        // Loop through all of the clients under the current generation.
+        for (clientName, clientInfo) in json {
+            // Creat an object for the client.
+            
+            let id = clientInfo["clientID"] as! String
+            let name = clientName
+            
+            // Get the test accounts from the connection.
+            let testAccountsJson = clientInfo["testAccounts"] as? [AnyObject]
+            var testAccounts = [TestAccount]()
+            
+            for field in testAccountsJson ?? [] {
+                let userName = field["userName"] as! String
+                let password = field["password"] as! String
+                let testAccount = TestAccount()
+                testAccount.userName = userName
+                testAccount.password = password
+                testAccounts.append(testAccount)
+            }
+            
+            let client = Client(id:id, name:name, testAccounts:testAccounts)
+            clients.append(client)
+        }
+        return clients
     }
   
     @IBAction func LaunchOptions(_sender:Any) {

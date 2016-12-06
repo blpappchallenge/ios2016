@@ -34,7 +34,7 @@ class Controller_Clients: UIViewController {
     
     var selectedGeneration: Generation! {
         didSet {
-            self.clients = selectedGeneration.Clients
+            self.clients = selectedGeneration.clients
         }
     }
     
