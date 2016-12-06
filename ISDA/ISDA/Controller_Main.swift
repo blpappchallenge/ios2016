@@ -7,6 +7,11 @@
 //test
 
 import UIKit
+import AWSS3
+import AWSDynamoDB
+import AWSSQS
+import AWSSNS
+import AWSCognito
 
 class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     private var navigator:HomeNavigator!
@@ -29,22 +34,22 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
         let imageView = UIImageView(image: logo)
         self.navigationController?.navigationBar.topItem?.titleView = imageView
         
-//        let dynamoDB = AWSDynamoDB.default()
-//        let listTableInput = AWSDynamoDBListTablesInput()
-//        dynamoDB.listTables(listTableInput!).continue({(task: AWSTask?) -> AnyObject? in
-//            if let error = task?.error {
-//                print("Error occurred: \(error)")
-//                return nil
-//            }
-//            
-//            let listTablesOutput = (task?.result)! as AWSDynamoDBListTablesOutput
-//            
-//            for tableName in listTablesOutput.tableNames! {
-//                print("\(tableName)")
-//            }
-//            
-//            return nil
-//        })
+        let dynamoDB = AWSDynamoDB.default()
+        let listTableInput = AWSDynamoDBListTablesInput()
+        dynamoDB.listTables(listTableInput!).continue({(task: AWSTask?) -> AnyObject? in
+            if let error = task?.error {
+                print("Error occurred: \(error)")
+                return nil
+            }
+            
+            let listTablesOutput = (task?.result)! as AWSDynamoDBListTablesOutput
+            
+            for tableName in listTablesOutput.tableNames! {
+                print("\(tableName)")
+            }
+            
+            return nil
+        })
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -189,29 +194,7 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
     
     private func parseClients(json: [String:[String:Any]]) -> [Client] {
         var clients = [Client]()
-        // Loop through all of the clients under the current generation.
-        for (clientName, clientInfo) in json {
-            // Creat an object for the client.
-            
-            let id = clientInfo["clientID"] as! String
-            let name = clientName
-            
-            // Get the test accounts from the connection.
-            let testAccountsJson = clientInfo["testAccounts"] as? [AnyObject]
-            var testAccounts = [TestAccount]()
-            
-            for field in testAccountsJson ?? [] {
-                let userName = field["userName"] as! String
-                let password = field["password"] as! String
-                let testAccount = TestAccount()
-                testAccount.userName = userName
-                testAccount.password = password
-                testAccounts.append(testAccount)
-            }
-            
-            let client = Client(id:id, name:name, testAccounts:testAccounts)
-            clients.append(client)
-        }
+        
         return clients
     }
   
