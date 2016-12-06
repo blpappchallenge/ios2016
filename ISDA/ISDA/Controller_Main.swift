@@ -81,11 +81,7 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
         let service = Services?[indexPath.item]
         
         // Show the view controller.
-<<<<<<< HEAD
         navigator.goToPlatformsViewController(withService: service!)
-=======
-        showChildController(controllerName: "platforms")
->>>>>>> origin/IOS-3_Home_Page
     }
     
     func showChildController(controllerName: String) {
