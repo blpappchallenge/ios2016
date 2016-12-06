@@ -10,8 +10,6 @@ import UIKit
 
 class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
-
-    
     @IBOutlet weak var TabItem: UITabBarItem!
     @IBOutlet weak var collectionView: UICollectionView!
     let reuseIdentifier = "Cell" // also enter this string as the cell identifier in the storyboard
@@ -45,13 +43,11 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
         let service = self.Services[indexPath.item]
         
         // get a reference to our storyboard cell
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: (reuseIdentifier), for: indexPath as IndexPath) as! Service
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: (reuseIdentifier), for: indexPath as IndexPath) as! ServiceCollectionViewCell
         
-        cell.Name = service.Name
-        cell.Generations = service.Generations
-        cell.LogoView.image = service.Logo
-        cell.DescriptionLabel.text = service.Description
-        cell.NameLabel.text = service.Name
+        cell.logoView.image = service.logo
+        cell.descriptionLabel.text = service.description
+        cell.nameLabel.text = service.name
         
         return cell
     }
@@ -120,11 +116,9 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
                     // Loop through all of the services and instantiate.
                     for (serviceName, serviceInfo) in services {
                         
-                        let service = Service()
-                        service.Name = serviceName
                         let logo = serviceInfo["Logo"] as! String
                         let description = serviceInfo["Description"] as! String
-                        service.Description = description
+                        var service = Service(name: serviceName, description: description)
                         
                         // Get the picture from the connection
                         let pictureURL = URL(string: (pictureDirectory + logo))!
@@ -140,7 +134,7 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
                                     if let imageData = data {
                                         let downloadedImage = UIImage(data: imageData)
                                         
-                                        service.Logo = downloadedImage
+                                        service.logo = downloadedImage
                                         self.collectionView.reloadData()
                                     }
                                 }
@@ -182,7 +176,7 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
                                 
                                 
                                 // Add the generation to the array.
-                                service.Generations.append(generation)
+                                service.generations.append(generation)
                             }
                         }
                         self.Services.append(service)
