@@ -29,7 +29,7 @@ class WebViewController : UIViewController {
         }
     }
     
-    var account:Account! {
+    var account:TestAccount! {
         didSet {
             enterCredentials()
         }

@@ -8,17 +8,7 @@
 
 import UIKit
 
-class TestAccount: NSObject {
-    var userName: String!
-    var password: String!
-    
-    func TestAccount(userName: String, password: String) {
-        self.userName = userName
-        self.password = password
-    }
-}
-
-struct Account {
+struct TestAccount {
     let userName: String
     let password:String
     
