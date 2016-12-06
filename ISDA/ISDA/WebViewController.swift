@@ -13,6 +13,14 @@ class WebViewController : UIViewController {
     
     @IBOutlet fileprivate weak var webView: UIWebView!
     
+    var client: Client? {
+        didSet {
+            if let client = client {
+                
+            }
+        }
+    }
+    
     var url:URL? {
         didSet {
             if let url = url {
