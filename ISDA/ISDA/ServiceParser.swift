@@ -10,65 +10,73 @@ import Foundation
 
 struct ServiceParser {
     func parse(json: [String:Any]) -> [Service] {
-        let servicesJson = json["Services"] as! [String:[String:Any]]
+        let servicesJson = json["Services"] as! [[String:Any]]
         return parseServices(json: servicesJson)
     }
     
-    private func parseServices(json: [String:[String:Any]]) -> [Service] {
+    private func parseServices(json: [[String:Any]]) -> [Service] {
         var services = [Service]()
-        for (serviceName, serviceInfo) in json {
+        for currentService in json {
             
-            let logo = serviceInfo["Logo"] as! String
-            let description = serviceInfo["Description"] as! String
+            let name = currentService["name"] as! String
+            let logo = currentService["Logo"] as! String
+            let description = currentService["Description"] as! String
             
-            let generationsJson = serviceInfo["Generations"] as! [String:[String:Any]]
-            let generations = self.parseGenerations(json: generationsJson)
+            let generationsJson = currentService["Generations"] as! [[String:Any]]
+            let generations = self.parse(generations: generationsJson)
             
-            let service = Service(name: serviceName, description: description, generations:generations, imageUrl:logo)
+            let service = Service(name: name,
+                                  description: description,
+                                  generations:generations,
+                                  imageUrl:logo)
             
             services.append(service)
         }
         return services
     }
     
-    private func parseGenerations(json: [String:[String:Any]]) -> [Generation] {
+    private func parse(generations json: [[String:Any]]) -> [Generation] {
         var generations = [Generation]()
-        for (genName, genInfo) in json {
+        for currentGen in json {
             
-            let url = genInfo["URL"] as! String
+            let name = currentGen["name"] as! String
+            let url = currentGen["URL"] as! String
             
-            let clientsJson = genInfo["Clients"] as! [String:[String:Any]]
-            let clients = self.parseClients(json: clientsJson)
+            let clientsJson = currentGen["Clients"] as! [[String:Any]]
+            let clients = self.parse(clients: clientsJson)
             
-            let generation = Generation(name:genName, url:url, clients:clients)
+            let generation = Generation(name:name, url:url, clients:clients)
             generations.append(generation)
         }
         return generations
     }
     
-    private func parseClients(json: [String:[String:Any]]) -> [Client] {
+    private func parse(clients json: [[String:Any]]) -> [Client] {
         var clients = [Client]()
-        for (clientName, clientInfo) in json {
+        for currentClient in json {
+            let id = currentClient["clientID"] as! String
+            let name = currentClient["name"] as! String
             
-            let id = clientInfo["clientID"] as! String
-            let name = clientName
+            let testAccountsJson = currentClient["testAccounts"] as! [[String:Any]]
+            let testAccounts = parse(testAccounts: testAccountsJson)
             
-            let testAccountsJson = clientInfo["testAccounts"] as? [AnyObject]
-            var testAccounts = [TestAccount]()
-            
-            for field in testAccountsJson ?? [] {
-                let userName = field["userName"] as! String
-                let password = field["password"] as! String
-                let testAccount = TestAccount()
-                testAccount.userName = userName
-                testAccount.password = password
-                testAccounts.append(testAccount)
-            }
             
             let client = Client(id:id, name:name, testAccounts:testAccounts)
             clients.append(client)
         }
         return clients
+    }
+    
+    private func parse(testAccounts json: [[String:Any]]) -> [TestAccount] {
+        var testAccounts = [TestAccount]()
+        for currentAccount in json {
+            let userName = currentAccount["userName"] as! String
+            let password = currentAccount["password"] as! String
+            let testAccount = TestAccount(userName:userName,
+                                          password:password)
+            testAccounts.append(testAccount)
+        }
+        return testAccounts
     }
 
 }

@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 
-struct SearchViewControllerFactory: NavigationControllerFactory {
+struct SearchViewControllerFactory {
     internal let storyboard = UIStoryboard(name:"Search", bundle: nil)
+    func makeNavigationController() -> UINavigationController {
+        let navigationController = storyboard.instantiateInitialViewController() as! UINavigationController
+        return navigationController
+    }
 }

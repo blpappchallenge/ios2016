@@ -14,11 +14,13 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
     @IBOutlet weak var TabItem: UITabBarItem!
     @IBOutlet weak var collectionView: UICollectionView!
     let reuseIdentifier = "Cell" // also enter this string as the cell identifier in the storyboard
-    var Services: [Service]!
+    var Services: [Service]?
     var SelectedService: Service!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        populateServiceArray()
+        populateAnalyticsData()
         self.navigator = HomeNavigator(viewController: self)
     }
     
@@ -31,23 +33,20 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        populateServiceArray()
-        populateAnalyticsData()
-        return self.Services.count
+        return self.Services?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         // Cast in the service object to copy the values.
-        let service = self.Services[indexPath.item]
+        let service = self.Services?[indexPath.item]
         
         // get a reference to our storyboard cell
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: (reuseIdentifier), for: indexPath as IndexPath) as! ServiceCollectionViewCell
         
-        cell.logoView.image = service.logo
-        cell.descriptionLabel.text = service.description
-        cell.nameLabel.text = service.name
+        cell.logoView.image = service?.logo
+        cell.descriptionLabel.text = service?.description
+        cell.nameLabel.text = service?.name
         
         return cell
     }
@@ -57,10 +56,10 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
         print("You selected service at index #\(indexPath.item)!")
         
         // Get the cell information to pass onto the next page (web view)
-        let service = Services[indexPath.item]
+        let service = Services?[indexPath.item]
         
         // Show the view controller.
-        navigator.goToPlatformsViewController(withService: service)
+        navigator.goToPlatformsViewController(withService: service!)
     }
     
     func showChildController(controllerName: String) {
@@ -97,7 +96,7 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
         //let urlString = "http://isda.pcfpoc.cdev.syfbank.com/Services.json"
         //let pictureDirectory = "http://isda.pcfpoc.cdev.syfbank.com/images/"
         let baseDomain = "https://uat.synchronycredit.com/BLPAppChallenge/"
-        let servicesJsonURL = baseDomain + "Services.json"
+        let servicesJsonURL = "https://api.myjson.com/bins/qx9v"
         let url = URL(string: servicesJsonURL)
         
         URLSession.shared.dataTask(with:url!, completionHandler: {(data, response, error) in
@@ -111,6 +110,7 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
                     
                     let parser = ServiceParser()
                     self.Services = parser.parse(json: json)
+                    self.setupCollectionView()
                     
                 } catch let error as NSError {
                     print(error)
@@ -120,6 +120,11 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
         }).resume()
         
         sleep(1)
+    }
+    
+    private func setupCollectionView() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
     }
     
     @IBAction func LaunchOptions(_sender:Any) {

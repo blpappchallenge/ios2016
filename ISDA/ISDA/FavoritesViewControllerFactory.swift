@@ -9,6 +9,11 @@
 import Foundation
 import UIKit
 
-struct FavoritesViewControllerFactory: NavigationControllerFactory {
+struct FavoritesViewControllerFactory {
     internal let storyboard: UIStoryboard = UIStoryboard(name: "Favorites", bundle: nil)
+    
+    func makeNavigationController() -> UINavigationController {
+        let navigationController = storyboard.instantiateInitialViewController() as! UINavigationController
+        return navigationController
+    }
 }
