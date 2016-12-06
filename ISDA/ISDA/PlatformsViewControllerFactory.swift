@@ -7,9 +7,14 @@
 //
 
 import Foundation
+import UIKit
 
 struct PlatformsViewControllerFactory {
-    func makeClientController() {
-        
+    internal let storyboard = UIStoryboard(name: "Platforms", bundle: nil)
+
+    func makePlatformsViewController(service: Service) -> Controller_Clients {
+        let viewController = storyboard.instantiateViewController(withIdentifier: "platformsViewController") as! Controller_Clients
+        //viewController.clients = service.
+        return viewController
     }
 }

@@ -9,6 +9,7 @@
 import UIKit
 
 class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+    private var navigator:HomeNavigator!
     
     @IBOutlet weak var TabItem: UITabBarItem!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -18,8 +19,7 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
+        self.navigator = HomeNavigator(viewController: self)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -60,7 +60,7 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
         let service = Services[indexPath.item]
         
         // Show the view controller.
-        showChildController(controllerName: "launchoptions")
+        navigator.goToPlatformsViewController(withService: service)
     }
     
     func showChildController(controllerName: String) {
@@ -76,7 +76,7 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
         let url = URL(string: urlString)
         
         URLSession.shared.dataTask(with:url!, completionHandler: {(data, response, error) in
-            if error != nil {
+            if let error = error {
                 print(error)
             } else {
                 do {

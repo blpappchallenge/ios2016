@@ -13,7 +13,7 @@
         <!--mService-->
         <scene sceneID="MOB-5S-Mqq">
             <objects>
-                <viewController id="PP4-cj-Uqr" customClass="Controller_Clients" customModule="ISDA" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="platformsViewController" id="PP4-cj-Uqr" customClass="Controller_Clients" customModule="ISDA" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="r2m-0f-tX3"/>
                         <viewControllerLayoutGuide type="bottom" id="aYM-uZ-goP"/>
