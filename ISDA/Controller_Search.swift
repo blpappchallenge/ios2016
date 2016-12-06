@@ -8,34 +8,39 @@
 
 import UIKit
 
-class Controller_Search: UIViewController {
-
+class Controller_Search: UIViewController, SearchBarDelegate {
+    
+    fileprivate weak var searchBar: SearchBar!
     @IBOutlet weak var ServiceSearch: UISearchBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.setup()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    //Stephanie
-    // Test Zach Sucks
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        
         performSegue(withIdentifier: item.title!, sender: self)
+    }
+    
+    func didCancelSearch(searchBar: SearchBar) {
+        
+    }
+    
+    func didEnterSearch(searchBar: SearchBar) {
         
     }
 
+}
+
+private extension Controller_Search {
+    func setup() {
+        configureSearchBar()
+    }
+    
+    func configureSearchBar() {
+        searchBar = Bundle.main.loadNibNamed("SearchBar", owner: self, options: nil)![0] as! SearchBar
+        searchBar.frame = CGRect(x:8, y:0, width:view.bounds.width-16, height:44)
+        searchBar.delegate = self
+        navigationItem.titleView = searchBar
+    }
 }

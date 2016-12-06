@@ -17,3 +17,13 @@ class TestAccount: NSObject {
         self.password = password
     }
 }
+
+struct Account {
+    let userName: String
+    let password:String
+    
+    init(userName:String,password:String) {
+        self.userName = userName
+        self.password = password
+    }
+}
