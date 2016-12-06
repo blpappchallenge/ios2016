@@ -28,6 +28,23 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
         let logo = #imageLiteral(resourceName: "syf_logo")
         let imageView = UIImageView(image: logo)
         self.navigationController?.navigationBar.topItem?.titleView = imageView
+        
+//        let dynamoDB = AWSDynamoDB.default()
+//        let listTableInput = AWSDynamoDBListTablesInput()
+//        dynamoDB.listTables(listTableInput!).continue({(task: AWSTask?) -> AnyObject? in
+//            if let error = task?.error {
+//                print("Error occurred: \(error)")
+//                return nil
+//            }
+//            
+//            let listTablesOutput = (task?.result)! as AWSDynamoDBListTablesOutput
+//            
+//            for tableName in listTablesOutput.tableNames! {
+//                print("\(tableName)")
+//            }
+//            
+//            return nil
+//        })
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -60,7 +77,7 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
         let service = Services[indexPath.item]
         
         // Show the view controller.
-        showChildController(controllerName: "launchoptions")
+        showChildController(controllerName: "platforms")
     }
     
     func showChildController(controllerName: String) {
@@ -76,7 +93,7 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
         let url = URL(string: urlString)
         
         URLSession.shared.dataTask(with:url!, completionHandler: {(data, response, error) in
-            if error != nil {
+            if let error = error {
                 print(error)
             } else {
                 do {
