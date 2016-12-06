@@ -14,7 +14,7 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
     @IBOutlet weak var TabItem: UITabBarItem!
     @IBOutlet weak var collectionView: UICollectionView!
     let reuseIdentifier = "Cell" // also enter this string as the cell identifier in the storyboard
-    var Services = [Service]()
+    var Services: [Service]!
     var SelectedService: Service!
     
     override func viewDidLoad() {
@@ -98,7 +98,6 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
         //let pictureDirectory = "http://isda.pcfpoc.cdev.syfbank.com/images/"
         let baseDomain = "https://uat.synchronycredit.com/BLPAppChallenge/"
         let servicesJsonURL = baseDomain + "Services.json"
-        let pictureDirectory = baseDomain + "images/"
         let url = URL(string: servicesJsonURL)
         
         URLSession.shared.dataTask(with:url!, completionHandler: {(data, response, error) in
@@ -111,54 +110,10 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
                     print(parsedData)
                     // Read in the list of services.
                     //let services = parsedData["Services"] as! [String:[String:[String:Any]]]
-                    let services = parsedData["Services"] as! [String:[String:Any]]
+                    let servicesJson = parsedData["Services"] as! [String:[String:Any]]
+                    let services = self.parseServices(json: servicesJson)
                     
-                    // Loop through all of the services and instantiate.
-                    for (serviceName, serviceInfo) in services {
-                        
-                        let logo = serviceInfo["Logo"] as! String
-                        let description = serviceInfo["Description"] as! String
-                        var service = Service(name: serviceName, description: description)
-                        
-                        // Get the picture from the connection
-                        let pictureURL = URL(string: (pictureDirectory + logo))!
-                        let session = URLSession(configuration: .default)
-                        let request = URLRequest(url: pictureURL)
-                        
-                        let downloadTask = session.dataTask(with: request as URLRequest) {(data, response, error) in
-                            if let error = error {
-                                print(error)
-                            }
-                            else {
-                                if let _ = response as? HTTPURLResponse {
-                                    if let imageData = data {
-                                        let downloadedImage = UIImage(data: imageData)
-                                        
-                                        service.logo = downloadedImage
-                                        self.collectionView.reloadData()
-                                    }
-                                }
-                            }
-                        }
-                        
-                        downloadTask.resume()
-                        
-                        let generations = serviceInfo["Generations"] as! [String:[String:Any]]
-                        
-                        // Loop through all of the generations of the service.
-                        for (genName, genInfo) in generations {
-                            
-                            let url = genInfo["URL"] as! String
-                            
-                            let clientsJson = genInfo["Clients"] as! [String:[String:Any]]
-                            let clients = self.parseClients(json: clientsJson)
-                            
-                            let generation = Generation(name:genName, url:url)
-                            // Add the generation to the array.
-                            service.generations.append(generation)
-                        }
-                        self.Services.append(service)
-                    }
+                    self.Services = services
                     
                 } catch let error as NSError {
                     print(error)
@@ -170,11 +125,41 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
         sleep(1)
     }
     
+    private func parseServices(json: [String:[String:Any]]) -> [Service] {
+        var services = [Service]()
+        for (serviceName, serviceInfo) in json {
+            
+            let logo = serviceInfo["Logo"] as! String
+            let description = serviceInfo["Description"] as! String
+            
+            let generationsJson = serviceInfo["Generations"] as! [String:[String:Any]]
+            let generations = self.parseGenerations(json: generationsJson)
+            
+            let service = Service(name: serviceName, description: description, generations:generations, imageUrl:logo)
+            
+            services.append(service)
+        }
+        return services
+    }
+    
+    private func parseGenerations(json: [String:[String:Any]]) -> [Generation] {
+        var generations = [Generation]()
+        for (genName, genInfo) in json {
+            
+            let url = genInfo["URL"] as! String
+            
+            let clientsJson = genInfo["Clients"] as! [String:[String:Any]]
+            let clients = self.parseClients(json: clientsJson)
+            
+            let generation = Generation(name:genName, url:url, clients:clients)
+            generations.append(generation)
+        }
+        return generations
+    }
+    
     private func parseClients(json: [String:[String:Any]]) -> [Client] {
         var clients = [Client]()
-        // Loop through all of the clients under the current generation.
         for (clientName, clientInfo) in json {
-            // Creat an object for the client.
             
             let id = clientInfo["clientID"] as! String
             let name = clientName
@@ -197,6 +182,36 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
         }
         return clients
     }
+    
+    
+    //TODO: PUt this somewhere else idk where yet
+    private func fetchImage(forService service: Service) {
+        let baseDomain = "https://uat.synchronycredit.com/BLPAppChallenge/"
+        
+        let pictureDirectory = baseDomain + "images/"
+        // Get the picture from the connection
+        let pictureURL = URL(string: (pictureDirectory + service.imageUrl))!
+        let session = URLSession(configuration: .default)
+        let request = URLRequest(url: pictureURL)
+        
+        let downloadTask = session.dataTask(with: request as URLRequest) {(data, response, error) in
+            if let error = error {
+                print(error)
+            }
+            else {
+                if let _ = response as? HTTPURLResponse {
+                    if let imageData = data {
+                        let downloadedImage = UIImage(data: imageData)
+                        
+                        // set downloaded image for service
+                        self.collectionView.reloadData()
+                    }
+                }
+            }
+        }
+        downloadTask.resume()
+    }
+    
   
     @IBAction func LaunchOptions(_sender:Any) {
         // Push the page.
