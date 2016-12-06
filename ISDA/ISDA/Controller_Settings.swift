@@ -34,11 +34,6 @@ class Controller_Settings: UIViewController {
         //let navigationController = UINavigationController(rootViewController: viewController)
         self.navigationController?.pushViewController(viewController, animated: true)
         
-//        self.addChildViewController(viewController)
-//        view.addSubview(viewController.view)
-//        viewController.view.frame = view.bounds
-//        viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-//        viewController.didMove(toParentViewController: self)
     }
     
     func clearChildViews() {
@@ -52,7 +47,8 @@ class Controller_Settings: UIViewController {
     }
 
     @IBAction func AddNewService(_ sender: Any) {
-        showChildController(controllerName: "addnewservice")
+        let vc = SettingsViewControllerFactory().makeAddNewServiceViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     @IBAction func AddNewClient(_ sender: Any) {
         

@@ -11,4 +11,9 @@ import UIKit
 
 struct SettingsViewControllerFactory: NavigationControllerFactory {
     internal let storyboard = UIStoryboard(name: "Settings", bundle: nil)
+    
+    func makeAddNewServiceViewController() -> Controller_AddNewService {
+        let viewController = storyboard.instantiateViewController(withIdentifier: "addnewservice") as! Controller_AddNewService
+        return viewController
+    }
 }

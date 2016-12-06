@@ -34,37 +34,46 @@
                                     <navigationItem title="Favorites" id="FpS-Xg-xwV"/>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Siu-1O-BdZ">
-                                <rect key="frame" x="0.0" y="105" width="375" height="406"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="102" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Siu-1O-BdZ">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="favoriteTableViewCell" rowHeight="120" id="R1K-YZ-VDM" customClass="FavoriteTableViewCell" customModule="ISDA" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="120"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="favoriteTableViewCell" rowHeight="102" id="R1K-YZ-VDM" customClass="FavoriteTableViewCell" customModule="ISDA" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="102"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="R1K-YZ-VDM" id="7sn-Da-huv">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="119"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="R1K-YZ-VDM" id="7sn-Da-huv">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="101"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HgE-rf-zjm">
-                                                    <rect key="frame" x="8" y="23" width="274" height="72"/>
+                                                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HgE-rf-zjm">
+                                                    <rect key="frame" x="0.0" y="23" width="289" height="72"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="meu-PS-eon">
-                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="72"/>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="meu-PS-eon">
+                                                            <rect key="frame" x="20" y="0.0" width="100" height="72"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="100" id="wXk-G0-Pm9"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D4R-0k-CNW">
+                                                            <rect key="frame" x="20" y="0.0" width="100" height="72"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="100" id="nni-9C-Lv2"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lje-n5-iSB">
+                                                            <rect key="frame" x="20" y="0.0" width="100" height="72"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="100" id="s5G-E3-eqf"/>
                                                             </constraints>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstItem="meu-PS-eon" firstAttribute="leading" secondItem="HgE-rf-zjm" secondAttribute="leading" id="8sy-dV-A6k"/>
-                                                        <constraint firstAttribute="bottom" secondItem="meu-PS-eon" secondAttribute="bottom" id="oEi-KF-KTx"/>
-                                                        <constraint firstItem="meu-PS-eon" firstAttribute="top" secondItem="HgE-rf-zjm" secondAttribute="top" id="ttp-ak-4B0"/>
+                                                        <constraint firstAttribute="width" constant="289" id="5Sg-ng-aut"/>
                                                     </constraints>
                                                 </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T8Z-b7-rRf">
-                                                    <rect key="frame" x="297" y="23" width="70" height="72"/>
+                                                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T8Z-b7-rRf">
+                                                    <rect key="frame" x="297" y="23" width="78" height="72"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="70" id="oeY-gy-DYw"/>
@@ -82,6 +91,9 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="T8Z-b7-rRf" secondAttribute="trailing" id="zHp-lE-Lfe"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <constraints>
+                                            <constraint firstItem="lje-n5-iSB" firstAttribute="leading" secondItem="R1K-YZ-VDM" secondAttribute="leading" constant="20" id="dNU-HU-Fip"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="clientImageView" destination="meu-PS-eon" id="6cc-Xs-dAK"/>
                                         </connections>
@@ -90,6 +102,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.97254901959999995" green="0.96862745100000003" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Siu-1O-BdZ" secondAttribute="trailing" constant="-16" id="bCl-n1-Lba"/>
+                            <constraint firstItem="Siu-1O-BdZ" firstAttribute="top" secondItem="Y6a-0m-ifi" secondAttribute="bottom" id="jic-qK-MI0"/>
+                            <constraint firstItem="Zhi-iz-goN" firstAttribute="top" secondItem="Siu-1O-BdZ" secondAttribute="bottom" id="kcm-j1-WHd"/>
+                            <constraint firstItem="Siu-1O-BdZ" firstAttribute="leading" secondItem="tIz-Zg-dIr" secondAttribute="leadingMargin" constant="-16" id="zWv-bi-ALY"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Favorites" id="aLB-lU-m5Q"/>
                     <connections>
