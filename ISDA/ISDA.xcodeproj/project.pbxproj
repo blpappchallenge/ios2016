@@ -10,7 +10,6 @@
 		14B1E5391DECBDBE004B68F6 /* Controller_Clients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B1E5381DECBDBE004B68F6 /* Controller_Clients.swift */; };
 		14B1E53B1DECC0AD004B68F6 /* Controller_Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B1E53A1DECC0AD004B68F6 /* Controller_Settings.swift */; };
 		14B1E53F1DECC0E0004B68F6 /* Controller_Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B1E53E1DECC0E0004B68F6 /* Controller_Favorites.swift */; };
-		14B1E5411DECC0F0004B68F6 /* Controller_Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B1E5401DECC0F0004B68F6 /* Controller_Search.swift */; };
 		14B1E5481DECDA41004B68F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14B1E5461DECDA41004B68F6 /* Main.storyboard */; };
 		14B1E5B01DEE204D004B68F6 /* Controller_AddNewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B1E5AF1DEE204D004B68F6 /* Controller_AddNewService.swift */; };
 		14D8C52B1DEC975100CC0A9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D8C52A1DEC975100CC0A9C /* AppDelegate.swift */; };
@@ -33,6 +32,7 @@
 		64D73F941DF5ED65004A5CBC /* FavoritesViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D73F931DF5ED65004A5CBC /* FavoritesViewControllerFactory.swift */; };
 		659048EE1DF6016A00A8809B /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659048ED1DF6016A00A8809B /* FavoriteTableViewCell.swift */; };
 		963FF1CB1DF71B4E0049572A /* Controller_AddNewClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963FF1CA1DF71B4E0049572A /* Controller_AddNewClient.swift */; };
+		963FF1CD1DF735AD0049572A /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963FF1CC1DF735AD0049572A /* SearchTableViewController.swift */; };
 		DB0F37061DF5EB360068F85D /* Platforms.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB0F37051DF5EB360068F85D /* Platforms.storyboard */; };
 		DB0F37081DF5F4F90068F85D /* ClientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0F37071DF5F4F90068F85D /* ClientTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -41,7 +41,6 @@
 		14B1E5381DECBDBE004B68F6 /* Controller_Clients.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller_Clients.swift; sourceTree = "<group>"; };
 		14B1E53A1DECC0AD004B68F6 /* Controller_Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller_Settings.swift; sourceTree = "<group>"; };
 		14B1E53E1DECC0E0004B68F6 /* Controller_Favorites.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Controller_Favorites.swift; path = ../Controller_Favorites.swift; sourceTree = "<group>"; };
-		14B1E5401DECC0F0004B68F6 /* Controller_Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Controller_Search.swift; path = ../Controller_Search.swift; sourceTree = "<group>"; };
 		14B1E5471DECDA41004B68F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		14B1E5AF1DEE204D004B68F6 /* Controller_AddNewService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller_AddNewService.swift; sourceTree = "<group>"; };
 		14D8C5271DEC975100CC0A9C /* ISDA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ISDA.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +65,7 @@
 		64D73F931DF5ED65004A5CBC /* FavoritesViewControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewControllerFactory.swift; sourceTree = "<group>"; };
 		659048ED1DF6016A00A8809B /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
 		963FF1CA1DF71B4E0049572A /* Controller_AddNewClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller_AddNewClient.swift; sourceTree = "<group>"; };
+		963FF1CC1DF735AD0049572A /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchTableViewController.swift; path = ../SearchTableViewController.swift; sourceTree = "<group>"; };
 		DB0F37051DF5EB360068F85D /* Platforms.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Platforms.storyboard; sourceTree = "<group>"; };
 		DB0F37071DF5F4F90068F85D /* ClientTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -157,7 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				64D73F7B1DF5D59D004A5CBC /* Search.storyboard */,
-				14B1E5401DECC0F0004B68F6 /* Controller_Search.swift */,
+				963FF1CC1DF735AD0049572A /* SearchTableViewController.swift */,
 				64D73F8D1DF5EBA3004A5CBC /* SearchViewControllerFactory.swift */,
 			);
 			name = Search;
@@ -281,6 +281,7 @@
 				64D73F8E1DF5EBA3004A5CBC /* SearchViewControllerFactory.swift in Sources */,
 				DB0F37081DF5F4F90068F85D /* ClientTableViewCell.swift in Sources */,
 				14B1E5B01DEE204D004B68F6 /* Controller_AddNewService.swift in Sources */,
+				963FF1CD1DF735AD0049572A /* SearchTableViewController.swift in Sources */,
 				14D8C5431DEC98BC00CC0A9C /* TestAccount.swift in Sources */,
 				64D73F901DF5EBF1004A5CBC /* NavigationControllerFactory.swift in Sources */,
 				14B1E5391DECBDBE004B68F6 /* Controller_Clients.swift in Sources */,
@@ -290,7 +291,6 @@
 				963FF1CB1DF71B4E0049572A /* Controller_AddNewClient.swift in Sources */,
 				14D8C53D1DEC981900CC0A9C /* Service.swift in Sources */,
 				64D73F941DF5ED65004A5CBC /* FavoritesViewControllerFactory.swift in Sources */,
-				14B1E5411DECC0F0004B68F6 /* Controller_Search.swift in Sources */,
 				14D8C5411DEC989200CC0A9C /* Client.swift in Sources */,
 				64D73F891DF5E82A004A5CBC /* SettingsViewControllerFactory.swift in Sources */,
 				14D8C53F1DEC984A00CC0A9C /* Generation.swift in Sources */,

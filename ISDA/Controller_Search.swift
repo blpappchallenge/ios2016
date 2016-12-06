@@ -35,7 +35,8 @@ class Controller_Search: UIViewController {
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         
         performSegue(withIdentifier: item.title!, sender: self)
-        
-    }
 
+        searchBar.placeholder = "searchbar"
+        var leftNavBarButton = UIBarButtonItem(customView:searchBar)
+        self.navigationItem.leftBarButtonItem = leftNavBarButton
 }
