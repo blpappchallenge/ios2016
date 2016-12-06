@@ -7,6 +7,11 @@
 //test
 
 import UIKit
+import AWSS3
+import AWSDynamoDB
+import AWSSQS
+import AWSSNS
+import AWSCognito
 
 class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     private var navigator:HomeNavigator!
@@ -30,6 +35,23 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
         let logo = #imageLiteral(resourceName: "syf_logo")
         let imageView = UIImageView(image: logo)
         self.navigationController?.navigationBar.topItem?.titleView = imageView
+        
+        let dynamoDB = AWSDynamoDB.default()
+        let listTableInput = AWSDynamoDBListTablesInput()
+        dynamoDB.listTables(listTableInput!).continue({(task: AWSTask?) -> AnyObject? in
+            if let error = task?.error {
+                print("Error occurred: \(error)")
+                return nil
+            }
+            
+            let listTablesOutput = (task?.result)! as AWSDynamoDBListTablesOutput
+            
+            for tableName in listTablesOutput.tableNames! {
+                print("\(tableName)")
+            }
+            
+            return nil
+        })
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -59,7 +81,11 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
         let service = Services?[indexPath.item]
         
         // Show the view controller.
+<<<<<<< HEAD
         navigator.goToPlatformsViewController(withService: service!)
+=======
+        showChildController(controllerName: "platforms")
+>>>>>>> origin/IOS-3_Home_Page
     }
     
     func showChildController(controllerName: String) {
