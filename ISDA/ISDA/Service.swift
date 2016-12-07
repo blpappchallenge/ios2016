@@ -31,8 +31,9 @@ struct Service {
         }
     }
     
-    func addClient(id:String, name:String, testAccounts:[TestAccount], generationName: String) {
-        let client = Client(id: id, name: name, testAccounts: testAccounts)
+    func addClient(id:String, name:String, username:String, password:String, generationName: String) {
+        let testAccount = TestAccount(userName: username, password: password)
+        let client = Client(id: id, name: name, testAccounts: [testAccount])
         add(client: client, generationName: generationName)
     }
 }

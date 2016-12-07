@@ -8,7 +8,11 @@
 
 import Foundation
 
-struct ServicePersister {
-    private let services: [Service]?
+class ServicePersister {
+    private (set) var services: [Service]?
+    
+    func save(_ services: [Service]) {
+        self.services = services
+    }
     
 }
