@@ -16,22 +16,9 @@ class Controller_Settings: UIViewController {
         super.viewDidLoad()
         self.navigator = SettingsNavigator(viewController: self)
     }
-        
-    }
-    
-    func clearChildViews() {
-        
-        // Clear all of the child views if any.
-        for childController in self.childViewControllers {
-            
-            childController.view.removeFromSuperview()
-            childController.removeFromParentViewController()
-        }
-    }
 
     @IBAction func AddNewService(_ sender: Any) {
-        let vc = SettingsViewControllerFactory().makeAddNewServiceViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        navigator.goToAddNewService()
     }
     @IBAction func AddNewClient(_ sender: Any) {
         navigator.goToAddNewClient()
@@ -40,7 +27,3 @@ class Controller_Settings: UIViewController {
         navigator.goToHelp()
     }
 }
-
-
-
-
