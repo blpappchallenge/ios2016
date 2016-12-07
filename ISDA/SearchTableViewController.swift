@@ -11,7 +11,7 @@ import UIKit
 class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     
     let searchBar = UISearchBar()
-    let tableData = ["mService","mApply","dApply","SyPI","ConsumerCenter","Hackathons","BoltSessions"]
+    let tableData = ["mService","mApply","dApply","SyPI","Consumer Center","Hackathons","Bolt Sessions"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
