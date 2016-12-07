@@ -30,16 +30,22 @@ class Controller_AddNewClient: UIViewController {
     }
     
     @IBAction func didPressSubmit(_ sender: Any) {
-        
+        if let firstService = App.services?.first {
+            handleServiceSelected(service: firstService)
+        }
     }
     
     func handleServiceSelected(service:Service) {
         let id = idTextField.text ?? "default id"
+        let name = nameTextField.text ?? "default name"
+        let username = usernameTextField.text ?? "default username"
+        let password = passwordTextField.text ?? "default password"
+        let url = urlTextField.text ?? "default url"
         addNewClient(id: id,
-                     name: "",
-                     username: "",
-                     password: "",
-                     generationName: "")
+                     name: name,
+                     username: username,
+                     password: password,
+                     generationName: url)
     }
     
     func addNewClient(id: String,
