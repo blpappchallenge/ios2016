@@ -43,6 +43,12 @@ class Controller_Clients: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigator = PlatformsNavigator(viewController:self)
+        let faveImage = UIImage(named: "favStar")
+        let innerButton = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        innerButton.setImage(faveImage, for: .normal)
+        innerButton.addTarget(self, action: #selector(self.faveButtonWasPressed), for: .touchUpInside)
+        let barButton = UIBarButtonItem(customView: innerButton)
+        navigationItem.rightBarButtonItem = barButton
     }
     
 }
@@ -77,6 +83,11 @@ private extension Controller_Clients {
         let generationToSelect = generations[index]
         self.selectedGeneration = generationToSelect
     }
+    
+    @objc func faveButtonWasPressed() {
+        
+    }
+
 
     func populateAnalyticsData() {
         // Path to the JSON file that holds the data. *running locally at the moment*

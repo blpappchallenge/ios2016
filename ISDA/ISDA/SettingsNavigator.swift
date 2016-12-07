@@ -24,5 +24,6 @@ struct SettingsNavigator: Navigator {
     
     func goToHelp() {
         
+        
     }
 }

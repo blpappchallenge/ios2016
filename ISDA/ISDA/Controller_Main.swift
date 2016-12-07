@@ -26,6 +26,7 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setup()
+        navigator = HomeNavigator(viewController:self)
         requestHandler.requestServices(completion: self.handleServiceResponse)
         requestHandler.analytics()
     }
