@@ -7,15 +7,29 @@
 //
 
 import UIKit
+import AWSCore
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+    var favorites = FavoritesPersister()
+    var services: [Service]?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let credentialsProvider = AWSCognitoCredentialsProvider(
+            regionType: AWSRegionType.usEast1,
+            identityPoolId: "us-east-1:b0ffb4c3-b0c0-425d-92ed-a67968679f8f")
+        
+        let configuration = AWSServiceConfiguration(
+            region: AWSRegionType.usEast1,
+            credentialsProvider: credentialsProvider)
+        
+        AWSServiceManager.default().defaultServiceConfiguration = configuration
+        
         return true
     }
 

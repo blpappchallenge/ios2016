@@ -13,8 +13,5 @@ protocol NavigationControllerFactory {
     var storyboard: UIStoryboard { get }
 }
 extension NavigationControllerFactory {
-    func makeNavigationController() -> UINavigationController {
-        let navigationController = storyboard.instantiateInitialViewController() as! UINavigationController
-        return navigationController
-    }
+    
 }

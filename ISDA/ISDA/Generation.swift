@@ -8,8 +8,14 @@
 
 import UIKit
 
-class Generation: NSObject {
-    var Name: String!
-    var URL: String!
-    var Clients = [Client]()
+struct Generation {
+    let name: String
+    let url: String
+    let clients: [Client]
+    
+    init(name:String, url:String, clients:[Client]) {
+        self.name = name
+        self.url = url
+        self.clients = clients
+    }
 }

@@ -11,8 +11,15 @@ import UIKit
 
 struct WebViewControllerFactory {
     private let storyboard = UIStoryboard(name: "Web", bundle: nil)
+    
+    func makeWebViewController(withClient client:Client) -> WebViewController {
+        let viewController = storyboard.instantiateViewController(withIdentifier: "webViewController") as! WebViewController
+        viewController.client = client
+        
+        return viewController
+    }
 
-    func makeWebViewController(withURL url: URL, account: Account, title: String? = nil) -> WebViewController {
+    func makeWebViewController(withURL url: URL, account: TestAccount, title: String? = nil) -> WebViewController {
         let viewController = storyboard.instantiateViewController(withIdentifier: "webViewController") as! WebViewController
         viewController.url = url
         viewController.title = title
