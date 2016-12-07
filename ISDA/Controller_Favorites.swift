@@ -10,7 +10,7 @@ import UIKit
 
 class Controller_Favorites: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var favorites: [Client]!
+    var favorites: [Client]?
 
     @IBOutlet weak var FavoritesList: UITableView!
     override func viewDidLoad() {
@@ -21,14 +21,14 @@ class Controller_Favorites: UIViewController, UITableViewDelegate, UITableViewDa
 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return favorites.count
+        return favorites?.count ?? 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let row = indexPath.row
         let cell = tableView.dequeueReusableCell(withIdentifier: "favoriteTableViewCell") as! FavoriteTableViewCell
         
-        if let favorite = favorites?[row] {
+        if let _ = favorites?[row] {
             cell.clientImageView.image = UIImage(named:"home")
             //add the image
         }

@@ -32,7 +32,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="4Xr-VD-10g" customClass="Service" customModule="ISDA" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="4Xr-VD-10g" customClass="ServiceCollectionViewCell" customModule="ISDA" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="187" height="187"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -65,16 +65,13 @@
                                             </subviews>
                                         </view>
                                         <connections>
-                                            <outlet property="DescriptionLabel" destination="F7o-75-LOZ" id="msr-z3-rAb"/>
-                                            <outlet property="LogoView" destination="bxU-WC-IXu" id="3Wh-rD-bbv"/>
                                             <outlet property="NameLabel" destination="OKs-r7-jNA" id="Ob4-nH-e5H"/>
+                                            <outlet property="descriptionLabel" destination="F7o-75-LOZ" id="thy-YF-Umx"/>
+                                            <outlet property="logoView" destination="hQm-Tq-ZuK" id="u6E-uH-aee"/>
+                                            <outlet property="nameLabel" destination="OKs-r7-jNA" id="O5z-tn-G6d"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="w28-Tj-Ip4" id="xWf-Z8-lvR"/>
-                                    <outlet property="delegate" destination="w28-Tj-Ip4" id="fye-aj-NQo"/>
-                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="0.23137254900000001" green="0.23529411759999999" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -96,7 +93,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IpN-pT-zZ3" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" image="home" id="K2J-qY-yUy"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="y9D-Bf-iNy">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="y9D-Bf-iNy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.23137254900000001" green="0.23529411759999999" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

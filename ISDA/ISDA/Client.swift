@@ -8,10 +8,15 @@
 
 import UIKit
 
-class Client: NSObject {
+struct Client {
     
-    var ClientID: String!
-    var TestAccounts = [TestAccount]()
-    var Name: String!
-    var clientType: String!
+    let clientID: String
+    let testAccounts: [TestAccount]
+    let name: String
+    
+    init(id:String, name:String, testAccounts:[TestAccount]) {
+        self.clientID = id
+        self.name = name
+        self.testAccounts = testAccounts
+    }
 }

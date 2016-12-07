@@ -8,14 +8,18 @@
 
 import UIKit
 
-class Service: UICollectionViewCell {
-    
+struct Service {
+    let name: String
+    let description: String
+    let generations: [Generation]
+    let imageUrl: String
+    var logo: UIImage?
 
-    @IBOutlet weak var DescriptionLabel: UILabel!
-    @IBOutlet weak var NameLabel: UILabel!
-    @IBOutlet weak var LogoView: UIImageView!
-    var Name: String!
-    var Description: String!
-    var Generations = [Generation]()
-    var Logo: UIImage!
+    
+    init(name:String, description: String, generations:[Generation], imageUrl:String) {
+        self.name = name
+        self.description = description
+        self.generations = generations
+        self.imageUrl = imageUrl
+    }
 }
