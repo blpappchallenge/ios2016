@@ -15,6 +15,7 @@ import AWSCognito
 
 class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     private var navigator:HomeNavigator!
+    private let requestHandler = ServiceRequestHandler()
     
     @IBOutlet weak var TabItem: UITabBarItem!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -24,17 +25,12 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        populateServiceArray()
-        populateAnalyticsData()
+        self.setup()
+        requestHandler.requestServices(completion: self.handleServiceResponse)
+        requestHandler.analytics()
     }
 
     override func viewDidAppear(_ animated: Bool) {
-
-        // Add the SYF logo to the navigation header.
-        let logo = #imageLiteral(resourceName: "syf_logo")
-        let imageView = UIImageView(image: logo)
-        self.navigationController?.navigationBar.topItem?.titleView = imageView
-        
         let dynamoDB = AWSDynamoDB.default()
         let listTableInput = AWSDynamoDBListTablesInput()
         dynamoDB.listTables(listTableInput!).continue({(task: AWSTask?) -> AnyObject? in
@@ -78,74 +74,7 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
         
         // Get the cell information to pass onto the next page (web view)
         let service = Services?[indexPath.item]
-        
-        // Show the view controller.
         navigator.goToPlatformsViewController(withService: service!)
-    }
-    
-    func showChildController(controllerName: String) {
-        
-        let storyboard = UIStoryboard(name: "Platforms", bundle: Bundle.main)
-        let viewController = storyboard.instantiateViewController(withIdentifier: controllerName)
-        self.navigationController?.pushViewController(viewController, animated: true)
-    }
-    
-    func populateAnalyticsData() {
-        // Path to the JSON file that holds the data. *running locally at the moment*
-        let urlString = "https://rcmon-da.app.syfbank.com/EComStatsGen2/rest/pullWSStats?wsstatsparam=consumermapply"
-        let url = URL(string: urlString)
-        
-        URLSession.shared.dataTask(with:url!, completionHandler: {(data, response, error) in
-            if let error = error {
-                print(error)
-            } else {
-                do {
-                    let parsedData = try JSONSerialization.jsonObject(with: data!)
-                    print(parsedData)
-                    
-                } catch let error as NSError {
-                    print(error)
-                }
-            }
-            
-        }).resume()
-    }
-    
-    func populateServiceArray() {
-        
-        // Path to the JSON file that holds the data. *running locally at the moment*
-        //let urlString = "http://isda.pcfpoc.cdev.syfbank.com/Services.json"
-        //let pictureDirectory = "http://isda.pcfpoc.cdev.syfbank.com/images/"
-        let baseDomain = "https://uat.synchronycredit.com/BLPAppChallenge/"
-        let servicesJsonURL = "https://api.myjson.com/bins/qx9v"
-        let url = URL(string: servicesJsonURL)
-        
-        URLSession.shared.dataTask(with:url!, completionHandler: {(data, response, error) in
-            if  let error = error {
-                print(error)
-            } else {
-                do {
-                    // Parse the JSON data.
-                    let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
-                    print(json)
-                    
-                    let parser = ServiceParser()
-                    self.Services = parser.parse(json: json)
-                    self.setupCollectionView()
-                    
-                } catch let error as NSError {
-                    print(error)
-                }
-            }
-            
-        }).resume()
-        
-        sleep(1)
-    }
-    
-    private func setupCollectionView() {
-        collectionView.delegate = self
-        collectionView.dataSource = self
     }
     
     @IBAction func LaunchOptions(_sender:Any) {
@@ -154,3 +83,16 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
     }
 }
 
+private extension Controller_Main {
+    func handleServiceResponse(services:[Service]?, error:Error?) {
+        Services = services
+        collectionView.delegate = self
+        collectionView.dataSource = self
+    }
+    
+    func setup() {
+        let logo = #imageLiteral(resourceName: "syf_logo")
+        let imageView = UIImageView(image: logo)
+        self.navigationController?.navigationBar.topItem?.titleView = imageView
+    }
+}
