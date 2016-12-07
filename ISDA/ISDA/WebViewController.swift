@@ -16,7 +16,7 @@ class WebViewController : UIViewController {
     var client: Client? {
         didSet {
             if let client = client {
-                
+                self.title = client.name
             }
         }
     }
