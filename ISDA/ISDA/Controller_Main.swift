@@ -20,12 +20,17 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
     @IBOutlet weak var TabItem: UITabBarItem!
     @IBOutlet weak var collectionView: UICollectionView!
     let reuseIdentifier = "Cell" // also enter this string as the cell identifier in the storyboard
-    var Services: [Service]?
+    var Services: [Service]? {
+        didSet {
+            
+        }
+    }
     var SelectedService: Service!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setup()
+        navigator = HomeNavigator(viewController:self)
         requestHandler.requestServices(completion: self.handleServiceResponse)
         requestHandler.analytics()
     }
