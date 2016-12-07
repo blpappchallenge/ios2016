@@ -290,6 +290,7 @@
 				TargetAttributes = {
 					14D8C5261DEC975100CC0A9C = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 9R9XSQ2U67;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -532,6 +533,7 @@
 			baseConfigurationReference = C3769448637E3C041D097A1F /* Pods-ISDA.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9R9XSQ2U67;
 				INFOPLIST_FILE = ISDA/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Swift.ISDA;
@@ -545,6 +547,7 @@
 			baseConfigurationReference = F088929AA7DB817C88A3A9B1 /* Pods-ISDA.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9R9XSQ2U67;
 				INFOPLIST_FILE = ISDA/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Swift.ISDA;

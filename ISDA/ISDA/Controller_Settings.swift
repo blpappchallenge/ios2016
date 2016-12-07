@@ -60,6 +60,10 @@ class Controller_Settings: UIViewController {
     @IBAction func Help(_ sender: Any) {
         
     }
+
+    
+
+    
 }
 
 
