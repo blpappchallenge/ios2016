@@ -9,6 +9,7 @@
 import Foundation
 
 struct ServiceRequestHandler {
+    private let mockFactory = MockJsonFactory()
     func requestServices(completion: @escaping ([Service]?, Error?) ->Void) {
         // Path to the JSON file that holds the data. *running locally at the moment*
         //let urlString = "http://isda.pcfpoc.cdev.syfbank.com/Services.json"
@@ -63,6 +64,8 @@ struct ServiceRequestHandler {
     }
     
     private func makeMockData(completion:([Service]?, Error?) ->Void) {
+        let services = mockFactory.makeServices()
         
+        completion(services, nil)
     }
 }

@@ -35,6 +35,8 @@
 		64CAE6F21DF74A1F00C752C4 /* FavoritesPersister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CAE6F11DF74A1F00C752C4 /* FavoritesPersister.swift */; };
 		64CAE6F41DF771BD00C752C4 /* SettingsNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CAE6F31DF771BD00C752C4 /* SettingsNavigator.swift */; };
 		64CAE6F61DF78B2600C752C4 /* ServiceRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CAE6F51DF78B2600C752C4 /* ServiceRequestHandler.swift */; };
+		64CAE6F71DF791DD00C752C4 /* MockJsonFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CAE6E91DF7292700C752C4 /* MockJsonFactory.swift */; };
+		64CAE6F81DF7924F00C752C4 /* response.json in Resources */ = {isa = PBXBuildFile; fileRef = 64CAE6EE1DF73E0A00C752C4 /* response.json */; };
 		64D73F781DF5D56A004A5CBC /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64D73F771DF5D56A004A5CBC /* Settings.storyboard */; };
 		64D73F7A1DF5D58A004A5CBC /* Favorites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64D73F791DF5D58A004A5CBC /* Favorites.storyboard */; };
 		64D73F7C1DF5D59D004A5CBC /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64D73F7B1DF5D59D004A5CBC /* Search.storyboard */; };
@@ -154,8 +156,8 @@
 		14B1E5421DECC109004B68F6 /* Clients */ = {
 			isa = PBXGroup;
 			children = (
-				14B1E5381DECBDBE004B68F6 /* Controller_Clients.swift */,
 				DB0F37051DF5EB360068F85D /* Platforms.storyboard */,
+				14B1E5381DECBDBE004B68F6 /* Controller_Clients.swift */,
 				DB0F37071DF5F4F90068F85D /* ClientTableViewCell.swift */,
 				64D73F9C1DF629FF004A5CBC /* PlatformsViewControllerFactory.swift */,
 				6485931E1DF708660006365C /* PlatformsNavigator.swift */,
@@ -443,6 +445,7 @@
 			files = (
 				648593101DF634A10006365C /* Web.storyboard in Resources */,
 				64D73F7E1DF5D759004A5CBC /* Home.storyboard in Resources */,
+				64CAE6F81DF7924F00C752C4 /* response.json in Resources */,
 				64D73F9B1DF61F65004A5CBC /* SearchBar.xib in Resources */,
 				14B1E5481DECDA41004B68F6 /* Main.storyboard in Resources */,
 				14D8C5351DEC975100CC0A9C /* LaunchScreen.storyboard in Resources */,
@@ -537,6 +540,7 @@
 				64CAE6F21DF74A1F00C752C4 /* FavoritesPersister.swift in Sources */,
 				64CAE6CF1DF720DE00C752C4 /* ImageRequestHandler.swift in Sources */,
 				14B1E5391DECBDBE004B68F6 /* Controller_Clients.swift in Sources */,
+				64CAE6F71DF791DD00C752C4 /* MockJsonFactory.swift in Sources */,
 				64CAE6CD1DF71CDA00C752C4 /* ServiceParser.swift in Sources */,
 				14B1E53F1DECC0E0004B68F6 /* Controller_Favorites.swift in Sources */,
 				14D8C52B1DEC975100CC0A9C /* AppDelegate.swift in Sources */,

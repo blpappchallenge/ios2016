@@ -9,6 +9,7 @@
 import Foundation
 
 class MockJsonFactory {
+    private let parser = ServiceParser()
     
     func makeDictionary() -> [String:Any]? {
         let data = makeData()!
@@ -32,5 +33,13 @@ class MockJsonFactory {
         catch {
             return nil
         }
+    }
+    
+    func makeServices() -> [Service]? {
+        let json = makeDictionary()
+        if let json = json {
+            return parser.parse(json: json)
+        }
+        return nil
     }
 }
