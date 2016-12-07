@@ -1,63 +1,36 @@
 {
-"key": "services",
-"Services": [
-{
-"Description": "Mobile web servicing app",
-"Generations": [
-{
-"Clients": [
-{
-"clientID": "gap",
-"name": "GAP",
-"testAccounts": [
-{
-"password": "Test12Test",
-"userName": "gapdc8364"
-}
-]
-},
-{
-"clientID": "athleta",
-"name": "Athleta",
-"testAccounts": [
-{
-"password": "Test12Test",
-"userName": "athletadc8946"
-}
-]
-},
-{
-"clientID": "oldnavy",
-"name": "Old Navy",
-"testAccounts": [
-{
-"password": "Test12Test",
-"userName": "oldnavydc9485"
-}
-]
-},
-{
-"clientID": "br",
-"name": "Banana Republic",
-"testAccounts": [
-{
-"password": "Test12Test",
-"userName": "brdc3655"
-}
-]
-}
-],
-"name": "5",
-"URL": "https://#branch.onlinecreditcenter6.com/mSecurity/Login/login.action?clientId=#clientID&accountType=#accountType&langId=en"
-},
-{
-"Clients": [],
-"name": "4",
-"URL": "https://#branch.onlinecreditcenter6.com/mservicegen4/login.do?subActionId=1000&clientId=#clientID&accountType=#accountType&langId=en"
-}
-],
-"Logo": "mService.png",
-"name": "mService"
-}
-]
+    "key": "services",
+    "Services": [
+                 {
+                 "Description": "Mobile web servicing app",
+                                 "Clients": [
+                                             {
+                                             "clientID": "gap",
+                                             "name": "GAP",
+                                             "generation": "5",
+                                             "URL": "https://uat.onlinecreditcenter6.com/mSecurity/Login/login.action?clientId=gap&accountType=generic&langId=en",
+                                             "testAccounts": [
+                                                              {
+                                                              "password": "Test12Test",
+                                                              "userName": "gapdc8364"
+                                                              }
+                                                              ]
+                                             },
+                                             {
+                                             "clientID": "br",
+                                             "name": "Banana Republic",
+                                             "generation": "5",
+                                             "URL": "https://uat.onlinecreditcenter6.com/mSecurity/Login/login.action?clientId=br&accountType=generic&langId=en",
+                                             "testAccounts": [
+                                                              {
+                                                              "password": "Test12Test",
+                                                              "userName": "brdc3655"
+                                                              }
+                                                              ]
+                                             }
+                            ],
+                 "Logo": "mService.png",
+                 "name": "mService"
+                 }
+                 ]
 }
