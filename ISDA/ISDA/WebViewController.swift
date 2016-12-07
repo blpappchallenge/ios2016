@@ -34,6 +34,15 @@ class WebViewController : UIViewController {
             enterCredentials()
         }
     }
+    
+    override func viewDidLoad() {
+        let faveImage = UIImage(named: "favStar")
+        let innerButton = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        innerButton.setImage(faveImage, for: .normal)
+        innerButton.addTarget(self, action: #selector(self.faveButtonWasPressed), for: .touchUpInside)
+        let barButton = UIBarButtonItem(customView: innerButton)
+        navigationItem.rightBarButtonItem = barButton
+    }
 }
 
     // MARK: UIWEBVIEWDELEGATE
@@ -45,6 +54,15 @@ extension WebViewController : UIWebViewDelegate {
 
     // MARK: PRIVATE
 private extension WebViewController {
+    
+    func makeStar() {
+
+        
+    }
+    
+    @objc func faveButtonWasPressed() {
+        
+    }
     
     func prepareRequest(_ url:URL) -> URLRequest {
         return URLRequest(url: url)

@@ -26,9 +26,8 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
         super.viewDidLoad()
         populateServiceArray()
         populateAnalyticsData()
-        self.navigator = HomeNavigator(viewController: self)
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
 
         // Add the SYF logo to the navigation header.

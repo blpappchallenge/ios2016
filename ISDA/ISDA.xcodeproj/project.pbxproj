@@ -33,6 +33,7 @@
 		64CAE6EA1DF7292700C752C4 /* MockJsonFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CAE6E91DF7292700C752C4 /* MockJsonFactory.swift */; };
 		64CAE6EF1DF73E0A00C752C4 /* response.json in Resources */ = {isa = PBXBuildFile; fileRef = 64CAE6EE1DF73E0A00C752C4 /* response.json */; };
 		64CAE6F21DF74A1F00C752C4 /* FavoritesPersister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CAE6F11DF74A1F00C752C4 /* FavoritesPersister.swift */; };
+		64CAE6F41DF771BD00C752C4 /* SettingsNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CAE6F31DF771BD00C752C4 /* SettingsNavigator.swift */; };
 		64D73F781DF5D56A004A5CBC /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64D73F771DF5D56A004A5CBC /* Settings.storyboard */; };
 		64D73F7A1DF5D58A004A5CBC /* Favorites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64D73F791DF5D58A004A5CBC /* Favorites.storyboard */; };
 		64D73F7C1DF5D59D004A5CBC /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64D73F7B1DF5D59D004A5CBC /* Search.storyboard */; };
@@ -47,10 +48,9 @@
 		64D73F9B1DF61F65004A5CBC /* SearchBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64D73F991DF61F65004A5CBC /* SearchBar.xib */; };
 		64D73F9D1DF629FF004A5CBC /* PlatformsViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D73F9C1DF629FF004A5CBC /* PlatformsViewControllerFactory.swift */; };
 		659048EE1DF6016A00A8809B /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659048ED1DF6016A00A8809B /* FavoriteTableViewCell.swift */; };
-		B0F8B6641A82BF18BBB0D733 /* Pods_ISDA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D84837D5FB02DF5ABFC2BB47 /* Pods_ISDA.framework */; };
-		659048EE1DF6016A00A8809B /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659048ED1DF6016A00A8809B /* FavoriteTableViewCell.swift */; };
 		963FF1CB1DF71B4E0049572A /* Controller_AddNewClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963FF1CA1DF71B4E0049572A /* Controller_AddNewClient.swift */; };
 		963FF1CD1DF735AD0049572A /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963FF1CC1DF735AD0049572A /* SearchTableViewController.swift */; };
+		B0F8B6641A82BF18BBB0D733 /* Pods_ISDA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D84837D5FB02DF5ABFC2BB47 /* Pods_ISDA.framework */; };
 		DB0F37061DF5EB360068F85D /* Platforms.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB0F37051DF5EB360068F85D /* Platforms.storyboard */; };
 		DB0F37081DF5F4F90068F85D /* ClientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0F37071DF5F4F90068F85D /* ClientTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -97,6 +97,7 @@
 		64CAE6E91DF7292700C752C4 /* MockJsonFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockJsonFactory.swift; sourceTree = "<group>"; };
 		64CAE6EE1DF73E0A00C752C4 /* response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = response.json; sourceTree = "<group>"; };
 		64CAE6F11DF74A1F00C752C4 /* FavoritesPersister.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesPersister.swift; sourceTree = "<group>"; };
+		64CAE6F31DF771BD00C752C4 /* SettingsNavigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsNavigator.swift; sourceTree = "<group>"; };
 		64D73F771DF5D56A004A5CBC /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		64D73F791DF5D58A004A5CBC /* Favorites.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Favorites.storyboard; sourceTree = "<group>"; };
 		64D73F7B1DF5D59D004A5CBC /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
@@ -111,11 +112,10 @@
 		64D73F991DF61F65004A5CBC /* SearchBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchBar.xib; sourceTree = "<group>"; };
 		64D73F9C1DF629FF004A5CBC /* PlatformsViewControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlatformsViewControllerFactory.swift; sourceTree = "<group>"; };
 		659048ED1DF6016A00A8809B /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
-		C3769448637E3C041D097A1F /* Pods-ISDA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ISDA.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ISDA/Pods-ISDA.debug.xcconfig"; sourceTree = "<group>"; };
-		D84837D5FB02DF5ABFC2BB47 /* Pods_ISDA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ISDA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		659048ED1DF6016A00A8809B /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
 		963FF1CA1DF71B4E0049572A /* Controller_AddNewClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller_AddNewClient.swift; sourceTree = "<group>"; };
 		963FF1CC1DF735AD0049572A /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchTableViewController.swift; path = ../SearchTableViewController.swift; sourceTree = "<group>"; };
+		C3769448637E3C041D097A1F /* Pods-ISDA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ISDA.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ISDA/Pods-ISDA.debug.xcconfig"; sourceTree = "<group>"; };
+		D84837D5FB02DF5ABFC2BB47 /* Pods_ISDA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ISDA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB0F37051DF5EB360068F85D /* Platforms.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Platforms.storyboard; sourceTree = "<group>"; };
 		DB0F37071DF5F4F90068F85D /* ClientTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientTableViewCell.swift; sourceTree = "<group>"; };
 		F088929AA7DB817C88A3A9B1 /* Pods-ISDA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ISDA.release.xcconfig"; path = "Pods/Target Support Files/Pods-ISDA/Pods-ISDA.release.xcconfig"; sourceTree = "<group>"; };
@@ -223,7 +223,6 @@
 		6485931B1DF700190006365C /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
-				64D73F8F1DF5EBF1004A5CBC /* NavigationControllerFactory.swift */,
 				6485931C1DF700270006365C /* Navigator.swift */,
 			);
 			name = Infrastructure;
@@ -307,6 +306,7 @@
 				14B1E5AF1DEE204D004B68F6 /* Controller_AddNewService.swift */,
 				963FF1CA1DF71B4E0049572A /* Controller_AddNewClient.swift */,
 				64D73F881DF5E82A004A5CBC /* SettingsViewControllerFactory.swift */,
+				64CAE6F31DF771BD00C752C4 /* SettingsNavigator.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -528,6 +528,7 @@
 				14D8C5431DEC98BC00CC0A9C /* TestAccount.swift in Sources */,
 				648593151DF639AB0006365C /* ServiceCollectionViewCell.swift in Sources */,
 				64D73F901DF5EBF1004A5CBC /* NavigationControllerFactory.swift in Sources */,
+				64CAE6F41DF771BD00C752C4 /* SettingsNavigator.swift in Sources */,
 				6485931F1DF708660006365C /* PlatformsNavigator.swift in Sources */,
 				6485931A1DF6FF710006365C /* HomeNavigator.swift in Sources */,
 				64CAE6F21DF74A1F00C752C4 /* FavoritesPersister.swift in Sources */,
@@ -540,7 +541,6 @@
 				963FF1CB1DF71B4E0049572A /* Controller_AddNewClient.swift in Sources */,
 				14D8C53D1DEC981900CC0A9C /* Service.swift in Sources */,
 				64D73F941DF5ED65004A5CBC /* FavoritesViewControllerFactory.swift in Sources */,
-				14B1E5411DECC0F0004B68F6 /* Controller_Search.swift in Sources */,
 				648593121DF634A10006365C /* WebViewControllerFactory.swift in Sources */,
 				14D8C5411DEC989200CC0A9C /* Client.swift in Sources */,
 				64D73F9D1DF629FF004A5CBC /* PlatformsViewControllerFactory.swift in Sources */,
