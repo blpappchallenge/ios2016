@@ -141,7 +141,7 @@
                                 <rect key="frame" x="0.0" y="182" width="375" height="485"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SCx-Wc-lcJ">
-                                        <rect key="frame" x="158" y="412" width="58" height="34"/>
+                                        <rect key="frame" x="158.5" y="412" width="58" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="Submit"/>
                                         <connections>
@@ -310,7 +310,7 @@
                                 <state key="normal" title="Submit"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New Client " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EPV-Gf-zWs">
-                                <rect key="frame" x="116" y="100" width="142" height="36"/>
+                                <rect key="frame" x="117" y="100" width="142" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="142" id="Mqx-ng-34V"/>
                                     <constraint firstAttribute="height" constant="36" id="N6Y-yW-n7G"/>
