@@ -11,7 +11,7 @@ import UIKit
 struct Generation {
     let name: String
     let url: String
-    let clients: [Client]
+    var clients: [Client]
     
     init(name:String, url:String, clients:[Client]) {
         self.name = name
