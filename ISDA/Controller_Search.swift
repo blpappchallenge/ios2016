@@ -34,7 +34,6 @@ class Controller_Search: UIViewController, SearchBarDelegate {
 
 private extension Controller_Search {
     func setup() {
-        configureSearchBar()
     }
     
     func configureSearchBar() {
@@ -43,4 +42,8 @@ private extension Controller_Search {
         searchBar.delegate = self
         navigationItem.titleView = searchBar
     }
+
+        searchBar.placeholder = "searchbar"
+        var leftNavBarButton = UIBarButtonItem(customView:searchBar)
+        self.navigationItem.leftBarButtonItem = leftNavBarButton
 }

@@ -11,11 +11,15 @@ import UIKit
 struct Service {
     let name: String
     let description: String
+    let generations: [Generation]
+    let imageUrl: String
     var logo: UIImage?
-    var generations = [Generation]()
+
     
-    init(name:String, description: String) {
+    init(name:String, description: String, generations:[Generation], imageUrl:String) {
         self.name = name
         self.description = description
+        self.generations = generations
+        self.imageUrl = imageUrl
     }
 }

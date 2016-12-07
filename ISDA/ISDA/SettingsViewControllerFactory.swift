@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-struct SettingsViewControllerFactory: NavigationControllerFactory {
+struct SettingsViewControllerFactory {
     internal let storyboard = UIStoryboard(name: "Settings", bundle: nil)
     
     func makeAddNewServiceViewController() -> Controller_AddNewService {

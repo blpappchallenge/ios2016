@@ -11,28 +11,11 @@
 import UIKit
 
 class Controller_Settings: UIViewController {
-
+    private var navigator: SettingsNavigator!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.navigator = SettingsNavigator(viewController: self)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        clearChildViews()
-    }
-    
-    func showChildController(controllerName: String) {
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let viewController = storyboard.instantiateViewController(withIdentifier: controllerName)
-        //let navigationController = UINavigationController(rootViewController: viewController)
-        self.navigationController?.pushViewController(viewController, animated: true)
         
     }
     
@@ -51,10 +34,10 @@ class Controller_Settings: UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     @IBAction func AddNewClient(_ sender: Any) {
-        
+        navigator.goToAddNewClient()
     }
     @IBAction func Help(_ sender: Any) {
-        
+        navigator.goToHelp()
     }
 }
 
