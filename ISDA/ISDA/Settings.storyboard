@@ -254,7 +254,7 @@
         <!--AddNewClient-->
         <scene sceneID="Zy8-UH-pij">
             <objects>
-                <viewController storyboardIdentifier="addnewclient" title="AddNewClient" id="fwM-Cn-zfE" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="addnewclient" title="AddNewClient" id="fwM-Cn-zfE" customClass="Controller_AddNewClient" customModule="ISDA" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eja-SA-KDK"/>
                         <viewControllerLayoutGuide type="bottom" id="w0g-Ip-SYG"/>
