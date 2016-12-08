@@ -33,6 +33,10 @@
                                             <segment title="Second"/>
                                         </segments>
                                     </segmentedControl>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qYp-ag-hQl">
+                                        <rect key="frame" x="8" y="8" width="359" height="247"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.97254901960784312" green="0.96862745098039216" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -45,7 +49,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="95"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kd5-Ud-2XK" id="I0I-ad-e67">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="94"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="94.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gW6-zL-5EB" userLabel="Info">
@@ -122,6 +126,7 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="HWX-iH-WRV"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="ServiceLogoView" destination="qYp-ag-hQl" id="lpI-vY-J0i"/>
                         <outlet property="tableView" destination="cjT-kv-9h2" id="LFP-Zq-3pF"/>
                     </connections>
                 </viewController>

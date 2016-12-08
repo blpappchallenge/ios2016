@@ -37,6 +37,37 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
 
     override func viewDidAppear(_ animated: Bool) {
         
+        //if let Services = Services {
+            for var service in Services {
+                
+                let baseDomain = "https://uat.synchronycredit.com/BLPAppChallenge/"
+                
+                let pictureDirectory = baseDomain + "images/"
+                // Get the picture from the connection
+                let pictureURL = URL(string: (pictureDirectory + service.imageUrl))!
+                let session = URLSession(configuration: .default)
+                let request = URLRequest(url: pictureURL)
+                
+                let downloadTask = session.dataTask(with: request as URLRequest) {(data, response, error) in
+                    if let error = error {
+                        print(error)
+                    }
+                    else {
+                        if let _ = response as? HTTPURLResponse {
+                            if let imageData = data {
+                                let downloadedImage = UIImage(data: imageData)
+                                
+                                // set downloaded image for service
+                                service.logo = downloadedImage
+                                self.collectionView.reloadData()
+                                print("reloading")
+                            }
+                        }
+                    }
+                }
+                downloadTask.resume()
+            }
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

@@ -25,13 +25,14 @@ struct ServiceParser {
             let generationsJson = currentService["Generations"] as! [[String:Any]]
             let generations = self.parse(generations: generationsJson)
             
-            let service = Service(name: name,
+            var service = Service(name: name,
                                   description: description,
                                   generations:generations,
                                   imageUrl:logo)
-            
+
             services.append(service)
         }
+        
         return services
     }
     
