@@ -9,10 +9,11 @@
 import UIKit
 
 class Controller_Favorites: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    var navigator: PlatformsNavigator!
     @IBOutlet weak var FavoritesList: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigator = PlatformsNavigator(viewController:self)
         self.FavoritesList.dataSource = self
         self.FavoritesList.delegate = self
     }
