@@ -38,7 +38,7 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
     override func viewDidAppear(_ animated: Bool) {
         
         //if let Services = Services {
-            for var service in Services {
+            for var service in Services! {
                 
                 let baseDomain = "https://uat.synchronycredit.com/BLPAppChallenge/"
                 
