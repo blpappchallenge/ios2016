@@ -9,7 +9,7 @@
 import Foundation
 
 class FavoritesPersister {
-    var currentFavorites = [Client(id: "asdf", name: "Test favorite", testAccounts: [TestAccount]())]
+    var currentFavorites = [Client]()
     var isFavorite = false
     
     func add(client: Client) {

@@ -422,6 +422,7 @@
 					14D8C5261DEC975100CC0A9C = {
 						CreatedOnToolsVersion = 8.1;
 						LastSwiftMigration = 0810;
+						DevelopmentTeam = 9R9XSQ2U67;
 						ProvisioningStyle = Automatic;
 					};
 					64CAE6D91DF7285700C752C4 = {
@@ -711,6 +712,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 9R9XSQ2U67;
 				INFOPLIST_FILE = ISDA/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Swift.ISDA;
@@ -727,6 +729,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 9R9XSQ2U67;
 				INFOPLIST_FILE = ISDA/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Swift.ISDA;

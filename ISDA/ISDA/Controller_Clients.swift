@@ -14,8 +14,10 @@ class Controller_Clients: UIViewController {
     @IBOutlet weak var OmniLogins: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var ServiceLogoView: UIImageView!
     var navigator:PlatformsNavigator!
     var clients: [Client]!
+    var logo:UIImage!
     
     //The service that this Page describes
     var service: Service! {
@@ -45,10 +47,7 @@ class Controller_Clients: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.navigator = PlatformsNavigator(viewController:self)
-        
-          
-        
-        
+        ServiceLogoView.image = logo
     }
     
 }

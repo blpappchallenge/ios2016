@@ -36,22 +36,38 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        let dynamoDB = AWSDynamoDB.default()
-        let listTableInput = AWSDynamoDBListTablesInput()
-        dynamoDB.listTables(listTableInput!).continue({(task: AWSTask?) -> AnyObject? in
-            if let error = task?.error {
-                print("Error occurred: \(error)")
-                return nil
+        
+        //if let Services = Services {
+            for var service in Services! {
+                
+                let baseDomain = "https://uat.synchronycredit.com/BLPAppChallenge/"
+                
+                let pictureDirectory = baseDomain + "images/"
+                // Get the picture from the connection
+                let pictureURL = URL(string: (pictureDirectory + service.imageUrl))!
+                let session = URLSession(configuration: .default)
+                let request = URLRequest(url: pictureURL)
+                
+                let downloadTask = session.dataTask(with: request as URLRequest) {(data, response, error) in
+                    if let error = error {
+                        print(error)
+                    }
+                    else {
+                        if let _ = response as? HTTPURLResponse {
+                            if let imageData = data {
+                                let downloadedImage = UIImage(data: imageData)
+                                
+                                // set downloaded image for service
+                                service.logo = downloadedImage
+                                self.collectionView.reloadData()
+                                print("reloading")
+                            }
+                        }
+                    }
+                }
+                downloadTask.resume()
             }
-            
-            let listTablesOutput = (task?.result)! as AWSDynamoDBListTablesOutput
-            
-            for tableName in listTablesOutput.tableNames! {
-                print("\(tableName)")
-            }
-            
-            return nil
-        })
+        //}
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -79,12 +95,84 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
         
         // Get the cell information to pass onto the next page (web view)
         let service = Services?[indexPath.item]
-        navigator.goToPlatformsViewController(withService: service!)
+        let firstClient = service?.generations[0].clients[0]
+        
+        if firstClient?.type == "native" {
+            let url = URL(string: (firstClient?.url)!)
+            UIApplication.shared.open(url!)
+        }
+        else
+        {
+            navigator.goToPlatformsViewController(withService: service!)
+        }
     }
     
     @IBAction func LaunchOptions(_sender:Any) {
         // Push the page.
     
+    }
+    
+    //class that gets the objects from db
+    class DDBTableRow :AWSDynamoDBObjectModel ,AWSDynamoDBModeling  {
+        
+        var ISBN:String?
+        var Title:[Any]?
+        var Author:String?
+        
+        
+        class func dynamoDBTableName() -> String! {
+            return "Books"
+        }
+        
+        
+        // if we define attribute it must be included when calling it in function testing...
+        class func hashKeyAttribute() -> String! {
+            return "ISBN"
+        }
+        
+        
+        
+        class func ignoreAttributes() -> Array<AnyObject>! {
+            return nil
+        }
+        
+        //MARK: NSObjectProtocol hack
+        //Fixes Does not conform to the NSObjectProtocol error
+        
+        func isEqual(object: AnyObject?) -> Bool {
+            return super.isEqual(object)
+        }
+        
+        override func `self`() -> Self {
+            return self
+        }
+        
+        
+    }
+    func insertValues(){
+        
+        //static values
+        let newBook = DDBTableRow.self()
+        newBook?.ISBN = "3333"
+        newBook?.Author = "Ray Jay"
+        //newBook?.Title = "Less go"
+        
+        
+        
+        //saving it
+        
+        let insertValues = AWSDynamoDBObjectMapper.default()
+        
+        insertValues.save(newBook!).continue({ (task: AWSTask!) -> AnyObject! in
+            if ((task.error) != nil) {
+                NSLog("Failed")
+                print("Error: \(task.error)")
+            }
+            if ((task.result) != nil){
+                NSLog("Something happened")
+            }
+            return nil
+        })
     }
 }
 
@@ -101,3 +189,9 @@ private extension Controller_Main {
         self.navigationController?.navigationBar.topItem?.titleView = imageView
     }
 }
+
+
+
+
+
+
