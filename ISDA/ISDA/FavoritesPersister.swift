@@ -8,26 +8,29 @@
 
 import Foundation
 
-struct FavoritesPersister {
-    private var favorites = [String]()
+class FavoritesPersister {
+    var currentFavorites = [Client(id: "asdf", name: "Test favorite", testAccounts: [TestAccount]())]
+    var isFavorite = false
     
     func add(client: Client) {
-        
+        isFavorite = true
     }
     
     func add(id: String) {
-        
+        isFavorite = true
     }
     
     func remove(client: Client) {
-        
+        isFavorite = false
     }
     
     func remove(id: String) {
-        
+        isFavorite = false
     }
     
     func checkClientIsFavorite(id:String) -> Bool {
-        return true
+        return isFavorite
     }
+    
+    
 }
