@@ -42,20 +42,9 @@ class Controller_Clients: UIViewController {
         super.viewDidLoad()
         //Will need to move below back to WebViewController
         self.navigator = PlatformsNavigator(viewController:self)
-        let blankfaveImage = UIImage(named: "blankFavStar")
-        let faveImage = UIImage(named: "FavStar")
-        let innerButton = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
-        
-        //"" will include clientId
-        if App.favorites.checkClientIsFavorite(id: "") {
-            innerButton.setImage(faveImage, for: .normal)
-        } else {
-            innerButton.setImage(blankfaveImage, for: .normal)
-        }
-        
-        innerButton.addTarget(self, action: #selector(self.faveButtonWasPressed), for: .touchUpInside)
-        let barButton = UIBarButtonItem(customView: innerButton)
-        navigationItem.rightBarButtonItem = barButton
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.navigator = PlatformsNavigator(viewController:self)
     }
     
 }
@@ -94,7 +83,7 @@ private extension Controller_Clients {
     
     @objc func faveButtonWasPressed() {
         //TODO: Adds favorited client to Favorites Table
-        var isFavorited = App.favorites.add(client: "")
+        //var isFavorited = App.favorites.add(client: "")
     }
 
 
