@@ -35,14 +35,24 @@ class WebViewController : UIViewController {
         }
     }
     
+    var innerButton: UIButton!
+    
     override func viewDidLoad() {
-//        let faveImage = UIImage(named: "favStar")
-//        let innerButton = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
-//        innerButton.setImage(faveImage, for: .normal)
-//        innerButton.addTarget(self, action: #selector(self.faveButtonWasPressed), for: .touchUpInside)
-//        let barButton = UIBarButtonItem(customView: innerButton)
-//        navigationItem.rightBarButtonItem = barButton
+        
+        let notFaveImage = UIImage(named: "blankFavStar")
+        let faveImage = UIImage(named: "FavStar")
+        innerButton = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        innerButton.addTarget(self, action: #selector(self.faveButtonWasPressed), for: .touchUpInside)
+        let barButton = UIBarButtonItem(customView: innerButton)
+       navigationItem.rightBarButtonItem = barButton
+        
+        if App.favorites.checkClientIsFavorite(id: "clientId") {
+            innerButton.setImage(faveImage, for: .normal)
+        } else {
+            innerButton.setImage(notFaveImage, for: .normal)
+        }
     }
+    
 }
 
     // MARK: UIWEBVIEWDELEGATE
@@ -61,7 +71,23 @@ private extension WebViewController {
     }
     
     @objc func faveButtonWasPressed() {
-        
+        if App.favorites.checkClientIsFavorite(id: "clientId") {
+            App.favorites.remove(id: "clientId")
+            changeToNotFavoriteImage()
+        } else {
+            App.favorites.add(id: "clientId")
+            changeToFavoriteImage()
+        }
+    }
+    
+    func changeToNotFavoriteImage() {
+        let notFaveImage = UIImage(named: "blankFavStar")
+        innerButton.setImage(notFaveImage, for: .normal)
+    }
+    
+    func changeToFavoriteImage() {
+        let faveImage = UIImage(named: "FavStar")
+        innerButton.setImage(faveImage, for: .normal)
     }
     
     func prepareRequest(_ url:URL) -> URLRequest {

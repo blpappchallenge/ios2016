@@ -64,12 +64,21 @@
                                                             <rect key="frame" x="20" y="0.0" width="100" height="72"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="100" id="s5G-E3-eqf"/>
+                                                                <constraint firstAttribute="height" constant="72" id="uPn-xD-zWM"/>
                                                             </constraints>
                                                         </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H9S-oR-QxG">
+                                                            <rect key="frame" x="163" y="26" width="42" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="289" id="5Sg-ng-aut"/>
+                                                        <constraint firstItem="H9S-oR-QxG" firstAttribute="centerY" secondItem="HgE-rf-zjm" secondAttribute="centerY" id="bsS-wP-VCk"/>
+                                                        <constraint firstItem="H9S-oR-QxG" firstAttribute="leading" secondItem="lje-n5-iSB" secondAttribute="trailing" constant="71" id="xRr-gj-Td1"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T8Z-b7-rRf">
@@ -96,6 +105,7 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="clientImageView" destination="meu-PS-eon" id="6cc-Xs-dAK"/>
+                                            <outlet property="label" destination="H9S-oR-QxG" id="p6L-MW-44r"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

@@ -9,29 +9,30 @@
 import UIKit
 
 class Controller_Favorites: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    var favorites: [Client]?
 
     @IBOutlet weak var FavoritesList: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.FavoritesList.delegate = self
         self.FavoritesList.dataSource = self
+        self.FavoritesList.delegate = self
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("")
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return favorites?.count ?? 1
+        return App.favorites.currentFavorites.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let row = indexPath.row
+        
+        let rowNumber = indexPath.row
         let cell = tableView.dequeueReusableCell(withIdentifier: "favoriteTableViewCell") as! FavoriteTableViewCell
         
-        if let _ = favorites?[row] {
-            cell.clientImageView.image = UIImage(named:"home")
-            //add the image
-        }
+        
+        let favoriteForThisRow = App.favorites.currentFavorites[rowNumber]
+        cell.label.text = favoriteForThisRow.name
         
         return cell
     }
