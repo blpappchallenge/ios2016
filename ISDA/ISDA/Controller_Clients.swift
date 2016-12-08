@@ -44,6 +44,10 @@ class Controller_Clients: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.navigator = PlatformsNavigator(viewController:self)
+        
+          
+        
+        
     }
     
 }
