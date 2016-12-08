@@ -8,7 +8,8 @@
 
 import Foundation
 
-class Controller_AddNewClient: UIViewController {
+class Controller_AddNewClient: UIViewController, UIImagePickerControllerDelegate,
+UINavigationControllerDelegate {
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var idTextField: UITextField!
@@ -16,20 +17,33 @@ class Controller_AddNewClient: UIViewController {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    var selectedService: Service?
+    var selectedService: Service? {
+        didSet {
+            serviceLabel?.text = selectedService?.name
+        }
+    }
     
+    @IBOutlet weak var serviceLabel: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
     
-    @IBAction func didPressSelectService(_ sender: Any) {
-        let serviceViewController = SettingsViewControllerFactory().makeSelectServiceViewController() {service in
-                self.selectedService = service
-            }
-        self.navigationController?.pushViewController(serviceViewController, animated: true)
+
+    @IBAction func selectServicePressed(_ sender: Any) {
+
         
     }
+    
+    
+    @IBAction func didPressSelectService(_ sender: Any) {
+        let serviceViewController = SettingsViewControllerFactory().makeSelectServiceViewController() { service in
+            self.selectedService = service
+        }
+        self.navigationController?.pushViewController(serviceViewController, animated: true)
+    }
+    
     
     @IBAction func didPressSubmit(_ sender: Any) {
         if let firstService = App.services?.first {
@@ -64,4 +78,25 @@ class Controller_AddNewClient: UIViewController {
                               generationName: generationName)
         }
     }
+    @IBOutlet weak var imagePicked: UIImageView!
+    //@IBAction func openPhotoLibraryButton(_ sender: Any) {
+   // }
+
+   
+
+    @IBAction func openPhotoLibraryButton(sender: AnyObject) {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary;
+            imagePicker.allowsEditing = true
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+    }
+  
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+        imagePicked.image = image
+        self.dismiss(animated: true, completion: nil);
+    }
+    
 }
