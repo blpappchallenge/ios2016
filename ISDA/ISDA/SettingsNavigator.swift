@@ -23,7 +23,7 @@ struct SettingsNavigator: Navigator {
     }
     
     func goToHelp() {
-        
-        
+        let vc = factory.makeHelpViewController()
+        push(vc)
     }
 }

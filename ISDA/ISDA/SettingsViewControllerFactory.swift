@@ -29,5 +29,8 @@ struct SettingsViewControllerFactory {
     }
     
     //TODO: Make help view controller
-     
+    func makeHelpViewController() -> UIViewController {
+               let viewController = storyboard.instantiateViewController(withIdentifier: "helppage")
+        return viewController
+    }
 }

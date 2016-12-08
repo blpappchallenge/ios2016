@@ -9,5 +9,7 @@
 import Foundation
 
 class Controller_Help: UIViewController {
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
 }
