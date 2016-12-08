@@ -14,6 +14,7 @@ class Controller_Clients: UIViewController {
     @IBOutlet weak var OmniLogins: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var toggleGeneration: UISegmentedControl!
     @IBOutlet weak var ServiceLogoView: UIImageView!
     var navigator:PlatformsNavigator!
     var clients: [Client]!

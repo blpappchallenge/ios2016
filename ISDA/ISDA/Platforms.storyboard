@@ -25,18 +25,18 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qYp-ag-hQl">
+                                        <rect key="frame" x="8" y="8" width="359" height="116"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="lP4-LJ-sTJ">
-                                        <rect key="frame" x="251" y="227" width="121" height="29"/>
+                                        <rect key="frame" x="246" y="147" width="121" height="29"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <segments>
                                             <segment title="First"/>
                                             <segment title="Second"/>
                                         </segments>
                                     </segmentedControl>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qYp-ag-hQl">
-                                        <rect key="frame" x="8" y="8" width="359" height="247"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.97254901960784312" green="0.96862745098039216" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -128,6 +128,7 @@
                     <connections>
                         <outlet property="ServiceLogoView" destination="qYp-ag-hQl" id="lpI-vY-J0i"/>
                         <outlet property="tableView" destination="cjT-kv-9h2" id="LFP-Zq-3pF"/>
+                        <outlet property="toggleGeneration" destination="lP4-LJ-sTJ" id="rUS-1z-l2P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d84-Cz-SvD" userLabel="First Responder" sceneMemberID="firstResponder"/>
