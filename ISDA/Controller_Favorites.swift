@@ -18,8 +18,11 @@ class Controller_Favorites: UIViewController, UITableViewDelegate, UITableViewDa
         self.FavoritesList.delegate = self
     }
 
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("")
+        let favoriteForThisRow = App.favorites.currentFavorites[indexPath.row]
+        navigator.goToWebView(forClient: favoriteForThisRow)
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
