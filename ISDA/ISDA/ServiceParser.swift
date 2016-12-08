@@ -9,16 +9,16 @@
 import Foundation
 
 struct ServiceParser {
-    func parse(json: [String:Any]) -> [Service] {
-        let servicesJson = json["Services"] as! [[String:Any]]
-        return parseServices(json: servicesJson)
+    func parse(json: [[String:Any]]) -> [Service] {
+        //let servicesJson = json["Services"] as! [[String:Any]]
+        return parseServices(json: json)
     }
     
     private func parseServices(json: [[String:Any]]) -> [Service] {
         var services = [Service]()
         for currentService in json {
             
-            let name = currentService["name"] as! String
+            let name = currentService["Name"] as! String
             let logo = currentService["Logo"] as! String
             let description = currentService["Description"] as! String
             
@@ -39,13 +39,12 @@ struct ServiceParser {
         var generations = [Generation]()
         for currentGen in json {
             
-            let name = currentGen["name"] as! String
-            let url = currentGen["URL"] as! String
+            let name = currentGen["Name"] as! String
             
             let clientsJson = currentGen["Clients"] as! [[String:Any]]
             let clients = self.parse(clients: clientsJson)
             
-            let generation = Generation(name:name, url:url, clients:clients)
+            let generation = Generation(name:name, clients:clients)
             generations.append(generation)
         }
         return generations
@@ -54,14 +53,18 @@ struct ServiceParser {
     private func parse(clients json: [[String:Any]]) -> [Client] {
         var clients = [Client]()
         for currentClient in json {
-            let id = currentClient["clientID"] as! String
+            //let id = currentClient["clientID"] as! String
+            //TODO: remove id from initializer (no longer needed)
+            let id = ""
             let name = currentClient["name"] as! String
+            let url = currentClient["URL"] as! String
+            let type = currentClient["type"] as! String
             
             let testAccountsJson = currentClient["testAccounts"] as! [[String:Any]]
             let testAccounts = parse(testAccounts: testAccountsJson)
             
             
-            let client = Client(id:id, name:name, testAccounts:testAccounts)
+            let client = Client(id:id, url:url, name:name, testAccounts:testAccounts, type:type)
             clients.append(client)
         }
         return clients

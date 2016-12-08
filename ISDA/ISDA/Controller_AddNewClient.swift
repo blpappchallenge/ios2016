@@ -36,24 +36,30 @@ class Controller_AddNewClient: UIViewController {
     func handleServiceSelected(service:Service) {
         let id = idTextField.text ?? "default id"
         addNewClient(id: id,
+                     url: "",
                      name: "",
                      username: "",
                      password: "",
-                     generationName: "")
+                     generationName: "",
+                     type: "")
     }
     
     func addNewClient(id: String,
+                      url: String,
                       name:String,
                       username: String,
                       password:String,
-                      generationName:String) {
+                      generationName:String,
+                      type:String) {
         
         if let service = selectedService {
             service.addClient(id: id,
+                              url: url,
                               name: name,
                               username: username,
                               password: password,
-                              generationName: generationName)
+                              generationName: generationName,
+                              type:type)
         }
     }
 }
