@@ -36,12 +36,12 @@ class WebViewController : UIViewController {
     }
     
     override func viewDidLoad() {
-        let faveImage = UIImage(named: "favStar")
-        let innerButton = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
-        innerButton.setImage(faveImage, for: .normal)
-        innerButton.addTarget(self, action: #selector(self.faveButtonWasPressed), for: .touchUpInside)
-        let barButton = UIBarButtonItem(customView: innerButton)
-        navigationItem.rightBarButtonItem = barButton
+//        let faveImage = UIImage(named: "favStar")
+//        let innerButton = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+//        innerButton.setImage(faveImage, for: .normal)
+//        innerButton.addTarget(self, action: #selector(self.faveButtonWasPressed), for: .touchUpInside)
+//        let barButton = UIBarButtonItem(customView: innerButton)
+//        navigationItem.rightBarButtonItem = barButton
     }
 }
 
