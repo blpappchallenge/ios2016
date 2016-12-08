@@ -464,6 +464,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="I1H-NY-ifL" id="Bd5-sQ-FNm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iKM-OG-Mjg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

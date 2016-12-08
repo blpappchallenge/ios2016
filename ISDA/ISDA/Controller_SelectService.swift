@@ -15,8 +15,15 @@ class Controller_SelectService: UIViewController, UITableViewDelegate, UITableVi
     var completion: ((Service)->Void)?
     var selectedService: Service?
     
+    override func viewDidLoad() {
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let service = selectedService {
+        
+        if let service = App.services?[indexPath.row] {
+            self.dismiss(animated: true, completion: nil)
             completion?(service)
         }
     }
@@ -28,7 +35,7 @@ class Controller_SelectService: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let service = App.services![indexPath.row]
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "service")!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "basicCell")!
         cell.textLabel?.text = service.name
         return cell
     }

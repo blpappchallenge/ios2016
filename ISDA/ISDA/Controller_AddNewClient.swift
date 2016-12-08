@@ -24,7 +24,9 @@ class Controller_AddNewClient: UIViewController {
     }
     
     @IBAction func didPressSelectService(_ sender: Any) {
-        let serviceViewController = SettingsViewControllerFactory().makeSelectServiceViewController(completion:self.handleServiceSelected)
+        let serviceViewController = SettingsViewControllerFactory().makeSelectServiceViewController() {service in
+                self.selectedService = service
+            }
         self.navigationController?.pushViewController(serviceViewController, animated: true)
         
     }
