@@ -29,6 +29,9 @@ struct ServiceRequestHandler {
                     
                     let parser = ServiceParser()
                     let services = parser.parse(json: json)
+                    
+                    //Save the global services 
+                    App.services = services
                     completion(services, nil)
                     
                 } catch let error as NSError {

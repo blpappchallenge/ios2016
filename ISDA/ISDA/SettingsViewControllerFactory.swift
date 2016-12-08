@@ -23,8 +23,14 @@ struct SettingsViewControllerFactory {
     }
     
     //TODO: View Controller only in storyboard
-    func makeAddNewClientViewController() -> UIViewController {
-        let viewController = storyboard.instantiateViewController(withIdentifier: "addnewclient")
+    func makeAddNewClientViewController() -> Controller_AddNewClient {
+        let viewController = storyboard.instantiateViewController(withIdentifier: "addnewclient") as! Controller_AddNewClient
+        return viewController
+    }
+    
+    func makeSelectServiceViewController(completion:@escaping (Service)->Void) -> Controller_SelectService {
+        let viewController = storyboard.instantiateViewController(withIdentifier: "selectService") as! Controller_SelectService
+        viewController.completion = completion
         return viewController
     }
     

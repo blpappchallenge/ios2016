@@ -11,7 +11,7 @@ import UIKit
 struct Service {
     let name: String
     let description: String
-    let generations: [Generation]
+    var generations: [Generation]
     let imageUrl: String
     var logo: UIImage?
 
@@ -21,5 +21,19 @@ struct Service {
         self.description = description
         self.generations = generations
         self.imageUrl = imageUrl
+    }
+    
+    func add(client: Client, generationName: String) {
+        for var generation in generations {
+            if generation.name == generationName {
+                generation.clients.append(client)
+            }
+        }
+    }
+    
+    func addClient(id:String, name:String, username:String, password:String, generationName: String) {
+        let testAccount = TestAccount(userName: username, password: password)
+        let client = Client(id: id, name: name, testAccounts: [testAccount])
+        add(client: client, generationName: generationName)
     }
 }
