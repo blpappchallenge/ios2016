@@ -28,6 +28,12 @@ struct SettingsViewControllerFactory {
         return viewController
     }
     
+    func makeSelectServiceViewController(completion:@escaping (Service)->Void) -> Controller_SelectService {
+        let viewController = storyboard.instantiateViewController(withIdentifier: "selectService") as! Controller_SelectService
+        viewController.completion = completion
+        return viewController
+    }
+    
     //TODO: Make help view controller
     func makeHelpViewController() -> UIViewController {
                let viewController = storyboard.instantiateViewController(withIdentifier: "helppage")

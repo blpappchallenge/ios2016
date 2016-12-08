@@ -10,10 +10,36 @@ import Foundation
 
 class Controller_AddNewClient: UIViewController {
     
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var idTextField: UITextField!
+    @IBOutlet weak var urlTextField: UITextField!
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    
     var selectedService: Service?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    }
+    
+    @IBAction func didPressSelectService(_ sender: Any) {
+        let serviceViewController = SettingsViewControllerFactory().makeSelectServiceViewController(completion:self.handleServiceSelected)
+        self.navigationController?.pushViewController(serviceViewController, animated: true)
+        
+    }
+    
+    @IBAction func didPressSubmit(_ sender: Any) {
+        
+    }
+    
+    func handleServiceSelected(service:Service) {
+        let id = idTextField.text ?? "default id"
+        addNewClient(id: id,
+                     name: "",
+                     username: "",
+                     password: "",
+                     generationName: "")
     }
     
     func addNewClient(id: String,

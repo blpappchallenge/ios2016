@@ -39,6 +39,7 @@
 		64CAE6F81DF7924F00C752C4 /* response.json in Resources */ = {isa = PBXBuildFile; fileRef = 64CAE6EE1DF73E0A00C752C4 /* response.json */; };
 		64CAE6FA1DF79A1200C752C4 /* ServicePersister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CAE6F91DF79A1200C752C4 /* ServicePersister.swift */; };
 		64CAE6FC1DF8721700C752C4 /* References.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CAE6FB1DF8721700C752C4 /* References.swift */; };
+		64CAE6FE1DF88FCE00C752C4 /* Controller_SelectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CAE6FD1DF88FCE00C752C4 /* Controller_SelectService.swift */; };
 		64D73F781DF5D56A004A5CBC /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64D73F771DF5D56A004A5CBC /* Settings.storyboard */; };
 		64D73F7A1DF5D58A004A5CBC /* Favorites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64D73F791DF5D58A004A5CBC /* Favorites.storyboard */; };
 		64D73F7C1DF5D59D004A5CBC /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64D73F7B1DF5D59D004A5CBC /* Search.storyboard */; };
@@ -107,6 +108,7 @@
 		64CAE6F51DF78B2600C752C4 /* ServiceRequestHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceRequestHandler.swift; sourceTree = "<group>"; };
 		64CAE6F91DF79A1200C752C4 /* ServicePersister.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicePersister.swift; sourceTree = "<group>"; };
 		64CAE6FB1DF8721700C752C4 /* References.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = References.swift; sourceTree = "<group>"; };
+		64CAE6FD1DF88FCE00C752C4 /* Controller_SelectService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller_SelectService.swift; sourceTree = "<group>"; };
 		64D73F771DF5D56A004A5CBC /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		64D73F791DF5D58A004A5CBC /* Favorites.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Favorites.storyboard; sourceTree = "<group>"; };
 		64D73F7B1DF5D59D004A5CBC /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
@@ -321,6 +323,7 @@
 				659B32B61DF872690074736D /* Controller_Help.swift */,
 				64D73F881DF5E82A004A5CBC /* SettingsViewControllerFactory.swift */,
 				64CAE6F31DF771BD00C752C4 /* SettingsNavigator.swift */,
+				64CAE6FD1DF88FCE00C752C4 /* Controller_SelectService.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -547,6 +550,7 @@
 				648593151DF639AB0006365C /* ServiceCollectionViewCell.swift in Sources */,
 				64D73F901DF5EBF1004A5CBC /* NavigationControllerFactory.swift in Sources */,
 				64CAE6F41DF771BD00C752C4 /* SettingsNavigator.swift in Sources */,
+				64CAE6FE1DF88FCE00C752C4 /* Controller_SelectService.swift in Sources */,
 				6485931F1DF708660006365C /* PlatformsNavigator.swift in Sources */,
 				6485931A1DF6FF710006365C /* HomeNavigator.swift in Sources */,
 				64CAE6F21DF74A1F00C752C4 /* FavoritesPersister.swift in Sources */,
