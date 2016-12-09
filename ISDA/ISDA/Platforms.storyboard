@@ -21,27 +21,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LbV-dH-1Ac">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qYp-ag-hQl">
-                                        <rect key="frame" x="8" y="8" width="359" height="116"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="lP4-LJ-sTJ">
-                                        <rect key="frame" x="246" y="147" width="121" height="29"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <segments>
-                                            <segment title="First"/>
-                                            <segment title="Second"/>
-                                        </segments>
-                                    </segmentedControl>
-                                </subviews>
-                                <color key="backgroundColor" red="0.97254901960784312" green="0.96862745098039216" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="95" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cjT-kv-9h2">
-                                <rect key="frame" x="0.0" y="264" width="375" height="403"/>
+                                <rect key="frame" x="0.0" y="108" width="375" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
@@ -49,20 +30,20 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="95"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kd5-Ud-2XK" id="I0I-ad-e67">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="94.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="94"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gW6-zL-5EB" userLabel="Info">
-                                                    <rect key="frame" x="-1" y="-1" width="298" height="95"/>
+                                                    <rect key="frame" x="-1" y="-1" width="298" height="94"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sfs-rB-5nI">
-                                                            <rect key="frame" x="95" y="37" width="42" height="20.5"/>
+                                                            <rect key="frame" x="95" y="36" width="42" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Id6-ls-mfn">
-                                                            <rect key="frame" x="0.0" y="0.0" width="87" height="94.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="87" height="94"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="87" id="CHG-en-STH"/>
                                                             </constraints>
@@ -78,7 +59,7 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F18-ys-MNQ">
-                                                    <rect key="frame" x="298" y="-1" width="76" height="94.5"/>
+                                                    <rect key="frame" x="298" y="-1" width="76" height="94"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yPw-ts-wOF">
                                                             <rect key="frame" x="29" y="34" width="11" height="21"/>
@@ -113,20 +94,28 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="lP4-LJ-sTJ">
+                                <rect key="frame" x="127" y="72" width="121" height="29"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="cjT-kv-9h2" secondAttribute="trailing" id="I48-Va-qTt"/>
                             <constraint firstItem="cjT-kv-9h2" firstAttribute="leading" secondItem="mFM-RZ-sR2" secondAttribute="leading" id="Raw-zb-Tm3"/>
+                            <constraint firstItem="cjT-kv-9h2" firstAttribute="top" secondItem="lP4-LJ-sTJ" secondAttribute="bottom" constant="8" id="Vee-LY-Z3a"/>
                             <constraint firstItem="aYM-uZ-goP" firstAttribute="top" secondItem="cjT-kv-9h2" secondAttribute="bottom" id="h7J-C0-tly"/>
-                            <constraint firstItem="cjT-kv-9h2" firstAttribute="top" secondItem="r2m-0f-tX3" secondAttribute="bottom" constant="200" id="hm2-yo-eP6"/>
+                            <constraint firstItem="lP4-LJ-sTJ" firstAttribute="centerX" secondItem="mFM-RZ-sR2" secondAttribute="centerX" id="ijF-lC-imU"/>
+                            <constraint firstItem="lP4-LJ-sTJ" firstAttribute="top" secondItem="r2m-0f-tX3" secondAttribute="bottom" constant="8" id="pcO-H4-97a"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="mService" id="gUI-eb-FKN">
                         <barButtonItem key="backBarButtonItem" title="Back" id="HWX-iH-WRV"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="ServiceLogoView" destination="qYp-ag-hQl" id="lpI-vY-J0i"/>
                         <outlet property="tableView" destination="cjT-kv-9h2" id="LFP-Zq-3pF"/>
                         <outlet property="toggleGeneration" destination="lP4-LJ-sTJ" id="rUS-1z-l2P"/>
                     </connections>

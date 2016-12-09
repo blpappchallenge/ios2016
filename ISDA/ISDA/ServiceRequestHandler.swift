@@ -31,7 +31,7 @@ struct ServiceRequestHandler {
                 if (task.result != nil) {
                     NSLog("Somthing happened")
                     //starting the output of data
-                    let tableRow = task.result as? AWSDynamoDBPaginatedOutput!
+                    let tableRow = task.result as AWSDynamoDBPaginatedOutput!
                     
                     
                     let row = tableRow?.items[0] as! DDBTableRow
@@ -53,8 +53,6 @@ struct ServiceRequestHandler {
             }
             return nil
         })
-        
-        sleep(1)
     }
     
     func analytics() {

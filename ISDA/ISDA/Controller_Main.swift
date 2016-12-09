@@ -34,41 +34,6 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
         requestHandler.requestServices(completion: self.handleServiceResponse)
         requestHandler.analytics()
     }
-
-    override func viewDidAppear(_ animated: Bool) {
-        
-        if let Services = Services {
-            for var service in Services {
-                
-                let baseDomain = "https://uat.synchronycredit.com/BLPAppChallenge/"
-                
-                let pictureDirectory = baseDomain + "images/"
-                // Get the picture from the connection
-                let pictureURL = URL(string: (pictureDirectory + service.imageUrl))!
-                let session = URLSession(configuration: .default)
-                let request = URLRequest(url: pictureURL)
-                
-                let downloadTask = session.dataTask(with: request as URLRequest) {(data, response, error) in
-                    if let error = error {
-                        print(error)
-                    }
-                    else {
-                        if let _ = response as? HTTPURLResponse {
-                            if let imageData = data {
-                                let downloadedImage = UIImage(data: imageData)
-                                
-                                // set downloaded image for service
-                                service.logo = downloadedImage
-                                self.collectionView.reloadData()
-                                print("reloading")
-                            }
-                        }
-                    }
-                }
-                downloadTask.resume()
-            }
-        }
-    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.Services?.count ?? 0
@@ -85,6 +50,11 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
         cell.logoView.image = service?.logo
         cell.descriptionLabel.text = service?.description
         cell.nameLabel.text = service?.name
+        if let url = service?.imageUrl {
+            cell.requestImage(from: url, completion: { _ in
+                
+            })
+        }
         
         return cell
     }
@@ -181,6 +151,16 @@ private extension Controller_Main {
         Services = services
         collectionView.delegate = self
         collectionView.dataSource = self
+        if let services = services {
+            requestImages(services: services)
+        }
+    }
+    
+    func requestImages(services:[Service]) {
+        for var service in services {
+            
+            
+        }
     }
     
     func setup() {
