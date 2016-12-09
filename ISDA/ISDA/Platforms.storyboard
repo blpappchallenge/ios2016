@@ -37,7 +37,7 @@
                                 <color key="backgroundColor" red="0.97254901960784312" green="0.96862745098039216" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="95" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cjT-kv-9h2">
-                                <rect key="frame" x="0.0" y="264" width="375" height="403"/>
+                                <rect key="frame" x="0.0" y="108" width="375" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
@@ -109,13 +109,25 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="lP4-LJ-sTJ">
+                                <rect key="frame" x="127" y="72" width="121" height="29"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                                <connections>
+                                    <action selector="didChangeGeneration:" destination="PP4-cj-Uqr" eventType="valueChanged" id="lZZ-jE-ncq"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="cjT-kv-9h2" secondAttribute="trailing" id="I48-Va-qTt"/>
                             <constraint firstItem="cjT-kv-9h2" firstAttribute="leading" secondItem="mFM-RZ-sR2" secondAttribute="leading" id="Raw-zb-Tm3"/>
+                            <constraint firstItem="cjT-kv-9h2" firstAttribute="top" secondItem="lP4-LJ-sTJ" secondAttribute="bottom" constant="8" id="Vee-LY-Z3a"/>
                             <constraint firstItem="aYM-uZ-goP" firstAttribute="top" secondItem="cjT-kv-9h2" secondAttribute="bottom" id="h7J-C0-tly"/>
-                            <constraint firstItem="cjT-kv-9h2" firstAttribute="top" secondItem="r2m-0f-tX3" secondAttribute="bottom" constant="200" id="hm2-yo-eP6"/>
+                            <constraint firstItem="lP4-LJ-sTJ" firstAttribute="centerX" secondItem="mFM-RZ-sR2" secondAttribute="centerX" id="ijF-lC-imU"/>
+                            <constraint firstItem="lP4-LJ-sTJ" firstAttribute="top" secondItem="r2m-0f-tX3" secondAttribute="bottom" constant="8" id="pcO-H4-97a"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="mService" id="gUI-eb-FKN">
@@ -123,6 +135,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="cjT-kv-9h2" id="LFP-Zq-3pF"/>
+                        <outlet property="toggleView" destination="lP4-LJ-sTJ" id="cg8-n8-mAH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d84-Cz-SvD" userLabel="First Responder" sceneMemberID="firstResponder"/>

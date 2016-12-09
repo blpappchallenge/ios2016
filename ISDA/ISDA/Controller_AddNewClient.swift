@@ -24,24 +24,32 @@ class Controller_AddNewClient: UIViewController {
     }
     
     @IBAction func didPressSelectService(_ sender: Any) {
-        let serviceViewController = SettingsViewControllerFactory().makeSelectServiceViewController(completion:self.handleServiceSelected)
+        let serviceViewController = SettingsViewControllerFactory().makeSelectServiceViewController() {service in
+                self.selectedService = service
+            }
         self.navigationController?.pushViewController(serviceViewController, animated: true)
         
     }
     
     @IBAction func didPressSubmit(_ sender: Any) {
-        
+        if let firstService = App.services?.first {
+            handleServiceSelected(service: firstService)
+        }
     }
     
     func handleServiceSelected(service:Service) {
         let id = idTextField.text ?? "default id"
+        let name = nameTextField.text ?? "default name"
+        let username = usernameTextField.text ?? "default username"
+        let password = passwordTextField.text ?? "default password"
+        let url = urlTextField.text ?? "default url"
         addNewClient(id: id,
-                     url: "",
-                     name: "",
-                     username: "",
-                     password: "",
-                     generationName: "",
-                     type: "")
+                     url: url,
+                     name: name,
+                     username: username,
+                     password: password,
+                     generationName: url,
+                     type:"")
     }
     
     func addNewClient(id: String,

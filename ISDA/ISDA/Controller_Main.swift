@@ -34,10 +34,6 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
         requestHandler.requestServices(completion: self.handleServiceResponse)
         requestHandler.analytics()
     }
-
-    override func viewDidAppear(_ animated: Bool) {
-        
-    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.Services?.count ?? 0
@@ -46,7 +42,7 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         // Cast in the service object to copy the values.
-        let service = self.Services?[indexPath.item]
+        var service = self.Services?[indexPath.item]
         
         // get a reference to our storyboard cell
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: (reuseIdentifier), for: indexPath as IndexPath) as! ServiceCollectionViewCell
@@ -54,6 +50,13 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
         cell.logoView.image = service?.logo
         cell.descriptionLabel.text = service?.description
         cell.nameLabel.text = service?.name
+        
+        //This is a TERRIBLE place to do a network request but oh well!
+        if let url = service?.imageUrl {
+            cell.requestImage(from: url, completion: { image in
+                service?.logo = image
+            })
+        }
         
         return cell
     }
@@ -150,6 +153,16 @@ private extension Controller_Main {
         Services = services
         collectionView.delegate = self
         collectionView.dataSource = self
+        if let services = services {
+            requestImages(services: services)
+        }
+    }
+    
+    func requestImages(services:[Service]) {
+        for var service in services {
+            
+            
+        }
     }
     
     func setup() {

@@ -13,7 +13,7 @@ class WebViewController : UIViewController {
     
     @IBOutlet fileprivate weak var webView: UIWebView!
     
-    var client: Client? {
+    var client: Client! {
         didSet {
             if let client = client {
                 self.title = client.name
@@ -21,27 +21,22 @@ class WebViewController : UIViewController {
         }
     }
     
-    var url:URL? {
-        didSet {
-            if let url = url {
-                loadRequest(prepareRequest(url))
-            }
-        }
-    }
-    
-    var account:TestAccount! {
-        didSet {
-            enterCredentials()
-        }
-    }
+    var innerButton: UIButton!
     
     override func viewDidLoad() {
-        let faveImage = UIImage(named: "favStar")
-        let innerButton = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
-        innerButton.setImage(faveImage, for: .normal)
+        
+        let notFaveImage = UIImage(named: "blankFavStar")
+        let faveImage = UIImage(named: "FavStar")
+        innerButton = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
         innerButton.addTarget(self, action: #selector(self.faveButtonWasPressed), for: .touchUpInside)
         let barButton = UIBarButtonItem(customView: innerButton)
-        navigationItem.rightBarButtonItem = barButton
+       navigationItem.rightBarButtonItem = barButton
+        
+        if App.favorites.checkClientIsFavorite(client: self.client) {
+            innerButton.setImage(faveImage, for: .normal)
+        } else {
+            innerButton.setImage(notFaveImage, for: .normal)
+        }
     }
 }
 
@@ -61,7 +56,23 @@ private extension WebViewController {
     }
     
     @objc func faveButtonWasPressed() {
-        
+        if App.favorites.checkClientIsFavorite(client: self.client) {
+            App.favorites.remove(client: self.client)
+            changeToNotFavoriteImage()
+        } else {
+            App.favorites.add(client: self.client)
+            changeToFavoriteImage()
+        }
+    }
+    
+    func changeToNotFavoriteImage() {
+        let notFaveImage = UIImage(named: "blankFavStar")
+        innerButton.setImage(notFaveImage, for: .normal)
+    }
+    
+    func changeToFavoriteImage() {
+        let faveImage = UIImage(named: "FavStar")
+        innerButton.setImage(faveImage, for: .normal)
     }
     
     func prepareRequest(_ url:URL) -> URLRequest {

@@ -14,92 +14,65 @@ class Controller_Clients: UIViewController {
     @IBOutlet weak var OmniLogins: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var toggleView: UISegmentedControl!
+    //@IBOutlet weak var ServiceLogoView: UIImageView!
+    
     var navigator:PlatformsNavigator!
-    var clients: [Client]!
     
-    //The service that this Page describes
-    var service: Service! {
-        didSet {
-            self.generations = service.generations
-        }
-    }
+    var logo:UIImage?
     
-    var generations: [Generation]! {
-        didSet {
-            if let newestGeneration = generations.first{
-                self.selectedGeneration = newestGeneration
-            }
-        }
-    }
+    var dataSources: [GenerationDataSource]?
     
-    var selectedGeneration: Generation! {
-        didSet {
-            self.clients = selectedGeneration.clients
-        }
+    var service: Service!
+    
+    
+    @IBAction func didChangeGeneration(_ sender: Any) {
+        self.tableView.dataSource = dataSources?[toggleView.selectedSegmentIndex]
+        self.tableView.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigator = PlatformsNavigator(viewController:self)
+        //ServiceLogoView.image = logo
+        
         self.tableView.delegate = self
-        self.tableView.dataSource = self
-        self.navigator = PlatformsNavigator(viewController:self)
+        let dataSources = makeDataSources(service: self.service)
+        self.setupToggleView(service: self.service)
+        self.dataSources = dataSources
+        
+        self.tableView.dataSource = dataSources.first
     }
-    
 }
 
-extension Controller_Clients: UITableViewDelegate, UITableViewDataSource {
+extension Controller_Clients: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let currentClient = selectedGeneration.clients[indexPath.row] 
-            navigator.goToWebView(forClient: currentClient)
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return clients.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let row = indexPath.row
-        let cell = tableView.dequeueReusableCell(withIdentifier: "client") as! ClientTableViewCell
-        
-        if let client = clients?[row] {
-            cell.label.text = client.name
-            // cell.clientImageView.image = client.image
+        if let selectedDataSource = dataSources?[toggleView.selectedSegmentIndex] {
+            let client = selectedDataSource.clients[indexPath.row]
+            navigator.goToWebView(forClient: client)
         }
-        
-        return cell
     }
 }
 
 private extension Controller_Clients {
+    func makeDataSources(service:Service) -> [GenerationDataSource] {
+        var dataSources = [GenerationDataSource]()
+        for generation in service.generations {
+            let dataSource = GenerationDataSource(clients: generation.clients)
+            dataSources.append(dataSource)
+        }
+        return dataSources
+    }
     
-    // TODO: Use this when the user changes generations.
-    func toggleGeneration(index: Int) {
-        let generationToSelect = generations[index]
-        self.selectedGeneration = generationToSelect
+    func setupToggleView(service: Service) {
+        let generations = service.generations
+        var i = 0
+        toggleView.removeAllSegments()
+        for generation in generations {
+            toggleView.insertSegment(withTitle: generation.name, at: i, animated: false)
+            i += 1
+        }
+        toggleView.setEnabled(true, forSegmentAt: 0)
     }
-
-    func populateAnalyticsData() {
-        // Path to the JSON file that holds the data. *running locally at the moment*
-        let urlString = "https://api.myjson.com/bins/4e1k5"
-        let url = URL(string: urlString)
-        
-        URLSession.shared.dataTask(with:url!, completionHandler: {(data, response, error) in
-            if let error = error {
-                print(error)
-            } else {
-                do {
-                    let parsedData = try JSONSerialization.jsonObject(with: data!)
-                    print(parsedData)
-                    
-                } catch let error as NSError {
-                    print(error)
-                }
-            }
-            
-        }).resume()
-    }
-
 }
-

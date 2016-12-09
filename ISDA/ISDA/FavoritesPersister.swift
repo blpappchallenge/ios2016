@@ -8,26 +8,36 @@
 
 import Foundation
 
-struct FavoritesPersister {
-    private var favorites = [String]()
+class FavoritesPersister {
+    var currentFavorites = [Client]()
+    var isFavorite = false
     
     func add(client: Client) {
-        
+        currentFavorites.append(client)
     }
     
     func add(id: String) {
-        
+        isFavorite = true
     }
     
-    func remove(client: Client) {
-        
+    func remove(client clientToRemove: Client) {
+        for (index, curClient) in currentFavorites.enumerated() {
+            if curClient == clientToRemove {
+                currentFavorites.remove(at: index)
+            }
+        }
     }
     
     func remove(id: String) {
-        
+        isFavorite = false
     }
     
-    func checkClientIsFavorite(id:String) -> Bool {
-        return true
+    func checkClientIsFavorite(client:Client) -> Bool {
+        for curClient in currentFavorites {
+            if curClient == client {
+                return true
+            }
+        }
+        return false
     }
 }
