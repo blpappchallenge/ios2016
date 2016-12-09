@@ -79,11 +79,8 @@ UINavigationControllerDelegate {
         }
     }
     @IBOutlet weak var imagePicked: UIImageView!
-    //@IBAction func openPhotoLibraryButton(_ sender: Any) {
-   // }
 
    
-
     @IBAction func openPhotoLibraryButton(sender: AnyObject) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
             let imagePicker = UIImagePickerController()
@@ -93,8 +90,9 @@ UINavigationControllerDelegate {
             self.present(imagePicker, animated: true, completion: nil)
         }
     }
-  
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+  func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    
+        let image = info["UIImagePickerControllerEditedImage"] as? UIImage
         imagePicked.image = image
         self.dismiss(animated: true, completion: nil);
     }
