@@ -17,6 +17,11 @@ class Controller_Favorites: UIViewController, UITableViewDelegate, UITableViewDa
         self.FavoritesList.dataSource = self
         self.FavoritesList.delegate = self
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        FavoritesList.reloadData()
+    }
 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

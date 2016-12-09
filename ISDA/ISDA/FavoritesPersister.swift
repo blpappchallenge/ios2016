@@ -10,14 +10,9 @@ import Foundation
 
 class FavoritesPersister {
     var currentFavorites = [Client]()
-    var isFavorite = false
     
     func add(client: Client) {
         currentFavorites.append(client)
-    }
-    
-    func add(id: String) {
-        isFavorite = true
     }
     
     func remove(client clientToRemove: Client) {
@@ -26,10 +21,6 @@ class FavoritesPersister {
                 currentFavorites.remove(at: index)
             }
         }
-    }
-    
-    func remove(id: String) {
-        isFavorite = false
     }
     
     func checkClientIsFavorite(client:Client) -> Bool {

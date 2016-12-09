@@ -8,8 +8,31 @@
 
 import UIKit
 
-class Controller_AddNewService: UIViewController {
+class Controller_AddNewService: UIViewController, UIImagePickerControllerDelegate,
+UINavigationControllerDelegate {
 
+    @IBOutlet weak var imagePicked: UIImageView!
+    
+    
+    @IBAction func openPhotoLibraryButton(sender: AnyObject) {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary;
+            imagePicker.allowsEditing = true
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        let image = info["UIImagePickerControllerEditedImage"] as? UIImage
+        imagePicked.image = image
+        self.dismiss(animated: true, completion: nil);
+    }  
+    
+    
+
+    
     @IBOutlet weak var Submit_Button: UIButton!
     @IBOutlet weak var ServiceName_Textbox: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -92,7 +115,8 @@ class Controller_AddNewService: UIViewController {
 
     @IBAction func Submit_Click(_ sender: Any) {
         
-        
+       
+
         
     }
     
