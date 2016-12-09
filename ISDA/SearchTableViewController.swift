@@ -9,49 +9,47 @@
 import UIKit
 
 class SearchTableViewController: UITableViewController, UISearchBarDelegate {
-    
     let searchBar = UISearchBar()
-    let tableData = ["mService","mApply","dApply","SyPI","Consumer Center","Hackathons","Bolt Sessions"]
+    
+    var results: [SearchResult]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         createSearchBar()
-        
-    
     }
 
-    func createSearchBar()
-    {
-        
+    func createSearchBar() {
         searchBar.showsCancelButton = false
         searchBar.placeholder = "Search"
         searchBar.delegate = self
+        searchBar.keyboardType = .default
         
         self.navigationItem.titleView = searchBar
         
 }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
+        return results?.count ?? 0
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return results?[section].serviceName
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return tableData.count 
+        return results?[section].clients.count ?? 0
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "basicCell", for: indexPath)
-        cell.textLabel!.text = tableData[indexPath.row]
+
+        let result = results![indexPath.section]
+        let clients = result.clients
+        
+        cell.textLabel?.text = clients[indexPath.row].name
+        
+        
         return cell
     }
     
@@ -61,53 +59,50 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.endEditing(true)
+        //searchBar.endEditing(true)
     }
     
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        if let query = searchBar.text {
+            self.results = search(query:query)
+        }
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        let results = search(query: searchText)
+        self.results = results
+        
+        if results.isEmpty {
+            tableView.isHidden = true
+        } else {
+            self.tableView.reloadData()
+        }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    
+    private func search(query:String) -> [SearchResult] {
+        var results = [SearchResult]()
+        if let services = App.services {
+            for service in services {
+                var clientResults = [Client]()
+                for generation in service.generations {
+                    for client in generation.clients {
+                        let clientName = client.name.lowercased()
+                        let subString = query.lowercased()
+                        if clientName.contains(subString) {
+                            clientResults.append(client)
+                        }
+                    }
+                }
+                if !clientResults.isEmpty {
+                    results.append(SearchResult(serviceName: service.name, clients: clientResults))
+                }
+            }
+        }
+        return results
     }
-    */
+}
 
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+struct SearchResult {
+    let serviceName: String
+    let clients: [Client]
 }
