@@ -272,7 +272,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t47-jJ-hWN" userLabel="underline">
-                                <rect key="frame" x="16" y="287" width="343" height="0.5"/>
+                                <rect key="frame" x="16" y="287" width="343" height="1"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="0.5" id="JAd-uH-D1i"/>
@@ -286,7 +286,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qGS-lG-Lku" userLabel="underline2">
-                                <rect key="frame" x="16" y="328" width="343" height="0.5"/>
+                                <rect key="frame" x="16" y="328" width="343" height="1"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="0.5" id="nFg-eP-jvB"/>
@@ -300,7 +300,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZM3-59-CWI" userLabel="underline3">
-                                <rect key="frame" x="16" y="368" width="343" height="0.5"/>
+                                <rect key="frame" x="16" y="368" width="343" height="1"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="0.5" id="jnX-oU-Ohc"/>
@@ -314,7 +314,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ha-eD-eeM" userLabel="underline4">
-                                <rect key="frame" x="16" y="410" width="343" height="0.5"/>
+                                <rect key="frame" x="16" y="410" width="343" height="1"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="0.5" id="7zV-aK-ztR"/>
@@ -328,14 +328,14 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EOy-EY-Ogg" userLabel="underline3">
-                                <rect key="frame" x="16" y="449.5" width="343" height="0.5"/>
+                                <rect key="frame" x="16" y="450" width="343" height="0.0"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="0.5" id="czd-l2-OYx"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kfy-7x-PI0">
-                                <rect key="frame" x="158.5" y="545" width="58" height="34"/>
+                                <rect key="frame" x="159" y="545" width="58" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
@@ -364,7 +364,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gTA-on-roi">
-                                <rect key="frame" x="154" y="178" width="66" height="30"/>
+                                <rect key="frame" x="154" y="218" width="66" height="30"/>
                                 <state key="normal" title="Add Logo"/>
                                 <connections>
                                     <action selector="openPhotoLibraryButtonWithSender:" destination="fwM-Cn-zfE" eventType="touchUpInside" id="RrL-g2-AhD"/>
@@ -414,7 +414,7 @@
                             <constraint firstItem="B8I-ex-zkb" firstAttribute="baseline" secondItem="03I-Os-HYh" secondAttribute="baseline" id="kzn-Ri-hJ7"/>
                             <constraint firstItem="qGS-lG-Lku" firstAttribute="trailing" secondItem="JtU-1s-IaV" secondAttribute="trailing" id="lNY-j9-NoT"/>
                             <constraint firstItem="EOy-EY-Ogg" firstAttribute="leading" secondItem="oVb-OW-atk" secondAttribute="leading" id="nMD-pB-iep"/>
-                            <constraint firstItem="ylc-0i-hmU" firstAttribute="top" secondItem="gTA-on-roi" secondAttribute="bottom" constant="62" id="pvi-wW-z9t"/>
+                            <constraint firstItem="ylc-0i-hmU" firstAttribute="top" secondItem="gTA-on-roi" secondAttribute="bottom" constant="22" id="pvi-wW-z9t"/>
                             <constraint firstItem="oVb-OW-atk" firstAttribute="leading" secondItem="eTk-J3-rCg" secondAttribute="leading" id="rBU-sG-bFN"/>
                             <constraint firstItem="NlU-NF-RRR" firstAttribute="centerX" secondItem="EPV-Gf-zWs" secondAttribute="centerX" id="u9o-tx-6cS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ylc-0i-hmU" secondAttribute="trailing" id="wEZ-9t-nD9"/>
