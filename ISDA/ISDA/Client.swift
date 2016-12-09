@@ -8,6 +8,11 @@
 
 import UIKit
 
+enum ClientType {
+    case native
+    case web
+}
+
 struct Client {
     
     let clientID: String

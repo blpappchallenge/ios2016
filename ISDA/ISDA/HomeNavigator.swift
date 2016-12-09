@@ -15,7 +15,6 @@ struct HomeNavigator:Navigator {
     
     func goToPlatformsViewController(withService service: Service) {
         let platformsViewController = platformsFactory.makePlatformsViewController(service: service)
-        platformsViewController.generations = service.generations
         push(platformsViewController)
     }
 }

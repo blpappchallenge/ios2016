@@ -100,6 +100,9 @@
                                     <segment title="First"/>
                                     <segment title="Second"/>
                                 </segments>
+                                <connections>
+                                    <action selector="didChangeGeneration:" destination="PP4-cj-Uqr" eventType="valueChanged" id="lZZ-jE-ncq"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -117,7 +120,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="cjT-kv-9h2" id="LFP-Zq-3pF"/>
-                        <outlet property="toggleGeneration" destination="lP4-LJ-sTJ" id="rUS-1z-l2P"/>
+                        <outlet property="toggleView" destination="lP4-LJ-sTJ" id="cg8-n8-mAH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d84-Cz-SvD" userLabel="First Responder" sceneMemberID="firstResponder"/>
