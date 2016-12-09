@@ -26,11 +26,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="lP4-LJ-sTJ">
-                                        <rect key="frame" x="251" y="227" width="121" height="29"/>
+                                        <rect key="frame" x="260" y="227" width="103" height="29"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <segments>
-                                            <segment title="First"/>
-                                            <segment title="Second"/>
+                                            <segment title="Gen 4"/>
+                                            <segment title="Gen 5"/>
                                         </segments>
                                     </segmentedControl>
                                 </subviews>
@@ -49,16 +49,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gW6-zL-5EB" userLabel="Info">
-                                                    <rect key="frame" x="-1" y="-1" width="298" height="95"/>
+                                                    <rect key="frame" x="-1" y="-1" width="298" height="94"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sfs-rB-5nI">
-                                                            <rect key="frame" x="95" y="37" width="42" height="20.5"/>
+                                                            <rect key="frame" x="95" y="36" width="42" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Id6-ls-mfn">
-                                                            <rect key="frame" x="0.0" y="0.0" width="87" height="94.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="87" height="94"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="87" id="CHG-en-STH"/>
                                                             </constraints>
@@ -74,7 +74,7 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F18-ys-MNQ">
-                                                    <rect key="frame" x="298" y="-1" width="76" height="94.5"/>
+                                                    <rect key="frame" x="298" y="-1" width="76" height="94"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yPw-ts-wOF">
                                                             <rect key="frame" x="29" y="34" width="11" height="21"/>
