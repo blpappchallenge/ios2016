@@ -17,6 +17,9 @@ class Controller_Settings: UIViewController {
         self.navigator = SettingsNavigator(viewController: self)
     }
 
+    @IBAction func ButtonAddNewService(_ sender: Any) {
+        navigator.goToAddNewService()
+    }
     @IBAction func AddNewService(_ sender: Any) {
         navigator.goToAddNewService()
     }
@@ -26,4 +29,8 @@ class Controller_Settings: UIViewController {
     @IBAction func Help(_ sender: Any) {
         navigator.goToHelp()
     }
+
+    
+
+    
 }

@@ -7,42 +7,52 @@
 //
 
 import Foundation
+import AWSS3
+import AWSDynamoDB
+import AWSSQS
+import AWSSNS
+import AWSCognito
 
 struct ServiceRequestHandler {
     private let mockFactory = MockJsonFactory()
+    private let parser = ServiceParser()
     func requestServices(completion: @escaping ([Service]?, Error?) ->Void) {
-        // Path to the JSON file that holds the data. *running locally at the moment*
-        //let urlString = "http://isda.pcfpoc.cdev.syfbank.com/Services.json"
-        //let pictureDirectory = "http://isda.pcfpoc.cdev.syfbank.com/images/"
-        let baseDomain = "https://uat.synchronycredit.com/BLPAppChallenge/"
-        let servicesJsonURL = "https://api.myjson.com/bins/qx9v"
-        let url = URL(string: servicesJsonURL)
+
+        //first create expression
+        let dynamoDBObjectMapper2 = AWSDynamoDBObjectMapper.default()
+        let queryExpression = AWSDynamoDBQueryExpression()
+        queryExpression.indexName = "Author-index"
+        queryExpression.hashKeyAttribute = "Author"
+        queryExpression.hashKeyValues = ("Ray Jay")
         
-        URLSession.shared.dataTask(with:url!, completionHandler: {(data, response, error) in
-            if  let error = error {
-                print(error)
-            } else {
-                do {
-                    // Parse the JSON data.
-                    let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
+        
+        dynamoDBObjectMapper2.query(DDBTableRow.self, expression: queryExpression).continue({ (task:AWSTask!) -> AnyObject! in
+            if (task.error == nil) {
+                if (task.result != nil) {
+                    NSLog("Somthing happened")
+                    //starting the output of data
+                    let tableRow = task.result as AWSDynamoDBPaginatedOutput!
+                    
+                    
+                    let row = tableRow?.items[0] as! DDBTableRow
+                    let json = row.Title as? [[String:Any]]
                     print(json)
                     
-                    let parser = ServiceParser()
-                    let services = parser.parse(json: json)
+                    // Parse the JSON data.
+                    //let json = try JSONSerialization.jsonObject(with: row.Title!) as! [String:Any]
+                    let services = self.parser.parse(json: json!)
                     
-                    //Save the global services 
+                    //Save the global services
                     App.services = services
                     completion(services, nil)
-                    
-                } catch let error as NSError {
-                    print(error)
-                    completion(nil, error)
                 }
             }
-            
-        }).resume()
-        
-        sleep(1)
+            else {
+                print("Error: \(task.error)")
+                
+            }
+            return nil
+        })
     }
     
     func analytics() {
@@ -64,6 +74,48 @@ struct ServiceRequestHandler {
             }
             
         }).resume()
+    }
+    
+    func queryDatabase() {
+        
+        
+    }
+    
+    class DDBTableRow :AWSDynamoDBObjectModel ,AWSDynamoDBModeling  {
+        
+        var ISBN:String?
+        var Title:[Any]?
+        var Author:String?
+        
+        
+        class func dynamoDBTableName() -> String! {
+            return "Books"
+        }
+        
+        
+        // if we define attribute it must be included when calling it in function testing...
+        class func hashKeyAttribute() -> String! {
+            return "ISBN"
+        }
+        
+        
+        
+        class func ignoreAttributes() -> Array<AnyObject>! {
+            return nil
+        }
+        
+        //MARK: NSObjectProtocol hack
+        //Fixes Does not conform to the NSObjectProtocol error
+        
+        func isEqual(object: AnyObject?) -> Bool {
+            return super.isEqual(object)
+        }
+        
+        override func `self`() -> Self {
+            return self
+        }
+        
+        
     }
     
     private func makeMockData(completion:([Service]?, Error?) ->Void) {

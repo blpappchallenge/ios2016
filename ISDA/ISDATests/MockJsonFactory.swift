@@ -16,7 +16,7 @@ class MockJsonFactory {
         
         do {
             let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-            return json as! [String:Any]
+            return json as? [String:Any]
         } catch {
             return nil
         }
@@ -38,7 +38,7 @@ class MockJsonFactory {
     func makeServices() -> [Service]? {
         let json = makeDictionary()
         if let json = json {
-            return parser.parse(json: json)
+            //return parser.parse(json: json)
         }
         return nil
     }

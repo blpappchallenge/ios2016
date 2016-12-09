@@ -10,12 +10,10 @@ import UIKit
 
 struct Generation {
     let name: String
-    let url: String
     var clients: [Client]
     
-    init(name:String, url:String, clients:[Client]) {
+    init(name:String, clients:[Client]) {
         self.name = name
-        self.url = url
         self.clients = clients
     }
 }

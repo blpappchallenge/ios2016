@@ -58,24 +58,30 @@ UINavigationControllerDelegate {
         let password = passwordTextField.text ?? "default password"
         let url = urlTextField.text ?? "default url"
         addNewClient(id: id,
+                     url: url,
                      name: name,
                      username: username,
                      password: password,
-                     generationName: url)
+                     generationName: url,
+                     type:"")
     }
     
     func addNewClient(id: String,
+                      url: String,
                       name:String,
                       username: String,
                       password:String,
-                      generationName:String) {
+                      generationName:String,
+                      type:String) {
         
         if let service = selectedService {
             service.addClient(id: id,
+                              url: url,
                               name: name,
                               username: username,
                               password: password,
-                              generationName: generationName)
+                              generationName: generationName,
+                              type:type)
         }
     }
     @IBOutlet weak var imagePicked: UIImageView!
