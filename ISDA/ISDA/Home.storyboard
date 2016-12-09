@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -39,31 +40,33 @@
                                             <rect key="frame" x="0.0" y="0.0" width="187" height="187"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bxU-WC-IXu">
-                                                    <rect key="frame" x="0.0" y="0.0" width="186" height="186"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hQm-Tq-ZuK">
+                                                <imageView userInteractionEnabled="NO" alpha="0.65000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hQm-Tq-ZuK">
                                                     <rect key="frame" x="0.0" y="0.0" width="187" height="186"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="0.30420590749999998" colorSpace="calibratedWhite"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OKs-r7-jNA">
-                                                    <rect key="frame" x="44" y="51" width="98" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OKs-r7-jNA">
+                                                    <rect key="frame" x="8" y="64" width="171" height="16"/>
+                                                    <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="14"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F7o-75-LOZ">
-                                                    <rect key="frame" x="44" y="99" width="98" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F7o-75-LOZ">
+                                                    <rect key="frame" x="8" y="81" width="171" height="16"/>
+                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="14"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailingMargin" secondItem="F7o-75-LOZ" secondAttribute="trailing" id="1mT-Tb-xmR"/>
+                                            <constraint firstItem="F7o-75-LOZ" firstAttribute="top" secondItem="OKs-r7-jNA" secondAttribute="bottom" constant="1" id="1tX-iX-X51"/>
+                                            <constraint firstItem="F7o-75-LOZ" firstAttribute="leading" secondItem="4Xr-VD-10g" secondAttribute="leadingMargin" id="6sA-a2-d8m"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="OKs-r7-jNA" secondAttribute="trailing" id="TfB-Sl-swp"/>
+                                            <constraint firstItem="OKs-r7-jNA" firstAttribute="top" secondItem="4Xr-VD-10g" secondAttribute="topMargin" constant="56" id="odO-fD-Hg4"/>
+                                            <constraint firstItem="OKs-r7-jNA" firstAttribute="leading" secondItem="4Xr-VD-10g" secondAttribute="leadingMargin" id="qTl-0H-mIm"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="NameLabel" destination="OKs-r7-jNA" id="Ob4-nH-e5H"/>
                                             <outlet property="descriptionLabel" destination="F7o-75-LOZ" id="thy-YF-Umx"/>

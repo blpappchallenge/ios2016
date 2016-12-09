@@ -74,5 +74,6 @@ private extension Controller_Clients {
             i += 1
         }
         toggleView.setEnabled(true, forSegmentAt: 0)
+        toggleView.selectedSegmentIndex = 0
     }
 }
