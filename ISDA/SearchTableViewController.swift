@@ -10,11 +10,14 @@ import UIKit
 
 class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     let searchBar = UISearchBar()
+    var navigator: PlatformsNavigator!
     
     var results: [SearchResult]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = ""
+        self.navigator = PlatformsNavigator(viewController:self)
         createSearchBar()
     }
 
@@ -28,6 +31,12 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         
 }
     // MARK: - Table view data source
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let client = results?[indexPath.section].clients[indexPath.row] {
+            navigator.goToWebView(forClient: client)
+        }
+    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return results?.count ?? 0
@@ -49,7 +58,6 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         
         cell.textLabel?.text = clients[indexPath.row].name
         
-        
         return cell
     }
     
@@ -64,6 +72,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         if let query = searchBar.text {
+            searchBar.endEditing(true)
             self.results = search(query:query)
         }
     }
@@ -73,7 +82,8 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         self.results = results
         
         if results.isEmpty {
-            tableView.isHidden = true
+            //tableView.isHidden = true
+            //show some kind of view saying "no results"
         } else {
             self.tableView.reloadData()
         }
