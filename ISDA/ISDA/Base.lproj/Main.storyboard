@@ -21,7 +21,7 @@
                         <color key="barTintColor" red="0.23137254901960785" green="0.23529411764705882" blue="0.2627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <outlet property="Tabbar" destination="gi5-Mg-1ft" id="4BN-Be-MRO"/>
+                        <outlet property="TabBar" destination="gi5-Mg-1ft" id="EZ2-ca-7Wz"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l6J-Iu-IYq" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -12,11 +12,13 @@ import UIKit
 class MainTabBarViewController: UITabBarController {
     
     @IBOutlet weak var Tabbar: UITabBar!
+    @IBOutlet weak var TabBar: UITabBar!
+    
     override func viewDidLoad() {
     self.setup()
     }
     override func viewWillAppear(_ animated: Bool) {
-    self.Tabbar.tintColor = UIColor(red: 254, green: 197, blue: 0, alpha: 1)
+    self.TabBar.tintColor = UIColor(red: 0xFF, green: 0xC6, blue: 0x00, alpha: 1)
             }
 }
 
