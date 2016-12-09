@@ -14,7 +14,6 @@ class ServiceCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var logoView: UIImageView!
     
-    
     func requestImage(from pictureName: String, completion:@escaping (UIImage)->Void) {
         let pictureDirectory = "https://uat.synchronycredit.com/BLPAppChallenge/images/\(pictureName)"
         

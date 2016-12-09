@@ -42,7 +42,7 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         // Cast in the service object to copy the values.
-        let service = self.Services?[indexPath.item]
+        var service = self.Services?[indexPath.item]
         
         // get a reference to our storyboard cell
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: (reuseIdentifier), for: indexPath as IndexPath) as! ServiceCollectionViewCell
@@ -50,9 +50,11 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
         cell.logoView.image = service?.logo
         cell.descriptionLabel.text = service?.description
         cell.nameLabel.text = service?.name
+        
+        //This is a TERRIBLE place to do a network request but oh well!
         if let url = service?.imageUrl {
-            cell.requestImage(from: url, completion: { _ in
-                
+            cell.requestImage(from: url, completion: { image in
+                service?.logo = image
             })
         }
         
