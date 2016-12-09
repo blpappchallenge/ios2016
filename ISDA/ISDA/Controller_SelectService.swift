@@ -35,7 +35,7 @@ class Controller_SelectService: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let service = App.services![indexPath.row]
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "basicCell")!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "services")!
         cell.textLabel?.text = service.name
         return cell
     }
