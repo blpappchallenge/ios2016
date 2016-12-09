@@ -94,7 +94,13 @@
         <scene sceneID="YSw-qJ-woM">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IpN-pT-zZ3" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="home" id="K2J-qY-yUy"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="home" id="K2J-qY-yUy">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="TintColor">
+                                <color key="value" red="0.90196078430000004" green="0.72549019609999998" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="y9D-Bf-iNy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
