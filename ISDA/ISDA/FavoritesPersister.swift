@@ -13,24 +13,31 @@ class FavoritesPersister {
     var isFavorite = false
     
     func add(client: Client) {
-        isFavorite = true
+        currentFavorites.append(client)
     }
     
     func add(id: String) {
         isFavorite = true
     }
     
-    func remove(client: Client) {
-        isFavorite = false
+    func remove(client clientToRemove: Client) {
+        for (index, curClient) in currentFavorites.enumerated() {
+            if curClient == clientToRemove {
+                currentFavorites.remove(at: index)
+            }
+        }
     }
     
     func remove(id: String) {
         isFavorite = false
     }
     
-    func checkClientIsFavorite(id:String) -> Bool {
-        return isFavorite
+    func checkClientIsFavorite(client:Client) -> Bool {
+        for curClient in currentFavorites {
+            if curClient == client {
+                return true
+            }
+        }
+        return false
     }
-    
-    
 }

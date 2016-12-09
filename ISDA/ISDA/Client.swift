@@ -13,7 +13,7 @@ enum ClientType {
     case web
 }
 
-struct Client {
+struct Client: Equatable {
     
     let clientID: String
     let testAccounts: [TestAccount]
@@ -28,4 +28,9 @@ struct Client {
         self.type = type
         self.testAccounts = testAccounts
     }
+    
+    public static func ==(lhs: Client, rhs: Client) -> Bool {
+        return lhs.name == rhs.name
+    }
+    
 }

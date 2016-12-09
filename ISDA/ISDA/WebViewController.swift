@@ -13,25 +13,11 @@ class WebViewController : UIViewController {
     
     @IBOutlet fileprivate weak var webView: UIWebView!
     
-    var client: Client? {
+    var client: Client! {
         didSet {
             if let client = client {
                 self.title = client.name
             }
-        }
-    }
-    
-    var url:URL? {
-        didSet {
-            if let url = url {
-                loadRequest(prepareRequest(url))
-            }
-        }
-    }
-    
-    var account:TestAccount! {
-        didSet {
-            enterCredentials()
         }
     }
     
@@ -46,13 +32,12 @@ class WebViewController : UIViewController {
         let barButton = UIBarButtonItem(customView: innerButton)
        navigationItem.rightBarButtonItem = barButton
         
-        if App.favorites.checkClientIsFavorite(id: "clientId") {
+        if App.favorites.checkClientIsFavorite(client: self.client) {
             innerButton.setImage(faveImage, for: .normal)
         } else {
             innerButton.setImage(notFaveImage, for: .normal)
         }
     }
-    
 }
 
     // MARK: UIWEBVIEWDELEGATE
@@ -71,11 +56,11 @@ private extension WebViewController {
     }
     
     @objc func faveButtonWasPressed() {
-        if App.favorites.checkClientIsFavorite(id: "clientId") {
-            App.favorites.remove(id: "clientId")
+        if App.favorites.checkClientIsFavorite(client: self.client) {
+            App.favorites.remove(client: self.client)
             changeToNotFavoriteImage()
         } else {
-            App.favorites.add(id: "clientId")
+            App.favorites.add(client: self.client)
             changeToFavoriteImage()
         }
     }
