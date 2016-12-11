@@ -12,6 +12,7 @@
 		14B1E53F1DECC0E0004B68F6 /* Controller_Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B1E53E1DECC0E0004B68F6 /* Controller_Favorites.swift */; };
 		14B1E5481DECDA41004B68F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14B1E5461DECDA41004B68F6 /* Main.storyboard */; };
 		14B1E5B01DEE204D004B68F6 /* Controller_AddNewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B1E5AF1DEE204D004B68F6 /* Controller_AddNewService.swift */; };
+		14D238531DFB016B001BBA16 /* ServiceSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D238521DFB016B001BBA16 /* ServiceSerializer.swift */; };
 		14D8C52B1DEC975100CC0A9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D8C52A1DEC975100CC0A9C /* AppDelegate.swift */; };
 		14D8C52D1DEC975100CC0A9C /* Controller_Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D8C52C1DEC975100CC0A9C /* Controller_Main.swift */; };
 		14D8C5321DEC975100CC0A9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14D8C5311DEC975100CC0A9C /* Assets.xcassets */; };
@@ -80,6 +81,7 @@
 		14B1E53E1DECC0E0004B68F6 /* Controller_Favorites.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Controller_Favorites.swift; path = ../Controller_Favorites.swift; sourceTree = "<group>"; };
 		14B1E5471DECDA41004B68F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		14B1E5AF1DEE204D004B68F6 /* Controller_AddNewService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller_AddNewService.swift; sourceTree = "<group>"; };
+		14D238521DFB016B001BBA16 /* ServiceSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceSerializer.swift; sourceTree = "<group>"; };
 		14D8C5271DEC975100CC0A9C /* ISDA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ISDA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14D8C52A1DEC975100CC0A9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14D8C52C1DEC975100CC0A9C /* Controller_Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller_Main.swift; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 				64CAE6CC1DF71CDA00C752C4 /* ServiceParser.swift */,
 				64CAE6F51DF78B2600C752C4 /* ServiceRequestHandler.swift */,
 				64CAE6F91DF79A1200C752C4 /* ServicePersister.swift */,
+				14D238521DFB016B001BBA16 /* ServiceSerializer.swift */,
 			);
 			name = DataHandler;
 			sourceTree = "<group>";
@@ -424,7 +427,7 @@
 				TargetAttributes = {
 					14D8C5261DEC975100CC0A9C = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 9R9XSQ2U67;
+						DevelopmentTeam = 9W395UR442;
 						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
@@ -549,6 +552,7 @@
 				648593111DF634A10006365C /* WebViewController.swift in Sources */,
 				64CAE6FC1DF8721700C752C4 /* References.swift in Sources */,
 				64D73F9A1DF61F65004A5CBC /* SearchBar.swift in Sources */,
+				14D238531DFB016B001BBA16 /* ServiceSerializer.swift in Sources */,
 				963FF1CD1DF735AD0049572A /* SearchTableViewController.swift in Sources */,
 				14D8C5431DEC98BC00CC0A9C /* TestAccount.swift in Sources */,
 				64CAE6FA1DF79A1200C752C4 /* ServicePersister.swift in Sources */,
@@ -716,7 +720,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 9R9XSQ2U67;
+				DEVELOPMENT_TEAM = 9W395UR442;
 				INFOPLIST_FILE = ISDA/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Swift.ISDA;
@@ -724,6 +728,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "ISDA/ISDA-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -733,13 +738,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 9R9XSQ2U67;
+				DEVELOPMENT_TEAM = 9W395UR442;
 				INFOPLIST_FILE = ISDA/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Swift.ISDA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ISDA/ISDA-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
