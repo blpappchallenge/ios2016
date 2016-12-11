@@ -11,9 +11,13 @@ import UIKit
 
 class MainTabBarViewController: UITabBarController {
     
+    @IBOutlet weak var Tabbar: UITabBar!
     override func viewDidLoad() {
-        self.setup()
+    self.setup()
     }
+    override func viewWillAppear(_ animated: Bool) {
+    self.Tabbar.tintColor = UIColor(red: 254, green: 197, blue: 0, alpha: 1)
+            }
 }
 
 private extension MainTabBarViewController {
@@ -28,5 +32,6 @@ private extension MainTabBarViewController {
                 FavoritesViewControllerFactory().makeNavigationController(),
                 SettingsViewControllerFactory().makeNavigationController(),
                 SearchViewControllerFactory().makeNavigationController()]
+    
     }
 }

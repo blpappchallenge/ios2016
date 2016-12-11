@@ -52,6 +52,8 @@
         <scene sceneID="xHJ-S4-ibP">
             <objects>
                 <navigationController id="KnQ-9Y-4Tr" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="search" id="kxW-XX-PnM"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cZc-ZS-BO1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

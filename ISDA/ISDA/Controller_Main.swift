@@ -22,7 +22,7 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
     let reuseIdentifier = "Cell" // also enter this string as the cell identifier in the storyboard
     var Services: [Service]? {
         didSet {
-            
+    
         }
     }
     var SelectedService: Service!
