@@ -37,6 +37,9 @@ class WebViewController : UIViewController {
         } else {
             innerButton.setImage(notFaveImage, for: .normal)
         }
+        
+        // Load the web view.
+        webView.loadRequest(URLRequest(url: URL(string: client.url)!))
     }
 }
 
@@ -44,6 +47,13 @@ class WebViewController : UIViewController {
 extension WebViewController : UIWebViewDelegate {
     func webViewDidFinishLoad(_ webView: UIWebView) {
         //self.hideActivityIndicator()
+        
+        let userName = client.testAccounts[0].userName
+        let password = client.testAccounts[0].password
+        
+        webView.stringByEvaluatingJavaScript(from: "document.getElementById('userName').value = '" + userName + "';")
+        webView.stringByEvaluatingJavaScript(from: "document.getElementById('password').value = '" + password + "';")
+        webView.stringByEvaluatingJavaScript(from: "document.getElementById('secLoginBtn').click();")
     }
 }
 

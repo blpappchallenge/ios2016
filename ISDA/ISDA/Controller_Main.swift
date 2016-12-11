@@ -52,11 +52,11 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
         cell.nameLabel.text = service?.name
         
         //This is a TERRIBLE place to do a network request but oh well!
-        if let url = service?.imageUrl {
-            cell.requestImage(from: url, completion: { image in
-                service?.logo = image
-            })
-        }
+//        if let url = service?.imageUrl {
+//            cell.requestImage(from: url, completion: { image in
+//                service?.logo = image
+//            })
+//        }
         
         return cell
     }
