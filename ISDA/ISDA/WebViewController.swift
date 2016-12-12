@@ -51,9 +51,21 @@ extension WebViewController : UIWebViewDelegate {
         let userName = client.testAccounts[0].userName
         let password = client.testAccounts[0].password
         
+        
+        // mService
         webView.stringByEvaluatingJavaScript(from: "document.getElementById('userName').value = '" + userName + "';")
         webView.stringByEvaluatingJavaScript(from: "document.getElementById('password').value = '" + password + "';")
         webView.stringByEvaluatingJavaScript(from: "document.getElementById('secLoginBtn').click();")
+        
+        //mApply
+        webView.stringByEvaluatingJavaScript(from: "document.getElementById('firstName_0009').value = '" + userName + "';")
+        webView.stringByEvaluatingJavaScript(from: "document.getElementById('lastName_0012').value = '" + password + "';")
+        webView.stringByEvaluatingJavaScript(from: "document.getElementById('homeAddress_0014').value = '777 Long Ridge Rd';")
+        webView.stringByEvaluatingJavaScript(from: "document.getElementById('zipCode_0018').value = '06901';")
+        webView.stringByEvaluatingJavaScript(from: "document.getElementById('zipCode_0018').trigger();")
+        webView.stringByEvaluatingJavaScript(from: "document.getElementById('emailAddr_0569').value = 'blpappchallenge@gmail.com';")
+        webView.stringByEvaluatingJavaScript(from: "document.getElementById('currAdd_0134').value = '10';")
+        webView.stringByEvaluatingJavaScript(from: "document.getElementById('homePhone_0021').value = '7777777777';")
     }
 }
 
