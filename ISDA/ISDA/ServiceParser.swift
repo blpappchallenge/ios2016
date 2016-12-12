@@ -65,21 +65,16 @@ struct ServiceParser {
                 service.logo = asset
             }
             else {
+                
                 let downloadTask = session.dataTask(with: request as URLRequest) {(data, response, error) in
                     //Chained optionals. For some reason syntax highlighting isn't working
+                    if error == nil {
+                        
+                    }
                     if let _ = response as? HTTPURLResponse,
                         let imageData = data,
                         let downloadedImage = UIImage(data:imageData){
-                        /*
-                         XXX: Something's not right with your image data and the UIImage initializer is
-                         failing
-                         
-                         This will work if you remove downloadedImage from the if let and replace it with
-                         an image in assets
-                         */
                         service.logo = downloadedImage
-                        
-                        //completion(downloadedImage)
                     }
                     else {
                         print(error ?? "Unknown error")
@@ -158,18 +153,12 @@ struct ServiceParser {
                 let downloadTask = session.dataTask(with: request as URLRequest) {(data, response, error) in
                     //Chained optionals. For some reason syntax highlighting isn't working
                     if let _ = response as? HTTPURLResponse,
+                        
+                        
                         let imageData = data,
                         let downloadedImage = UIImage(data:imageData){
-                        /*
-                         XXX: Something's not right with your image data and the UIImage initializer is
-                         failing
-                         
-                         This will work if you remove downloadedImage from the if let and replace it with
-                         an image in assets
-                         */
                         client.logo = downloadedImage
                         
-                        //completion(downloadedImage)
                     }
                     else {
                         print(error ?? "Unknown error")
@@ -184,7 +173,7 @@ struct ServiceParser {
         }
         return clients
     }
-    
+        
     private func parse(testAccounts json: [[String:Any]]) -> [TestAccount] {
         var testAccounts = [TestAccount]()
         for currentAccount in json {

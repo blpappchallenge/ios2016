@@ -40,6 +40,8 @@ class WebViewController : UIViewController {
         
         // Load the web view.
         webView.loadRequest(URLRequest(url: URL(string: client.url)!))
+        
+        navigationController?.title = client.name
     }
 }
 

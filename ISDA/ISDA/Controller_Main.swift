@@ -31,7 +31,10 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
         super.viewDidLoad()
         self.setup()
         navigator = HomeNavigator(viewController:self)
-        requestHandler.requestServices(completion: self.handleServiceResponse)
+        
+        DispatchQueue.main.async {
+            self.requestHandler.requestServices(completion: self.handleServiceResponse)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

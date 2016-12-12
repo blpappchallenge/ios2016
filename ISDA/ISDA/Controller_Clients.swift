@@ -42,6 +42,8 @@ class Controller_Clients: UIViewController {
         self.dataSources = dataSources
         
         self.tableView.dataSource = dataSources.first
+        
+        //navigationController?.title = service.name
     }
 }
 

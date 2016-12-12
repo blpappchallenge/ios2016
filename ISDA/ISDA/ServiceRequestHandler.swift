@@ -43,7 +43,10 @@ struct ServiceRequestHandler {
                     
                     //Save the global services
                     App.services = services
-                    completion(services, nil)
+                    DispatchQueue.main.async {
+                        completion(services, nil)
+                    }
+                    
                 }
             }
             else {

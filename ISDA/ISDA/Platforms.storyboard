@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--mService-->
+        <!--Clients-->
         <scene sceneID="MOB-5S-Mqq">
             <objects>
                 <viewController storyboardIdentifier="platforms" id="PP4-cj-Uqr" customClass="Controller_Clients" customModule="ISDA" customModuleProvider="target" sceneMemberID="viewController">
@@ -120,7 +120,7 @@
                             <constraint firstItem="lP4-LJ-sTJ" firstAttribute="top" secondItem="r2m-0f-tX3" secondAttribute="bottom" constant="8" id="pcO-H4-97a"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="mService" id="gUI-eb-FKN">
+                    <navigationItem key="navigationItem" title="Clients" id="gUI-eb-FKN">
                         <barButtonItem key="backBarButtonItem" title="Back" id="HWX-iH-WRV"/>
                     </navigationItem>
                     <connections>
