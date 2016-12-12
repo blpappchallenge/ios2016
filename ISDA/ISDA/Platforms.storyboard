@@ -41,26 +41,26 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gW6-zL-5EB" userLabel="Info">
                                                     <rect key="frame" x="-1" y="-1" width="298" height="94"/>
                                                     <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Id6-ls-mfn">
+                                                            <rect key="frame" x="8" y="8" width="79" height="78"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="79" id="CHG-en-STH"/>
+                                                            </constraints>
+                                                        </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sfs-rB-5nI">
-                                                            <rect key="frame" x="95" y="36" width="42" height="21"/>
+                                                            <rect key="frame" x="111" y="37" width="42" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Id6-ls-mfn">
-                                                            <rect key="frame" x="0.0" y="0.0" width="87" height="94"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="87" id="CHG-en-STH"/>
-                                                            </constraints>
-                                                        </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstItem="Sfs-rB-5nI" firstAttribute="leading" secondItem="Id6-ls-mfn" secondAttribute="trailing" constant="8" id="Cvc-sV-ZW9"/>
+                                                        <constraint firstItem="Sfs-rB-5nI" firstAttribute="leading" secondItem="Id6-ls-mfn" secondAttribute="trailing" constant="24" id="Cvc-sV-ZW9"/>
                                                         <constraint firstItem="Sfs-rB-5nI" firstAttribute="centerY" secondItem="Id6-ls-mfn" secondAttribute="centerY" id="RAp-Ps-XRz"/>
-                                                        <constraint firstItem="Id6-ls-mfn" firstAttribute="top" secondItem="gW6-zL-5EB" secondAttribute="top" id="WzI-f8-l4y"/>
-                                                        <constraint firstAttribute="bottom" secondItem="Id6-ls-mfn" secondAttribute="bottom" id="kL2-V4-xlE"/>
-                                                        <constraint firstItem="Id6-ls-mfn" firstAttribute="leading" secondItem="gW6-zL-5EB" secondAttribute="leading" id="qsw-bp-6XT"/>
+                                                        <constraint firstItem="Id6-ls-mfn" firstAttribute="top" secondItem="gW6-zL-5EB" secondAttribute="top" constant="8" id="WzI-f8-l4y"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Id6-ls-mfn" secondAttribute="bottom" constant="8" id="kL2-V4-xlE"/>
+                                                        <constraint firstItem="Id6-ls-mfn" firstAttribute="leading" secondItem="gW6-zL-5EB" secondAttribute="leading" constant="8" id="qsw-bp-6XT"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F18-ys-MNQ">

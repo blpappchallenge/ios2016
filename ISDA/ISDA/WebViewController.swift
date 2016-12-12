@@ -26,7 +26,7 @@ class WebViewController : UIViewController {
     override func viewDidLoad() {
         
         let notFaveImage = UIImage(named: "blankFavStar")
-        let faveImage = UIImage(named: "FavStar")
+        let faveImage = UIImage(named: "Fav")
         innerButton = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
         innerButton.addTarget(self, action: #selector(self.faveButtonWasPressed), for: .touchUpInside)
         let barButton = UIBarButtonItem(customView: innerButton)
@@ -81,7 +81,7 @@ private extension WebViewController {
     }
     
     func changeToFavoriteImage() {
-        let faveImage = UIImage(named: "FavStar")
+        let faveImage = UIImage(named: "Fav")
         innerButton.setImage(faveImage, for: .normal)
     }
     

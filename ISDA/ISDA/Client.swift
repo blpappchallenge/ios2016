@@ -20,13 +20,16 @@ struct Client: Equatable {
     var url: String
     var name: String
     var type: String
+    var imageURL: String
+    var logo: UIImage?
     
-    init(id:String, url:String, name:String, testAccounts:[TestAccount], type:String) {
+    init(id:String, url:String, name:String, testAccounts:[TestAccount], type:String, imageURL:String) {
         self.clientID = id
         self.name = name
         self.url = url
         self.type = type
         self.testAccounts = testAccounts
+        self.imageURL = imageURL
     }
     
     public static func ==(lhs: Client, rhs: Client) -> Bool {

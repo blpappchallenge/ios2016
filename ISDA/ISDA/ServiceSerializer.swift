@@ -73,6 +73,7 @@ class ServiceSerializer {
             json += serializeLine("name", client.name, false)
             json += serializeLine("type", client.type, false)
             json += serializeLine("URL", client.url, false)
+            json += serializeLine("imageURL", client.imageURL, false)
             json += serializeTestAccount(client.testAccounts)
             json += "},"
         }

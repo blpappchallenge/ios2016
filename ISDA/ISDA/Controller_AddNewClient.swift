@@ -22,6 +22,7 @@ UINavigationControllerDelegate {
     var webService: Service!
     var webImage: UIImage!
     private let requestHandler = ServiceRequestHandler()
+    var imageLink:String!
     
     var selectedService: Service? {
         didSet {
@@ -91,7 +92,8 @@ UINavigationControllerDelegate {
                                 url: urlTextField.text!,
                                 name: nameTextField.text!,
                                 testAccounts: [testAccount],
-                                type: "native")
+                                type: "native",
+                                imageURL:imageLink)
             
             // Append data to the native app service.
             nativeService.generations[0].clients.append(client)
@@ -108,12 +110,44 @@ UINavigationControllerDelegate {
                                 url: urlTextField.text!,
                                 name: nameTextField.text!,
                                 testAccounts: [testAccount],
-                                type: "web")
+                                type: "web",
+                                imageURL: imageLink)
             
             // Append data to the native app service.
             webService.generations[0].clients.append(client)
             
-            App.services?.append(webService)
+            
+            for index in 0...App.services!.count {
+                if App.services![index].name == webService.name {
+                    App.services![index] = webService
+                    break
+                }
+            }
+            //App.services?.append(webService)
+        }
+        else {
+            // Create the test account.
+            let testAccount = TestAccount(userName: usernameTextField.text!,
+                                          password: passwordTextField.text!)
+            
+            // Create the client.
+            let client = Client(id: idTextField.text!,
+                                url: urlTextField.text!,
+                                name: nameTextField.text!,
+                                testAccounts: [testAccount],
+                                type: "web",
+                                imageURL: imageLink)
+            
+            // Append data to the native app service.
+            selectedService?.generations[0].clients.append(client)
+            
+            
+            for index in 0...App.services!.count {
+                if App.services![index].name == selectedService?.name {
+                    App.services![index] = selectedService!
+                    break
+                }
+            }
         }
         
         
@@ -142,7 +176,8 @@ UINavigationControllerDelegate {
                      username: username,
                      password: password,
                      generationName: url,
-                     type:"")
+                     type:"",
+                     imageURL: imageLink)
     }
     
     func addNewClient(id: String,
@@ -151,7 +186,8 @@ UINavigationControllerDelegate {
                       username: String,
                       password:String,
                       generationName:String,
-                      type:String) {
+                      type:String,
+                      imageURL:String) {
         
         if let service = selectedService {
             service.addClient(id: id,
@@ -160,7 +196,8 @@ UINavigationControllerDelegate {
                               username: username,
                               password: password,
                               generationName: generationName,
-                              type:type)
+                              type:type,
+                              imageURL:imageURL)
         }
     }
     @IBOutlet weak var imagePicked: UIImageView!
@@ -180,6 +217,42 @@ UINavigationControllerDelegate {
         let image = info["UIImagePickerControllerEditedImage"] as? UIImage
         imagePicked.image = image
         self.dismiss(animated: true, completion: nil);
+    
+    
+    let url = "https://api.imgur.com/3/image"
+    // Get the picture from the connection
+    let pictureURL = URL(string: url)!
+    let session = URLSession(configuration: .default)
+    var request = URLRequest(url: pictureURL)
+    let imageData = UIImagePNGRepresentation(imagePicked.image!)?.base64EncodedData(options: .lineLength64Characters)
+    
+    request.setValue("Client-ID c98baad70015b31", forHTTPHeaderField: "Authorization")
+    //request.setValue(imageData, forHTTPHeaderField: "image")
+    request.setValue("multipart/form-data", forHTTPHeaderField: "Content-type")
+    request.httpBody = imageData
+    request.httpMethod = "POST"
+    
+    let downloadTask = session.dataTask(with: request as URLRequest) {(data, response, error) in
+        if error != nil {
+            print(error)
+        }
+        else {
+            if let res = response as? HTTPURLResponse {
+                let code = res.statusCode
+                print(code)
+                
+                do {
+                    let response = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
+                    let responseData = response["data"] as! [String:Any]
+                    self.imageLink = responseData["link"] as! String
+                } catch let error as NSError {
+                    print(error)
+                }
+            }
+        }
+        
     }
     
+    downloadTask.resume()
+    }
 }

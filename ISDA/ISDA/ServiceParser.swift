@@ -120,14 +120,65 @@ struct ServiceParser {
             let url = currentClient["URL"] as! String
             let type = currentClient["type"] as! String
             let clientID = currentClient["clientID"] as! String
+            let imageURL = currentClient["imageURL"] as! String
             
             let testAccountsJson = currentClient["testAccounts"] as! [[String:Any]]
             let testAccounts = parse(testAccounts: testAccountsJson)
             
             
-            let client = Client(id:clientID, url:url, name:name, testAccounts:testAccounts, type:type)
+            var client = Client(id:clientID, url:url, name:name, testAccounts:testAccounts, type:type, imageURL:imageURL)
+            
+            // Download the image.
+            let pictureDirectory = client.imageURL
+            
+            // Check if image exists in assets. If not, download from service image url.
+            var asset: UIImage!
+            var assetExists = false
+            
+            do {
+                //TODO: change to client.name
+                assetExists = try! checkForAsset(imageName: client.clientID)
+            }
+            catch let error as NSError {
+                print(error)
+            }
+            
+            if assetExists {
+                asset = UIImage(imageLiteralResourceName: client.clientID)
+                client.logo = asset
+            }
             
             
+            else {
+                // Get the picture from the connection
+                let pictureURL = URL(string: pictureDirectory)!
+                let session = URLSession(configuration: .default)
+                let request = URLRequest(url: pictureURL)
+                
+                let downloadTask = session.dataTask(with: request as URLRequest) {(data, response, error) in
+                    //Chained optionals. For some reason syntax highlighting isn't working
+                    if let _ = response as? HTTPURLResponse,
+                        let imageData = data,
+                        let downloadedImage = UIImage(data:imageData){
+                        /*
+                         XXX: Something's not right with your image data and the UIImage initializer is
+                         failing
+                         
+                         This will work if you remove downloadedImage from the if let and replace it with
+                         an image in assets
+                         */
+                        client.logo = downloadedImage
+                        
+                        //completion(downloadedImage)
+                    }
+                    else {
+                        print(error ?? "Unknown error")
+                    }
+                    
+                }
+                downloadTask.resume()
+            }
+
             clients.append(client)
         }
         return clients

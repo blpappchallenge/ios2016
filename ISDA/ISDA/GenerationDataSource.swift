@@ -25,7 +25,7 @@ class GenerationDataSource: NSObject, UITableViewDataSource {
         
         let client = clients[row]
             cell.label.text = client.name
-            // cell.clientImageView.image = client.image
+            cell.clientImageView.image = client.logo
         
         return cell
     }
