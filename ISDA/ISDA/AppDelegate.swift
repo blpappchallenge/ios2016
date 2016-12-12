@@ -20,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        UITabBar.appearance().tintColor = UIColor(red: 0xFB, green: 0xC6, blue: 0x00, alpha: 1)
+        
         let credentialsProvider = AWSCognitoCredentialsProvider(
             regionType: AWSRegionType.usEast1,
             identityPoolId: "us-east-1:b0ffb4c3-b0c0-425d-92ed-a67968679f8f")

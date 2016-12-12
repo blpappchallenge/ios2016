@@ -18,8 +18,8 @@ class MainTabBarViewController: UITabBarController {
     self.setup()
     }
     override func viewWillAppear(_ animated: Bool) {
-    self.TabBar.tintColor = UIColor(red: 0xFB, green: 0xC6, blue: 0x00, alpha: 1)
-            }
+    self.TabBar.tintColor = UIColor(red:0.98, green:0.78, blue:0.00, alpha:1.0)
+    }
 }
 
 private extension MainTabBarViewController {
@@ -36,4 +36,7 @@ private extension MainTabBarViewController {
                 SearchViewControllerFactory().makeNavigationController()]
     
     }
+    
+    
 }
+
