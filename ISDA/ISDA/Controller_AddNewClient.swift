@@ -23,6 +23,7 @@ UINavigationControllerDelegate {
     var webImage: UIImage!
     private let requestHandler = ServiceRequestHandler()
     var imageLink:String!
+    let alert = UIAlertController(title: "Error", message: "Please make sure all fields are entered correctly.", preferredStyle: UIAlertControllerStyle.alert)
     
     var selectedService: Service? {
         didSet {
@@ -49,13 +50,15 @@ UINavigationControllerDelegate {
             serviceLabel.text = selectedService?.name
         }
         if (webImage != nil) {
-            imagePicked.image = webImage
+            //imagePicked.image = webImage
         }
         
         serviceSerializer = ServiceSerializer()
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
     }
     
 
@@ -64,6 +67,11 @@ UINavigationControllerDelegate {
         
     }
     
+    func showMessage(title:String, message:String) {
+        alert.title = title
+        alert.message = message
+        self.present(alert, animated: true, completion: nil)
+    }
     
     @IBAction func didPressSelectService(_ sender: Any) {
         let serviceViewController = SettingsViewControllerFactory().makeSelectServiceViewController() { service in
@@ -81,6 +89,12 @@ UINavigationControllerDelegate {
 //        if let firstService = App.services?.first {
 //            handleServiceSelected(service: firstService)
 //        }
+        // Validate input
+        if !validateInput() {
+            
+            showMessage(title: "Error", message: "Please make sure all fields are entered correctly.")
+            return
+        }
         
         if (nativeService != nil) {
             // Create the test account.
@@ -115,15 +129,7 @@ UINavigationControllerDelegate {
             
             // Append data to the native app service.
             webService.generations[0].clients.append(client)
-            
-            
-            for index in 0...App.services!.count {
-                if App.services![index].name == webService.name {
-                    App.services![index] = webService
-                    break
-                }
-            }
-            //App.services?.append(webService)
+            App.services?.append(webService)
         }
         else {
             // Create the test account.
@@ -142,7 +148,7 @@ UINavigationControllerDelegate {
             selectedService?.generations[0].clients.append(client)
             
             
-            for index in 0...App.services!.count {
+            for index in 0...App.services!.count - 1 {
                 if App.services![index].name == selectedService?.name {
                     App.services![index] = selectedService!
                     break
@@ -159,6 +165,7 @@ UINavigationControllerDelegate {
             let json = try JSONSerialization.jsonObject(with: data)
             print(json)
             requestHandler.updateServices(json)
+            showMessage(title: "Success", message: "Service updated successfully. Click OK to continue.")
         } catch let error as NSError {
             print(error)
         }
@@ -254,5 +261,31 @@ UINavigationControllerDelegate {
     }
     
     downloadTask.resume()
+    }
+    
+    func validateInput() -> Bool {
+        
+        var isValid = true
+        
+        if idTextField.text == "" {
+            isValid = false
+        }
+        else if nameTextField.text == "" {
+            isValid = false
+        }
+        else if urlTextField.text == "" {
+            isValid = false
+        }
+        else if usernameTextField.text == "" {
+            isValid = false
+        }
+        else if passwordTextField.text == "" {
+            isValid = false
+        }
+        else if imageLink == nil {
+            isValid = false
+        }
+        
+        return isValid
     }
 }

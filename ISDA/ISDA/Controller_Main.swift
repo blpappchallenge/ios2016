@@ -65,9 +65,13 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
             let url = URL(string: (firstClient?.url)!)
             UIApplication.shared.open(url!)
         }
-        else
+        else if firstClient?.type == "web"
         {
             navigator.goToPlatformsViewController(withService: service!)
+        }
+        else {
+            let settingsNavigator = SettingsNavigator(viewController: self)
+            settingsNavigator.goToAddNewService()
         }
     }
     

@@ -33,7 +33,7 @@ struct SettingsNavigator: Navigator {
     func goToAddNewClient(webService: Service, image: UIImage) {
         let vc = factory.makeAddNewClientViewController()
         vc.webService = webService
-        vc.webImage = image
+        //vc.webImage = image
         vc.selectedService = webService
         push(vc)
     }
