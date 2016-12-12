@@ -22,6 +22,7 @@ UINavigationControllerDelegate {
     @IBOutlet weak var optnServiceType: UISegmentedControl!
     var imageLink:String!
 
+    @IBOutlet weak var deepLinkUnderline: UIView!
     var Services: [Service]? {
         didSet {
             
@@ -241,9 +242,11 @@ UINavigationControllerDelegate {
     @IBAction func ServiceType_Changed(_ sender: Any) {
         if optnServiceType.selectedSegmentIndex == 0 {
             txtDeepLink.isHidden = true
+            deepLinkUnderline.isHidden = true
         }
         else {
             txtDeepLink.isHidden = false
+            deepLinkUnderline.isHidden = false
         }
     }
     

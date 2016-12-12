@@ -13,6 +13,17 @@ struct ServiceParser {
         //let servicesJson = json["Services"] as! [[String:Any]]
         return parseServices(json: json)
     }
+
+    func checkForAsset(imageName:String) throws -> Bool {
+        let asset = UIImage(named: imageName)
+        
+        if (asset == nil) {
+            return false
+        }
+        else {
+            return true
+        }
+    }
     
     private func parseServices(json: [[String:Any]]) -> [Service] {
         var services = [Service]()
@@ -38,29 +49,47 @@ struct ServiceParser {
             let session = URLSession(configuration: .default)
             let request = URLRequest(url: pictureURL)
             
-            let downloadTask = session.dataTask(with: request as URLRequest) {(data, response, error) in
-                //Chained optionals. For some reason syntax highlighting isn't working
-                if let _ = response as? HTTPURLResponse,
-                    let imageData = data,
-                    let downloadedImage = UIImage(data:imageData){
-                    /*
-                     XXX: Something's not right with your image data and the UIImage initializer is
-                     failing
-                     
-                     This will work if you remove downloadedImage from the if let and replace it with
-                     an image in assets
-                     */
-                    service.logo = downloadedImage
-                    
-                    //completion(downloadedImage)
-                }
-                else {
-                    print(error ?? "Unknown error")
-                }
-                
+            // Check if image exists in assets. If not, download from service image url.
+            var asset: UIImage!
+            var assetExists = false
+            
+            do {
+                assetExists = try! checkForAsset(imageName: service.name)
             }
-            downloadTask.resume()
-            sleep(1)
+            catch let error as NSError {
+                print(error)
+            }
+            
+            if assetExists {
+                asset = UIImage(imageLiteralResourceName: service.name)
+                service.logo = asset
+            }
+            else {
+                let downloadTask = session.dataTask(with: request as URLRequest) {(data, response, error) in
+                    //Chained optionals. For some reason syntax highlighting isn't working
+                    if let _ = response as? HTTPURLResponse,
+                        let imageData = data,
+                        let downloadedImage = UIImage(data:imageData){
+                        /*
+                         XXX: Something's not right with your image data and the UIImage initializer is
+                         failing
+                         
+                         This will work if you remove downloadedImage from the if let and replace it with
+                         an image in assets
+                         */
+                        service.logo = downloadedImage
+                        
+                        //completion(downloadedImage)
+                    }
+                    else {
+                        print(error ?? "Unknown error")
+                    }
+                    
+                }
+                downloadTask.resume()
+                sleep(1)
+            }
+            
             services.append(service)
         }
         
@@ -97,6 +126,8 @@ struct ServiceParser {
             
             
             let client = Client(id:clientID, url:url, name:name, testAccounts:testAccounts, type:type)
+            
+            
             clients.append(client)
         }
         return clients
