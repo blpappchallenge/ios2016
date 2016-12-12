@@ -32,6 +32,8 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
         self.setup()
         navigator = HomeNavigator(viewController:self)
         requestHandler.requestServices(completion: self.handleServiceResponse)
+        
+        navigationController?.navigationBar.barTintColor = UIColor(red:0.23, green:0.24, blue:0.26, alpha:1.0)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

@@ -25,6 +25,7 @@ class Controller_SelectService: UIViewController, UITableViewDelegate, UITableVi
         if let service = App.services?[indexPath.row] {
             self.dismiss(animated: true, completion: nil)
             completion?(service)
+            navigationController?.popViewController(animated: true)
         }
     }
     
