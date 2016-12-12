@@ -177,6 +177,7 @@ struct ServiceParser {
                     
                 }
                 downloadTask.resume()
+                sleep(1)
             }
 
             clients.append(client)

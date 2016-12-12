@@ -219,6 +219,7 @@ UINavigationControllerDelegate {
             self.present(imagePicker, animated: true, completion: nil)
         }
     }
+    
   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
     
         let image = info["UIImagePickerControllerEditedImage"] as? UIImage
