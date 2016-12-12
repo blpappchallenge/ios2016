@@ -220,7 +220,18 @@ UINavigationControllerDelegate {
             navigator.goToAddNewClient(nativeService: service, image: imagePicked.image!)
         }
         else {
+            // Create generation.
+            let generation = Generation(name: txtServiceGeneration.text!, clients: [Client]())
+            var generations = [Generation]()
+            generations.append(generation)
             
+            
+            var service = Service(name: txtServiceName.text!,
+                                  description: txtServiceGeneration.text!,
+                                  generations: generations,
+                                  imageUrl: imageLink)
+
+            navigator.goToAddNewClient(webService: service, image: imagePicked.image!)
         }
     }
     

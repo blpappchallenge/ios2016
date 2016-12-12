@@ -50,12 +50,36 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
         cell.descriptionLabel.text = service?.description
         cell.nameLabel.text = service?.name
 
-        // This is a TERRIBLE place to do a network request but oh well!
-//        if let url = service?.imageUrl {
-//           cell.requestImage(from: url, completion: { image in
-//                service?.logo = image
-//            })
-//        }
+                    // Download the image.
+                    let pictureDirectory = service?.imageUrl
+        
+                    // Get the picture from the connection
+                    let pictureURL = URL(string: pictureDirectory!)!
+                    let session = URLSession(configuration: .default)
+                    let request = URLRequest(url: pictureURL)
+        
+                    let downloadTask = session.dataTask(with: request as URLRequest) {(data, response, error) in
+                        //Chained optionals. For some reason syntax highlighting isn't working
+                        if let _ = response as? HTTPURLResponse,
+                            let imageData = data,
+                            let downloadedImage = UIImage(data:imageData){
+                            /*
+                             XXX: Something's not right with your image data and the UIImage initializer is
+                             failing
+        
+                             This will work if you remove downloadedImage from the if let and replace it with
+                             an image in assets
+                             */
+                            service?.logo = downloadedImage
+                        
+                            //completion(downloadedImage)
+                        }
+                        else {
+                            print(error ?? "Unknown error")
+                        }
+                        
+                    }
+                    downloadTask.resume()
         
         return cell
     }
@@ -154,14 +178,6 @@ private extension Controller_Main {
         collectionView.dataSource = self
         if let services = services {
             requestImages(services: services)
-        }
-    }
-    
-    func requestImages(services:[Service]) {
-        
-        for service in services {
-            
-            
         }
     }
     

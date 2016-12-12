@@ -19,6 +19,9 @@ UINavigationControllerDelegate {
     var nativeService: Service!
     var nativeImage: UIImage!
     var serviceSerializer:ServiceSerializer!
+    var webService: Service!
+    var webImage: UIImage!
+    private let requestHandler = ServiceRequestHandler()
     
     var selectedService: Service? {
         didSet {
@@ -72,21 +75,41 @@ UINavigationControllerDelegate {
 //            handleServiceSelected(service: firstService)
 //        }
         
-        // Create the test account.
-        let testAccount = TestAccount(userName: usernameTextField.text!,
-                                      password: passwordTextField.text!)
+        if (nativeService != nil) {
+            // Create the test account.
+            let testAccount = TestAccount(userName: usernameTextField.text!,
+                                          password: passwordTextField.text!)
+            
+            // Create the client.
+            let client = Client(id: idTextField.text!,
+                                url: urlTextField.text!,
+                                name: nameTextField.text!,
+                                testAccounts: [testAccount],
+                                type: "native")
+            
+            // Append data to the native app service.
+            nativeService.generations[0].clients.append(client)
+            
+            App.services?.append(nativeService)
+        }
+        else if (webService != nil) {
+            // Create the test account.
+            let testAccount = TestAccount(userName: usernameTextField.text!,
+                                          password: passwordTextField.text!)
+            
+            // Create the client.
+            let client = Client(id: idTextField.text!,
+                                url: urlTextField.text!,
+                                name: nameTextField.text!,
+                                testAccounts: [testAccount],
+                                type: "web")
+            
+            // Append data to the native app service.
+            webService.generations[0].clients.append(client)
+            
+            App.services?.append(webService)
+        }
         
-        // Create the client.
-        let client = Client(id: idTextField.text!,
-                            url: urlTextField.text!,
-                            name: nameTextField.text!,
-                            testAccounts: [testAccount],
-                            type: "native")
-        
-        // Append data to the native app service.
-        nativeService.generations[0].clients.append(client)
-        
-        App.services?.append(nativeService)
         
         // Update the database.
         let updatedJson = serviceSerializer.serialize(App.services!)
@@ -95,7 +118,7 @@ UINavigationControllerDelegate {
         do {
             let json = try JSONSerialization.jsonObject(with: data)
             print(json)
-            //requestHandler.updateServices(json)
+            requestHandler.updateServices(json)
         } catch let error as NSError {
             print(error)
         }
