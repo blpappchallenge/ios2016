@@ -19,6 +19,8 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         title = ""
         self.navigator = PlatformsNavigator(viewController:self)
         createSearchBar()
+        
+        navigationController?.navigationBar.barTintColor = UIColor(red:0.20, green:0.40, blue:0.50, alpha:1.0)
     }
 
     func createSearchBar() {

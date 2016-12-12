@@ -36,6 +36,8 @@ class Controller_Clients: UIViewController {
         self.navigator = PlatformsNavigator(viewController:self)
         //ServiceLogoView.image = logo
         
+        navigationController?.navigationBar.barTintColor = UIColor(red:0.20, green:0.40, blue:0.50, alpha:1.0)
+        
         self.tableView.delegate = self
         let dataSources = makeDataSources(service: self.service)
         self.setupToggleView(service: self.service)
