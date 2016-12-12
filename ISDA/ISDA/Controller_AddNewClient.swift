@@ -16,6 +16,9 @@ UINavigationControllerDelegate {
     @IBOutlet weak var urlTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    var nativeService: Service!
+    var nativeImage: UIImage!
+    var serviceSerializer:ServiceSerializer!
     
     var selectedService: Service? {
         didSet {
@@ -28,6 +31,21 @@ UINavigationControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Pre populate the fields if it's a native app
+        if (nativeService != nil) {
+            idTextField.text = nativeService.name.lowercased()
+            nameTextField.text = nativeService.name
+            urlTextField.text = nativeService.deepLink
+        }
+        if (nativeImage != nil) {
+            imagePicked.image = nativeImage
+            serviceLabel.text = selectedService?.name
+        }
+        
+        serviceSerializer = ServiceSerializer()
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
     }
     
 
@@ -44,10 +62,42 @@ UINavigationControllerDelegate {
         self.navigationController?.pushViewController(serviceViewController, animated: true)
     }
     
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
     
     @IBAction func didPressSubmit(_ sender: Any) {
-        if let firstService = App.services?.first {
-            handleServiceSelected(service: firstService)
+//        if let firstService = App.services?.first {
+//            handleServiceSelected(service: firstService)
+//        }
+        
+        // Create the test account.
+        let testAccount = TestAccount(userName: usernameTextField.text!,
+                                      password: passwordTextField.text!)
+        
+        // Create the client.
+        let client = Client(id: idTextField.text!,
+                            url: urlTextField.text!,
+                            name: nameTextField.text!,
+                            testAccounts: [testAccount],
+                            type: "native")
+        
+        // Append data to the native app service.
+        nativeService.generations[0].clients.append(client)
+        
+        App.services?.append(nativeService)
+        
+        // Update the database.
+        let updatedJson = serviceSerializer.serialize(App.services!)
+        var data = updatedJson.data(using: .utf8)!
+
+        do {
+            let json = try JSONSerialization.jsonObject(with: data)
+            print(json)
+            //requestHandler.updateServices(json)
+        } catch let error as NSError {
+            print(error)
         }
     }
     

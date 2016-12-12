@@ -22,6 +22,14 @@ struct SettingsNavigator: Navigator {
         push(vc)
     }
     
+    func goToAddNewClient(nativeService: Service, image: UIImage) {
+        let vc = factory.makeAddNewClientViewController()
+        vc.nativeService = nativeService
+        vc.nativeImage = image
+        vc.selectedService = nativeService
+        push(vc)
+    }
+    
     func goToHelp() {
         let vc = factory.makeHelpViewController()
         push(vc)

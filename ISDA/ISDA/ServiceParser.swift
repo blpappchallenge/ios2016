@@ -56,16 +56,16 @@ struct ServiceParser {
         for currentClient in json {
             //let id = currentClient["clientID"] as! String
             //TODO: remove id from initializer (no longer needed)
-            let id = ""
             let name = currentClient["name"] as! String
             let url = currentClient["URL"] as! String
             let type = currentClient["type"] as! String
+            let clientID = currentClient["clientID"] as! String
             
             let testAccountsJson = currentClient["testAccounts"] as! [[String:Any]]
             let testAccounts = parse(testAccounts: testAccountsJson)
             
             
-            let client = Client(id:id, url:url, name:name, testAccounts:testAccounts, type:type)
+            let client = Client(id:clientID, url:url, name:name, testAccounts:testAccounts, type:type)
             clients.append(client)
         }
         return clients

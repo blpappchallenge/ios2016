@@ -92,13 +92,13 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
         var Author:String?
         
         
-        class func dynamoDBTableName() -> String! {
+        class func dynamoDBTableName() -> String {
             return "Books"
         }
         
         
         // if we define attribute it must be included when calling it in function testing...
-        class func hashKeyAttribute() -> String! {
+        class func hashKeyAttribute() -> String {
             return "ISBN"
         }
         
@@ -154,7 +154,7 @@ private extension Controller_Main {
         collectionView.delegate = self
         collectionView.dataSource = self
         if let services = services {
-            requestImages(services: services)
+            //requestImages(services: services)
         }
     }
     

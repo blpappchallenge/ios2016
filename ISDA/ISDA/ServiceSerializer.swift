@@ -10,21 +10,27 @@ import UIKit
 
 class ServiceSerializer {
     
-    func serialize(services: [Service]) {
+    func serialize(_ services: [Service]) -> String {
         
         var json = ""
-        json += "\"Title\": [{"
+        json += "["
         for service in services {
             
+            json += "{"
             json += serializeLine("Description", service.description, false)
             json += serializeLine("Name", service.name, false)
+            json += serializeLine("Logo", service.imageUrl, false)
             json += serializeGeneration(generations: service.generations)
+            json += "},"
         }
         
-        json += "}]"
+        let index = json.index(json.endIndex, offsetBy: -1)
+        json = json.substring(to: index)
+        json += "]"
+        return json
     }
     
-    func serializeLine(_ title: String, _ value: String, _ lastLine: Bool) -> String {
+    private func serializeLine(_ title: String, _ value: String, _ lastLine: Bool) -> String {
         
         var json = "\"" + title + "\":\"" + value + "\""
         
@@ -35,23 +41,27 @@ class ServiceSerializer {
         return json
     }
     
-    func serializeGeneration(generations: [Generation]) -> String {
+    private func serializeGeneration(generations: [Generation]) -> String {
         
         var json = ""
+        json += "\"Generations\":["
         
         for generation in generations {
             
-            json += "\"Generation\":[{"
+            json += "{"
             json += serializeLine("Name", generation.name, false)
             json += serializeClient(generation.clients)
-            json += "}]"
+            json += "},"
             
         }
         
+        let index = json.index(json.endIndex, offsetBy: -1)
+        json = json.substring(to: index)
+        json += "]"
         return json
     }
     
-    func serializeClient(_ clients: [Client]) -> String {
+    private func serializeClient(_ clients: [Client]) -> String {
         
         var json = ""
         json += "\"Clients\":["
@@ -62,15 +72,18 @@ class ServiceSerializer {
             json += serializeLine("clientID", client.clientID, false)
             json += serializeLine("name", client.name, false)
             json += serializeLine("type", client.type, false)
-            json += serializeLine("URL", client.url, true)
-            json += "]"
+            json += serializeLine("URL", client.url, false)
+            json += serializeTestAccount(client.testAccounts)
+            json += "},"
         }
         
+        let index = json.index(json.endIndex, offsetBy: -1)
+        json = json.substring(to: index)
         json += "]"
         return json
     }
     
-    func serializeTestAccount(_ testAccounts: [TestAccount]) -> String {
+    private func serializeTestAccount(_ testAccounts: [TestAccount]) -> String {
         
         var json = ""
         json += "\"testAccounts\":["

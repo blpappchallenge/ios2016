@@ -15,11 +15,11 @@ enum ClientType {
 
 struct Client: Equatable {
     
-    let clientID: String
-    let testAccounts: [TestAccount]
-    let url: String
-    let name: String
-    let type: String
+    var clientID: String
+    var testAccounts: [TestAccount]
+    var url: String
+    var name: String
+    var type: String
     
     init(id:String, url:String, name:String, testAccounts:[TestAccount], type:String) {
         self.clientID = id

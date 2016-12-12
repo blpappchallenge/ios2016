@@ -175,7 +175,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Service Deep Linking Information" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0UQ-1k-FVY">
+                                    <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Service Deep Linking Information" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0UQ-1k-FVY">
                                         <rect key="frame" x="16" y="406" width="343" height="17"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="17" id="Kua-Sw-AGt"/>
@@ -198,6 +198,9 @@
                                             <segment title="Web"/>
                                             <segment title="Native"/>
                                         </segments>
+                                        <connections>
+                                            <action selector="ServiceType_Changed:" destination="hK8-hp-NSr" eventType="valueChanged" id="L4p-3h-K93"/>
+                                        </connections>
                                     </segmentedControl>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New Service" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="31r-Ei-qat">
                                         <rect key="frame" x="112" y="41" width="150" height="29"/>
@@ -291,7 +294,12 @@
                         <outlet property="ServiceName_Textbox" destination="ScB-0r-Qhk" id="cUx-sT-8tc"/>
                         <outlet property="Submit_Button" destination="SCx-Wc-lcJ" id="Nzp-8Y-mWw"/>
                         <outlet property="imagePicked" destination="TLy-aY-wDS" id="3Jd-96-cJm"/>
+                        <outlet property="optnServiceType" destination="1In-vF-LbF" id="F3E-zv-kR5"/>
                         <outlet property="scrollView" destination="cZj-N5-gdy" id="AcN-sF-Z4q"/>
+                        <outlet property="txtDeepLink" destination="0UQ-1k-FVY" id="qjI-my-OOQ"/>
+                        <outlet property="txtDescription" destination="WzF-VP-0GT" id="VE7-9D-GAi"/>
+                        <outlet property="txtServiceGeneration" destination="3C4-Zq-rDh" id="SUP-IK-h9a"/>
+                        <outlet property="txtServiceName" destination="ScB-0r-Qhk" id="lUG-RY-hYH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o6w-Ze-ioJ" userLabel="First Responder" sceneMemberID="firstResponder"/>

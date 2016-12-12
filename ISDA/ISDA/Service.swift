@@ -12,6 +12,7 @@ struct Service {
     let name: String
     let description: String
     var generations: [Generation]
+    var deepLink: String
     let imageUrl: String
     var logo: UIImage?
 
@@ -21,6 +22,7 @@ struct Service {
         self.description = description
         self.generations = generations
         self.imageUrl = imageUrl
+        self.deepLink = ""
     }
     
     func add(client: Client, generationName: String) {
