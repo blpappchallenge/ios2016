@@ -110,12 +110,12 @@ struct ServiceRequestHandler {
         var Title:[Any]?
         var Author:String?
         
-        class func dynamoDBTableName() -> String! {
+        class func dynamoDBTableName() -> String {
             return "Books"
         }
         
         // if we define attribute it must be included when calling it in function testing...
-        class func hashKeyAttribute() -> String! {
+        class func hashKeyAttribute() -> String {
             return "ISBN"
         }
         
@@ -142,13 +142,13 @@ struct ServiceRequestHandler {
         var Author:String?
         
         
-        class func dynamoDBTableName() -> String! {
+        class func dynamoDBTableName() -> String {
             return "Books"
         }
         
         
         // if we define attribute it must be included when calling it in function testing...
-        class func hashKeyAttribute() -> String! {
+        class func hashKeyAttribute() -> String {
             return "ISBN"
         }
         

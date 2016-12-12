@@ -32,7 +32,6 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
         self.setup()
         navigator = HomeNavigator(viewController:self)
         requestHandler.requestServices(completion: self.handleServiceResponse)
-        requestHandler.analytics()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -50,10 +49,10 @@ class Controller_Main: UIViewController, UICollectionViewDataSource, UICollectio
         cell.logoView.image = service?.logo
         cell.descriptionLabel.text = service?.description
         cell.nameLabel.text = service?.name
-        
-        //This is a TERRIBLE place to do a network request but oh well!
+
+        // This is a TERRIBLE place to do a network request but oh well!
 //        if let url = service?.imageUrl {
-//            cell.requestImage(from: url, completion: { image in
+//           cell.requestImage(from: url, completion: { image in
 //                service?.logo = image
 //            })
 //        }
@@ -154,12 +153,13 @@ private extension Controller_Main {
         collectionView.delegate = self
         collectionView.dataSource = self
         if let services = services {
-            //requestImages(services: services)
+            requestImages(services: services)
         }
     }
     
     func requestImages(services:[Service]) {
-        for var service in services {
+        
+        for service in services {
             
             
         }
