@@ -44,6 +44,9 @@ UINavigationControllerDelegate {
             imagePicked.image = nativeImage
             serviceLabel.text = selectedService?.name
         }
+        if (webService != nil) {
+            serviceLabel.text = selectedService?.name
+        }
         
         serviceSerializer = ServiceSerializer()
         
