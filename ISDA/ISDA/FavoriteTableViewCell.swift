@@ -11,6 +11,7 @@ import UIKit
 
 class FavoriteTableViewCell: UITableViewCell {
     @IBOutlet weak var clientImageView: UIImageView!
+    @IBOutlet weak var imageViewClient: UIImageView!
     
     @IBOutlet weak var label: UILabel!
 }

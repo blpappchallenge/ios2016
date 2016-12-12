@@ -105,6 +105,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="imageView" destination="lje-n5-iSB" id="oNp-ZZ-xdt"/>
                                             <outlet property="label" destination="H9S-oR-QxG" id="p6L-MW-44r"/>
                                         </connections>
                                     </tableViewCell>

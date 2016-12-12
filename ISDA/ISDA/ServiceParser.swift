@@ -82,7 +82,8 @@ struct ServiceParser {
                     
                 }
                 downloadTask.resume()
-                sleep(1)
+                //sleep(1)
+                usleep(10000)
             }
             
             services.append(service)
@@ -166,7 +167,8 @@ struct ServiceParser {
                     
                 }
                 downloadTask.resume()
-                sleep(1)
+                //sleep(1)
+                usleep(10000)
             }
 
             clients.append(client)
