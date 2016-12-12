@@ -16,6 +16,8 @@ class Controller_Favorites: UIViewController, UITableViewDelegate, UITableViewDa
         self.navigator = PlatformsNavigator(viewController:self)
         self.FavoritesList.dataSource = self
         self.FavoritesList.delegate = self
+        
+        navigationController?.navigationBar.barTintColor = UIColor(red:0.20, green:0.40, blue:0.50, alpha:1.0)
     }
     
     override func viewDidAppear(_ animated: Bool) {

@@ -30,6 +30,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         AWSServiceManager.default().defaultServiceConfiguration = configuration
         
+        UINavigationBar.appearance().tintColor = .white
+        
+    
         return true
     }
 
