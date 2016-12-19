@@ -53,11 +53,18 @@ extension WebViewController : UIWebViewDelegate {
         let userName = client.testAccounts[0].userName
         let password = client.testAccounts[0].password
         
+        // TODO: It would be best to extract these elements out to the AWS DB and import them to make them dynamic, rather than hard-coded into the app.
         
-        // mService
+        // mService Gen 5
         webView.stringByEvaluatingJavaScript(from: "document.getElementById('userName').value = '" + userName + "';")
         webView.stringByEvaluatingJavaScript(from: "document.getElementById('password').value = '" + password + "';")
-        webView.stringByEvaluatingJavaScript(from: "document.getElementById('secLoginBtn').click();")
+        //webView.stringByEvaluatingJavaScript(from: "document.getElementById('secLoginBtn').click();")
+        
+        // mService Gen 4
+        webView.stringByEvaluatingJavaScript(from: "document.getElementById('username').value = '" + userName + "';")
+        //webView.stringByEvaluatingJavaScript(from: "document.getElementById('login1').click();")
+        webView.stringByEvaluatingJavaScript(from: "document.getElementById('passwordLogin').value = '" + password + "';")
+        
         
         //mApply
         webView.stringByEvaluatingJavaScript(from: "document.getElementById('firstName_0009').value = '" + userName + "';")

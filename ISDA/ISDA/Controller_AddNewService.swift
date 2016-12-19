@@ -170,18 +170,18 @@ UINavigationControllerDelegate {
         
         var isValid = true
        
-        if txtDeepLink.text == "" {
+        if txtDeepLink.text == "" || (txtDeepLink.text?.contains("'"))! {
             if optnServiceType.selectedSegmentIndex != 0 {
                 isValid = false
             }
         }
-        else if txtDescription.text == "" {
+        else if txtDescription.text == "" || (txtDescription.text?.contains("'"))! {
             isValid = false
         }
-        else if txtServiceName.text == "" {
+        else if txtServiceName.text == "" || (txtServiceName.text?.contains("'"))! {
             isValid = false
         }
-        else if txtServiceGeneration.text == "" {
+        else if txtServiceGeneration.text == "" || (txtServiceGeneration.text?.contains("'"))! {
             isValid = false
         }
         else if imageLink == nil {

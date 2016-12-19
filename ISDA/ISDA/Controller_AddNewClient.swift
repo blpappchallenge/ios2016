@@ -268,19 +268,19 @@ UINavigationControllerDelegate {
         
         var isValid = true
         
-        if idTextField.text == "" {
+        if idTextField.text == "" || (idTextField.text?.contains("'"))! {
             isValid = false
         }
-        else if nameTextField.text == "" {
+        else if nameTextField.text == "" || (nameTextField.text?.contains("'"))! {
             isValid = false
         }
-        else if urlTextField.text == "" {
+        else if urlTextField.text == "" || (urlTextField.text?.contains("'"))!  {
             isValid = false
         }
-        else if usernameTextField.text == "" {
+        else if usernameTextField.text == "" || (usernameTextField.text?.contains("'"))!  {
             isValid = false
         }
-        else if passwordTextField.text == "" {
+        else if passwordTextField.text == "" || (passwordTextField.text?.contains("'"))!  {
             isValid = false
         }
         else if imageLink == nil {
