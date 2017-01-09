@@ -43,6 +43,7 @@ class Controller_Favorites: UIViewController, UITableViewDelegate, UITableViewDa
         
         let favoriteForThisRow = App.favorites.currentFavorites[rowNumber]
         cell.label.text = favoriteForThisRow.name
+        //cell.imageViewClient.image = favoriteForThisRow.logo
         //cell.imageViewClient.image = favoriteForThisRow.logo!
         
         return cell
