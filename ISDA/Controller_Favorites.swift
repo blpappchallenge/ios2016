@@ -42,9 +42,8 @@ class Controller_Favorites: UIViewController, UITableViewDelegate, UITableViewDa
         let cell = tableView.dequeueReusableCell(withIdentifier: "favoriteTableViewCell") as! FavoriteTableViewCell
         
         let favoriteForThisRow = App.favorites.currentFavorites[rowNumber]
-        cell.label.text = favoriteForThisRow.name
-        //cell.imageViewClient.image = favoriteForThisRow.logo
-        //cell.imageViewClient.image = favoriteForThisRow.logo!
+        cell.ClientName.text = favoriteForThisRow.name
+        cell.ClientImage.image = favoriteForThisRow.logo
         
         return cell
     }
